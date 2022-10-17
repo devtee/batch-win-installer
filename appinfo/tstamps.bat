@@ -1,0 +1,12 @@
+set pkgver.tstamps=2022-06-04
+set ver.tstamps=2022-06-04
+set name.tstamps=TuxPaint Stamps
+set exe.tstamps=tuxpaint-stamps-%pkgver.tstamps%-windows-installer.exe
+set url.tstamps=https://sourceforge.net/projects/tuxpaint/files/tuxpaint-stamps/%pkgver.tstamps%/%exe.tstamps%/download
+set arg.tstamps=/VERYSILENT /NORESTART
+set chk.tstamps=%ProgramFiles%\TuxPaint\unins001.exe
+set regtext.tstamps=Tux Paint Stamps *
+set regsearch.tstamps=%uninstallreg64%
+set followup.tstamps=reg import "%filespath%!\tuxpaint-stamps.reg"
+set regurl.tstamps=https://tuxpaint.org/download/windows/
+set regexp.tstamps=substring-before(substring-after(/html/body/div/div[1]/main/div/table/tbody/tr/td[2]/p,'Version: '),' Size')

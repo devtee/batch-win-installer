@@ -1,0 +1,11 @@
+set pkgver.bbit=4.4.2
+set ver.bbit=4.4.2.2142
+set name.bbit=BleachBit
+set exe.bbit=BleachBit-%pkgver.bbit%-setup.exe
+set url.bbit=https://download.bleachbit.org/%exe.bbit%
+set arg.bbit=/S /allusers
+set chk.bbit=%ProgramFiles(x86)%\BleachBit\bleachbit.exe
+set regtext.bbit=BleachBit *
+set regsearch.bbit=%uninstallreg32%
+set regurl.bbit=https://www.bleachbit.org/download/windows
+set regexp.bbit=substring-before(substring-after(/html/body/div[2]/div[1]/div[5]/div/div[2]/div[2]/div/div/div/div/div/div/p,'BleachBit '),' for')

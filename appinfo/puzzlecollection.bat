@@ -1,0 +1,11 @@
+set pkgver.puzzlecollection=20221016.879a692
+set ver.puzzlecollection=0.0.13281.0
+set name.puzzlecollection=Simon Tatham's Portable Puzzle Collection
+set exe.puzzlecollection=puzzles-%pkgver.puzzlecollection%-installer.msi
+set url.puzzlecollection=https://www.chiark.greenend.org.uk/~sgtatham/puzzles/%exe.puzzlecollection%
+set arg.puzzlecollection=/qn /norestart
+set chk.puzzlecollection=%ProgramFiles%\Simon Tatham's Portable Puzzle Collection\solo.exe
+set regtext.puzzlecollection=Simon Tatham's Portable Puzzle Collection
+set regsearch.puzzlecollection=%uninstallreg64%
+set regurl.puzzlecollection=https://www.chiark.greenend.org.uk/~sgtatham/puzzles/devel/
+set regexp.puzzlecollection=substring-before(substring-after(/html/body/address,'version '),']')
