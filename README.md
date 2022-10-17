@@ -9,7 +9,7 @@ Batch Software Installer is a tool to help install and upgrade Windows software 
 Settings for software packages are stored as two batch files in the appinfo subfolder. 
 
 ## example-sofware.bat
-
+```
 set pkgver.example=105.0.3
 set ver.example=%pkgver.example%
 set name.example=Example Package
@@ -21,14 +21,17 @@ set regtext.example=Example
 set regsearch.example=%uninstallreg64%
 set regurl.example=https://example.example
 set regexp.example=substring-before(substring-after(/html/body/div[2]/div[1]/div[5]div/div/p,'Example '),' for')
-
+```
 ## example-uninstall.bat
-
+```
 set uninstall.example="%ProgramFiles%\example\uninstall.exe" -ms
-
-
-
+```
 
 # Installation
 
 To install put batch-software-installer.bat and settings.bat and edit settings.bat to customise.
+
+# Feedback 
+#
+# Email devtee@gmail.com 
+# 
