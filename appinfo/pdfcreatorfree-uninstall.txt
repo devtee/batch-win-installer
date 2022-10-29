@@ -1,0 +1,1 @@
+set uninstall.pdfcreatorfree=msiexec /qn /uninstall %installreg.pdfcreatorfree%

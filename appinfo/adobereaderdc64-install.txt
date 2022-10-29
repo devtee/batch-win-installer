@@ -1,0 +1,13 @@
+set pkgver.adobereaderdc64=22.003.20263
+set pkgno.adobereaderdc64=2200320263
+set ver.adobereaderdc64=%pkgver.adobereaderdc64%
+set name.adobereaderdc64=Adobe Reader DC (64bit)
+set exe.adobereaderdc64=AcroRdrDCx64%pkgno.adobereaderdc64%_en_US.exe
+set url.adobereaderdc64=https://ardownload2.adobe.com/pub/adobe/acrobat/win/AcrobatDC/%pkgno.adobereaderdc64%/%exe.adobereaderdc64%
+set arg.adobereaderdc64=/sAll /rs /msi EULA_ACCEPT=YES 
+set chk.adobereaderdc64=%ProgramFiles%\Adobe\Acrobat DC\Acrobat\Acrobat.exe
+set regtext.adobereaderdc64=Adobe Acrobat (64-bit)
+set regsearch.adobereaderdc64=%uninstallreg64%
+set regurl.adobereaderdc64=https://www.adobe.com/devnet-docs/acrobatetk/tools/ReleaseNotesDC/index.html
+set regexp.adobereaderdc64=substring-before(/html/body/div/section/div[2]/div/div[2]/div/div/div[1]/div[1]/ul/li[1],' ')
+set onlineupdate.adobereaderdc64=Y

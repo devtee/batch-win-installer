@@ -1,0 +1,1 @@
+set uninstall.zoomclient=msiexec /qn /uninstall %installreg.zoomclient%

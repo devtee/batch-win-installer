@@ -1,0 +1,12 @@
+set pkgver.sumatrapdf=3.4.6
+set ver.sumatrapdf=%pkgver.sumatrapdf%
+set name.sumatrapdf=Sumatra PDF
+set exe.sumatrapdf=SumatraPDF-%pkgver.sumatrapdf%-64-install.exe
+set url.sumatrapdf=https://files.sumatrapdfreader.org/file/kjk-files/software/sumatrapdf/rel/%pkgver.sumatrapdf%/%exe.sumatrapdf%
+set arg.sumatrapdf=-s -all-users
+set chk.sumatrapdf=%ProgramFiles%\SumatraPDF\SumatraPDF.exe
+set regtext.sumatrapdf=SumatraPDF
+set regsearch.sumatrapdf=%uninstallreg64%
+set regurl.sumatrapdf=https://github.com/sumatrapdfreader/sumatrapdf/
+set regexp.sumatrapdf=substring-before(/html/body/div[4]/div/main/turbo-frame/div/div/div/div[3]/div[2]/div/div[2]/div/a/div/div[1]/span[1],' ')
+set onlineupdate.sumatrapdf=Y

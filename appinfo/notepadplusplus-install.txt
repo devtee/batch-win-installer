@@ -1,0 +1,12 @@
+set pkgver.notepadplusplus=8.4.6
+set ver.notepadplusplus=%pkgver.notepadplusplus%
+set name.notepadplusplus=Notepad++
+set exe.notepadplusplus=npp.%ver.notepadplusplus%.Installer.x64.exe
+set url.notepadplusplus=https://github.com/notepad-plus-plus/notepad-plus-plus/releases/download/v%pkgver.notepadplusplus%/%exe.notepadplusplus%
+set arg.notepadplusplus=/S
+set chk.notepadplusplus=%ProgramFiles%\Notepad++\notepad++.exe
+set regtext.notepadplusplus=Notepad++ (64-bit x64)
+set regsearch.notepadplusplus=%uninstallreg64%
+set regurl.notepadplusplus=https://notepad-plus-plus.org/
+set regexp.notepadplusplus=substring-after(/html/body/div/header/div/div[1]/p/a/strong,'Version ')
+set onlineupdate.notepadplusplus=Y

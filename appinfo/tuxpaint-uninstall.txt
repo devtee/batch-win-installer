@@ -1,0 +1,1 @@
+set uninstall.tuxpaint="%ProgramFiles%\TuxPaint\unins000.exe" /SILENT

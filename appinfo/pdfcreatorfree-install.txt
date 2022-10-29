@@ -1,0 +1,12 @@
+set pkgver.pdfcreatorfree=5.0.1
+set ver.pdfcreatorfree=5.0.1
+set name.pdfcreatorfree=PDFCreator Free
+set exe.pdfcreatorfree=PDFCreator-5_0_1-Setup.exe
+set url.pdfcreatorfree=https://download.pdfforge.org/download/pdfcreator/PDFCreator-stable?download
+set arg.pdfcreatorfree=/VerySilent /DisableContextMenu /COMPONENTS="none"
+set chk.pdfcreatorfree=%ProgramFiles%\PDFCreator\PDFCreator.exe
+set regtext.pdfcreatorfree=PDFCreator
+set regsearch.pdfcreatorfree=%uninstallreg64%
+set regurl.pdfcreatorfree=https://download.pdfforge.org/download/pdfcreator
+set regexp.pdfcreatorfree=substring-after(substring-before(normalize-space(/html/body/div[1]/div[2]/div/div/div[2]/section/h3[1]),' published'),'Release ')
+set onlineupdate.pdfcreatorfree=Y

@@ -1,0 +1,1 @@
+set uninstall.adobereaderdc64=msiexec /qn /uninstall %installreg.adobereaderdc64%

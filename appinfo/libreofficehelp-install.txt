@@ -1,0 +1,13 @@
+set pkgver.libreofficehelp=7.4.2
+set ver.libreofficehelp=7.4.2.3
+set name.libreofficehelp=LibreOffice Help Pack
+set exe.libreofficehelp=LibreOffice_%pkgver.libreofficehelp%_Win_x64_helppack_en-US.msi
+set url.libreofficehelp=https://download.documentfoundation.org/libreoffice/stable/%pkgver.libreofficehelp%/win/x86_64/%exe.libreofficehelp%
+set arg.libreofficehelp=/qn /passive /norestart
+set chk.libreofficehelp=%ProgramFiles%\LibreOffice\help\en-US\text\shared\need_help.html
+set regtext.libreofficehelp=LibreOffice * Help Pack
+set regsearch.libreofficehelp=%uninstallreg64%
+set uninstall.libreofficehelp=msiexec /qn /uninstall %installreg.libreofficehelp%
+set regurl.libreofficehelp=https://www.libreoffice.org/download/download/
+set regexp.libreofficehelp=substring-after(substring-before(/html/body/section[1]/div/article/div[1]/div[2]/div[1]/ul/li[1]/a/@href,'/win'),'stable/')
+set onlineupdate.libreofficehelp=Y

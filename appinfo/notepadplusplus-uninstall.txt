@@ -1,0 +1,1 @@
+set uninstall.notepadplusplus="%ProgramFiles%\Notepad++\uninstall.exe" /S
