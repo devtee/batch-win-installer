@@ -1,6 +1,6 @@
-# batch-software-installer
+# batch-win-installer
 
-Batch Software Installer is a tool to help install and upgrade Windows software via a batch file and the use of two utilities 
+Batch Win Installer is a tool to help install and upgrade Windows software via a batch file and the use of two utilities 
 * Windows binary of GNU Wget (https://eternallybored.org/misc/wget/) used to retrieve files using http(s) 
 * Windows binary of Xidel (https://github.com/benibela/xidel) a commandline tool to download and extract data from HTML pages 
 
@@ -42,5 +42,5 @@ To install
 
 # Feedback 
 #
-# Email devtee@gmail.com 
+# Email batchwininstaller@gmail.com 
 # 
