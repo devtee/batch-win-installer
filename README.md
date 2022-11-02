@@ -27,9 +27,18 @@ set regexp.example=substring-before(substring-after(/html/body/div[2]/div[1]/div
 set uninstall.example="%ProgramFiles%\example\uninstall.exe" -ms
 ```
 
+# Requirements
+
+* Tested on 64 bit version of Windows 10 
+
 # Installation
 
-To install put batch-software-installer.bat and settings.bat and edit settings.bat to customise.
+To install 
+* put batch-software-installer.bat and settings.bat in a folder.
+* download wget.exe and xidel.exe and put in the same folder 
+* edit settings.bat to customise.
+
+
 
 # Feedback 
 #
