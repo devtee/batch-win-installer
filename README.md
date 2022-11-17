@@ -1,4 +1,4 @@
-# batch-win-installer
+# Batch-Win-Installer
 
 Batch Win Installer is a tool to 
 * automatically install software on 64 bit Windows 10/11 x64 machine without prompts
@@ -18,12 +18,12 @@ The advantages of Batch Win Installer :
 * on startup, Batch Win Installer will confirm the installers for the software is accessible and if online, will download missing installers
 
 Several command line switches are available 
-
--help                          Displays help text
--autoupdate                    Check if software installed on machine and update if necessary
--checkonline                   Check online for latest versions from software's websites ONLY
--offlineupdate                 Skips any online update of configuration files and checks if software installed on machine and update if necessary
-
+```
+-help              Displays help text
+-autoupdate        Check if software installed on machine and update if necessary
+-checkonline       Check online for latest versions from software's websites ONLY
+-offlineupdate     Skips any online update of configuration files and checks if software installed on machine and update if necessary
+```
 
 # How settings for software packages are stored 
 
