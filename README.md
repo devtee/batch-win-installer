@@ -75,12 +75,12 @@ set onlineupdateurl=https://raw.githubusercontent.com/devtee/batch-win-installer
 set softwarelist=firefox libreoffice libreofficehelp pdfsam notepadplusplus vlc joplin bleachbit 7zip sumatrapdf tuxpaint tuxpaintstamps puzzlecollection
 ```
 
+The critical one to edit is softwarelist which is the list of software programs that Batch Win Installer will :
+* download the software configuration files and software installers
+* install / upgrade software using the software installers 
+* check the software's websites for the latest version
 
-Then run Batch-Win-Installer as administrator - this is needed for Batch Win Installer to install and remove software. 
-
-It
-
-
+Save any changes and run Batch-Win-Installer as an administrator. This is needed for Batch Win Installer to install and remove software.
 
 # Feedback 
 #
