@@ -20,9 +20,9 @@ The advantages of Batch Win Installer :
 Several command line switches are available 
 ```
 -help              Displays help text
--autoupdate        Check if software installed on machine and update if necessary
--checkonline       Check online for latest versions from software's websites ONLY
+-onlineupdate        Check if software installed on machine and update if necessary
 -offlineupdate     Skips any online update of configuration files and checks if software installed on machine and update if necessary
+-checkonline       Check online for latest versions from software's websites ONLY
 ```
 
 # How settings for software packages are stored 
