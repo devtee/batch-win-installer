@@ -54,18 +54,14 @@ set uninstall.example="%ProgramFiles%\example\uninstall.exe" -ms
 
 # Installation
 
-To install, unzip the latest Batch-Win-Installer.zip file to a folder. The Batch-Win-Installer.zip contains the following files 
+To install, unzip the latest Batch-Win-Installer.zip file to a folder. The Batch-Win-Installer.zip contains the following files and folders
 * Batch-Win-Installer.bat 
 * settings.bat
-* 64 bit version of GNU Wget v1.21.3, wget.exe from https://eternallybored.org/misc/wget/
-* 64 bit version of Xidel v0.99 pre-release, xidel.exe from xidel-0.9.9.20220424.8389.2d2ee7befb8a.win64.zip dated 2022-04-24
-  from https://sourceforge.net/projects/videlibri/files/Xidel/Xidel%20development/ (Xidel's home page is https://www.videlibri.de/xidel.html)
 * readme.txt
 * license.txt
-
-
-  
-
+* wget subfolder containing 64 bit version of GNU Wget v1.21.3, wget.exe from https://eternallybored.org/misc/wget/
+* xidel subfolder containing 64 bit version of Xidel v0.99 pre-release, xidel.exe from xidel-0.9.9.20220424.8389.2d2ee7befb8a.win64.zip dated 2022-04-24
+  from https://sourceforge.net/projects/videlibri/files/Xidel/Xidel%20development/ (Xidel's home page is https://www.videlibri.de/xidel.html)
 
 
 # Feedback 
