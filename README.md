@@ -51,6 +51,7 @@ set uninstall.example="%ProgramFiles%\example\uninstall.exe" -ms
 # Requirements
 
 * 64 bit version of Windows 10 or Windows 11
+* online access initally to download configuration files and software installers
 
 # Installation
 
@@ -62,6 +63,23 @@ To install, unzip the latest Batch-Win-Installer.zip file to a folder. The Batch
 * wget subfolder containing 64 bit version of GNU Wget v1.21.3, wget.exe from https://eternallybored.org/misc/wget/
 * xidel subfolder containing 64 bit version of Xidel v0.99 pre-release, xidel.exe from xidel-0.9.9.20220424.8389.2d2ee7befb8a.win64.zip dated 2022-04-24
   from https://sourceforge.net/projects/videlibri/files/Xidel/Xidel%20development/ (Xidel's home page is https://www.videlibri.de/xidel.html)
+
+Next, edit settings.bat which contains the following lines to set certain environment variables
+
+```
+set bwiver=0.7.0
+set introtitle1=Batch-Win-Installer %bwiver% by Dev Anand Teelucksingh - batchwininstaller@gmail.com -
+set introtitle2=for Trinidad and Tobago Computer Society (https://ttcs.tt/) 
+set orgname=TTCS
+set onlineupdateurl=https://raw.githubusercontent.com/devtee/batch-win-installer/main/appinfo/
+set softwarelist=firefox libreoffice libreofficehelp pdfsam notepadplusplus vlc joplin bleachbit 7zip sumatrapdf tuxpaint tuxpaintstamps puzzlecollection
+```
+
+
+Then run Batch-Win-Installer as administrator - this is needed for Batch Win Installer to install and remove software. 
+
+It
+
 
 
 # Feedback 
