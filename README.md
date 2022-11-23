@@ -50,8 +50,8 @@ set uninstall.example="%ProgramFiles%\example\uninstall.exe" -ms
 
 # Requirements
 
-* 64 bit version of Windows 10 or Windows 11
-* online access initally to download configuration files and software installers
+* 64 bit version of Windows 10 or Windows 11 with online access to download configuration files and software installers 
+
 
 # Installation
 
