@@ -25,29 +25,6 @@ Several command line switches are available
 -checkonline       Check online for latest versions from software's websites ONLY
 ```
 
-# How settings for software packages are stored 
-
-Settings for software packages are stored as two batch files in the appinfo subfolder. 
-
-## example-sofware.bat
-```
-set pkgver.example=105.0.3
-set ver.example=%pkgver.example%
-set name.example=Example Package
-set exe.example=Example Setup %pkgver.example%.exe
-set url.example="https://example.example/%exe.example%"
-set arg.example=-ms
-set chk.example=%ProgramFiles%\example\example.exe
-set regtext.example=Example
-set regsearch.example=%uninstallreg64%
-set regurl.example=https://example.example
-set regexp.example=substring-before(substring-after(/html/body/div[2]/div[1]/div[5]div/div/p,'Example '),' for')
-```
-## example-uninstall.bat
-```
-set uninstall.example="%ProgramFiles%\example\uninstall.exe" -ms
-```
-
 # Requirements
 
 * 64 bit version of Windows 10 or Windows 11 with administrator access and initially online access to download configuration files and software installers for the first time
@@ -82,7 +59,57 @@ The critical one to edit is softwarelist which is the list of software programs 
 
 Save any changes and run Batch-Win-Installer as an administrator. This is needed for Batch Win Installer to install and remove software.
 
+# How settings for software packages are stored 
+
+Settings for software packages are stored as two batch files in the appinfo subfolder. 
+
+* name of program-install.txt
+* name of program-uninstall.txt
+
+Here's a typical example-install.txt for the software program "example"
+### example-install.txt
+```
+set pkgver.example=105.0.3
+set ver.example=%pkgver.example%
+set name.example=Example Package
+set exe.example=Example Setup %pkgver.example%.exe
+set url.example="https://example.example/download/%exe.example%"
+set arg.example=-ms
+set chk.example=%ProgramFiles%\example\example.exe
+set regtext.example=Example
+set regsearch.example=%uninstallreg64%
+set followup.example=reg import "%appinfopath%!\example.reg"
+set regurl.example=https://example.example
+set regexp.example=substring-before(substring-after(/html/body/div[2]/div[1]/div[5]div/div/p,'Example '),' for')
+```
+Here's a short explaination of each of these variables :
+* pkgver.example - this is the version of the software that would be listed on the software's website
+* ver.example - this is the version number of the software when its installed on a Windows machine. 
+                Typically in the Windows Registry, the software typically puts the version in the DisplayVersion subkey.
+                However, some installers DON'T create the DisplayVersion subkey so for those programs, 
+                a .reg file with the DisplayVersion subkey with the proper version will have to be provided
+                and the followup.example will import such a reg file after installation
+                
+* exe.example - this is the name of the installer file when downloaded
+* url.example - this is the direct download URL of the software ; Batch Win Installer will download the installer (via wget) 
+                and put it in the files subfolder 
+* arg.example - the command line switches passed to the installer to install silently.
+* chk.example - the location of a file which proves that the software is installed.
+* regtext.example - the unique text that will allow the 
+
+
+
+
+### example-uninstall.bat
+```
+set uninstall.example="%ProgramFiles%\example\uninstall.exe" -ms
+```
+
+
+
+
+
+
 # Feedback 
-#
-# Email batchwininstaller@gmail.com 
-# 
+Email batchwininstaller@gmail.com 
+ 
