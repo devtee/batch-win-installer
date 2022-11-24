@@ -95,18 +95,27 @@ Here's a short explaination of each of these variables :
                 and put it in the files subfolder 
 * arg.example - the command line switches passed to the installer to install silently.
 * chk.example - the location of a file which proves that the software is installed.
-* regtext.example - the unique text that will allow the 
+* regtext.example - the unique text that will allow Batch Win Installer to find the registry entry for the installed program
+* regsearch.example - Windows creates an uninstall entry in the Windows Registry in either two locations :
+                      HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall - for 64 bit programs installed in 64 bit Windows environment
+                      HKLM\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Uninstall - for 32 bit programs installed in a 64 bit Windows environment
+So regsearch.example is set to either %uninstallreg64% or %uninstallreg32% so that Batch Win Installer "knows" where to search for the program's uninstall entry in the Windows registry                         
 
+* followup.example - this will be the cmd to run Windows 10 reg command to import example.reg. If Batch Win Installer is downloading the configuration files (example-install.txt and example-uninstall.txt) and it sees followup.example defined, it will download example.reg
 
-
+* regurl.example - this is the url where Batch Win Installer will query using xidel.exe to find the latest version of the software
+* regexp.example - this is the xpath expression that Batch Win Installer (using xidel.exe) will extract from the url specified in regurl.example 
+                   to find the latest version of the software 
 
 ### example-uninstall.bat
+
+Here's a typical example-uninstall.txt for the software program "example"
 ```
-set uninstall.example="%ProgramFiles%\example\uninstall.exe" -ms
+set uninstall.example=msiexec /qn /uninstall %installreg.example%
 ```
-
-
-
+* uninstall.example - this is the uninstall command used to uninstall the software if a newer version is to be installed. 
+%installreg.example% is the software's subkey found in the Windows Registry under either %uninstallreg64% or %uninstallreg32%, 
+which is usually the software's product code GUID which varies with each version of the software. 
 
 
 
