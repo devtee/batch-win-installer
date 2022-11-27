@@ -1,4 +1,4 @@
-set pkgver.puzzlecollection=20221124.fe29d1c
+set pkgver.puzzlecollection=20221126.a6a7997
 set ver.puzzlecollection=0.0.13320.0
 set name.puzzlecollection=Simon Tatham's Portable Puzzle Collection
 set exe.puzzlecollection=puzzles-%pkgver.puzzlecollection%-installer.msi
