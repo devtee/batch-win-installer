@@ -1,3 +1,4 @@
+rem NOTE if updating ver, delete the ZoomInstallerFull.msi from the files subfolder so that the latest version will be downloaded
 set pkgver.zoomclient=5.12.9.10650
 set ver.zoomclient=5.12.10650
 set name.zoomclient=Zoom Desktop Client
