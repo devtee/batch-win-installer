@@ -1,5 +1,5 @@
-set pkgver.zoomclient=5.12.3.9638
-set ver.zoomclient=5.12.9638
+set pkgver.zoomclient=5.12.9.10650
+set ver.zoomclient=5.12.10650
 set name.zoomclient=Zoom Desktop Client
 set exe.zoomclient=ZoomInstallerFull.msi
 set url.zoomclient=https://zoom.us/client/%pkgver.zoomclient%/ZoomInstallerFull.msi?archType=x64
