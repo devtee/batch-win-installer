@@ -1,4 +1,4 @@
-set pkgver.tuxpaint=0.9.28
+set pkgver.tuxpaint=0.9.28-2
 set ver.tuxpaint=0.9.28
 set name.tuxpaint=TuxPaint
 set exe.tuxpaint=tuxpaint-%pkgver.tuxpaint%-windows-sdl2.0-x86_64-installer.exe
