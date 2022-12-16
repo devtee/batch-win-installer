@@ -120,5 +120,5 @@ which is usually the software's product code GUID which varies with each version
 
 
 # Feedback 
-Email batchwininstaller@gmail.com 
+My email batchwininstaller@gmail.com
 Find me on Mastodon at https://techhub.social/@devtee
