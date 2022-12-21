@@ -122,6 +122,9 @@ which is usually the software's product code GUID which varies with each version
 
 
 
-# Feedback 
-My email batchwininstaller@gmail.com
-Find me on Mastodon at https://techhub.social/@devtee
+# Feedback
+
+* Email : batchwininstaller@gmail.com
+* You can find me Mastodon at https://techhub.social/@devtee
+* Visit the Trinidad and Tobago Computer Society's (TTCS) https://ttcs.tt/ and join the TTCS announce mailing list!
+
