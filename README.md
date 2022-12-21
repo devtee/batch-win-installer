@@ -1,7 +1,7 @@
 # Batch-Win-Installer
 
-Batch Win Installer is a tool to 
-* automatically install software on 64 bit Windows 10/11 x64 machine without prompts
+From a defined list of software, Batch Win Installer can:
+* automatically install software on 64 bit Windows 10/11 x64 machine silently without prompts
 * check what software is installed and offer to install and/or upgrade software
 * if online, scan program's websites directly to determine the latest version of the software available
 
@@ -27,7 +27,8 @@ Several command line switches are available
 
 # Requirements
 
-* 64 bit version of Windows 10 or Windows 11 with administrator access and initially online access to download configuration files and software installers for the first time
+* 64 bit version of Windows 10 or Windows 11 with administrator access 
+* online access when run for the first time to download configuration files and software installers
 
 
 # Installation
@@ -52,7 +53,7 @@ set onlineupdateurl=https://raw.githubusercontent.com/devtee/batch-win-installer
 set softwarelist=firefox libreoffice libreofficehelp pdfsam notepadplusplus vlc joplin bleachbit 7zip sumatrapdf tuxpaint tuxpaintstamps puzzlecollection
 ```
 
-The critical one to edit is softwarelist which is the list of software programs that Batch Win Installer will :
+The critical one to edit is **softwarelist** which is the list of software programs that Batch Win Installer will :
 * download the software configuration files and software installers
 * install / upgrade software using the software installers 
 * check the software's websites for the latest version
