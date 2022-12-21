@@ -67,8 +67,10 @@ Settings for software packages are stored as two batch files in the appinfo subf
 * name of program-install.txt
 * name of program-uninstall.txt
 
-Here's a typical example-install.txt for the software program "example"
 ### example-install.txt
+
+Here's a typical example-install.txt for the software program "example"
+
 ```
 set pkgver.example=105.0.3
 set ver.example=%pkgver.example%
