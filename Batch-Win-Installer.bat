@@ -57,20 +57,18 @@ echo Used by the Trinidad and Tobago Computer Society - learn more at https://tt
 echo Project page : https://github.com/devtee/batch-win-installer
 echo Email comments to batchwininstaller@gmail.com
 echo -------------------------------------------------------------------------------------
-echo This program is free software: you can redistribute it and/or modify
-echo it under the terms of the GNU General Public License as published by
-echo the Free Software Foundation, either version 3 of the License, or
-echo (at your option) any later version.
+echo This program is free software: you can redistribute it and/or modify it under the 
+echo terms of the GNU General Public License as published by the Free Software Foundation,
+echo either version 3 of the License, or (at your option) any later version.
 echo.
-echo This program is distributed in the hope that it will be useful,
-echo but WITHOUT ANY WARRANTY; without even the implied warranty of
-echo MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-echo GNU General Public License for more details.
+echo This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY;
+echo without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+echo See the GNU General Public License for more details.
 echo.
-echo See license.txt for the GNU General Public License. 
-echo If missing, see https://www.gnu.org/licenses/
+echo See license.txt for the GNU General Public License. If missing, see https://www.gnu.org/licenses/
 echo -------------------------------------------------------------------------------------
 echo.
+
 
 if [%1]==[/?] goto helptext
 for %%v in (help /help -help) do (
@@ -93,10 +91,10 @@ echo %introtitle2%
 echo Description: Install/update Windows programs from a list and check program websites for latest versions
 echo.
 echo Parameter List:
-echo -help                          Displays this help message
-echo -onlineupdate                  Does online update of configuration files and checks if software installed on machine and update if necessary
-echo -offlineupdate                 Skips any online update of configuration files and checks if software installed on machine and update if necessary
-echo -checkonline                   Check online for latest versions from software's websites ONLY
+echo -help              Displays this help message
+echo -onlineupdate      Does online update of configuration files and checks if software installed on machine and update if necessary
+echo -offlineupdate     Skips any online update of configuration files and checks if software installed on machine and update if necessary
+echo -checkonline       Check online for latest versions from software's websites ONLY
 echo.
 goto end
 
@@ -192,15 +190,23 @@ if not "!software-config-present-list!"=="" (
 	  findstr /offline /b /c:"set followup." "%appinfopath%!\%%v-install.txt">>"%temp%!temp-online-list.bat"
 	)  
    call "%temp%!temp-online-list.bat"
-   echo Downloading configuration updates 
+   start /b /wait powershell.exe -command "Write-Host -NoNewLine 'Downloading configuration updates for '"
    for %%v in (%software-config-present-list%) do (
     if "!onlineupdate.%%v!"=="Y" (
+	   start /b /wait powershell.exe -command "Write-Host -NoNewLine '%%v - '"
 	   "%wgetexe%" -q -O "%appinfopath%\%%v-install.txt" "%onlineupdateurl%%%v-install.txt"
  	   "%wgetexe%" -q -O "%appinfopath%\%%v-uninstall.txt" "%onlineupdateurl%%%v-uninstall.txt"
        if not "!followup.%%v!"=="" "%wgetexe%" -q -O "%appinfopath%\%%v.reg" "%onlineupdateurl%%%v.reg"
     )
    )
 )
+echo.
+echo.
+echo [96mIf you wish to edit the list of software that Batch-Win-Installer will check, 
+echo edit the softwarelist variable in settings.bat[0m
+echo.
+timeout /t 3
+
 
 :checkinstallers
 
@@ -362,7 +368,7 @@ for %%v in (%software-reverse-list%) do (
    if "!installedver!" == "!ver.%%v!" (
       echo Latest version !installedver! of !name.%%v! is installed.
    ) ELSE (
-      echo [42mUPDATE NEEDED[0m - Need to update !name.%%v! from !installedver! to !ver.%%v!
+      echo [104mUPDATE NEEDED[0m - Need to update !name.%%v! from !installedver! to !ver.%%v!
 	  set updatelist=%%v !updatelist!
       if !regsearch.%%v! == %uninstallreg64% (
 	    for /F "tokens=7 delims=\" %%d in ("!installreg!") do set "installguid=%%d"

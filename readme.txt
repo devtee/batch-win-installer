@@ -1,28 +1,20 @@
-Batch-Win-Installer v0.7.0 by Dev Anand Teelucksingh 
+Batch-Win-Installer v0.7.2 by Dev Anand Teelucksingh 
 Batch-Win-Installer Copyright (C) 2022 Dev Anand Teelucksingh 
 Project page : https://github.com/devtee/batch-win-installer
 Email comments to batchwininstaller@gmail.com
 
-This program comes with ABSOLUTELY NO WARRANTY; 
-This is free software, and you are welcome to redistribute it
-under certain conditions;
+This program comes with ABSOLUTELY NO WARRANTY; This is free software, and you are welcome to redistribute it under certain conditions;
 
-Batch-Win-Installer - install/update Windows programs and check 
-                      program websites for latest versions
+Batch-Win-Installer - install/update Windows programs and check program websites for latest versions
 Copyright (C) 2022 Dev Anand Teelucksingh batchwininstaller@gmail.com
 
-This program is free software: you can redistribute it and/or modify
-it under the terms of the GNU General Public License as published by
-the Free Software Foundation, either version 3 of the License, or
-(at your option) any later version.
+This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
 
-This program is distributed in the hope that it will be useful,
-but WITHOUT ANY WARRANTY; without even the implied warranty of
-MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-GNU General Public License for more details.
+This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more details.
 
-You should have received a copy of the GNU General Public License
-along with this program.  If not, see <https://www.gnu.org/licenses/
+You should have received a copy of the GNU General Public License along with this program.  If not, see <https://www.gnu.org/licenses/
 
 -----------------------------------------------------------------------------
 Software Requirements 
@@ -35,8 +27,8 @@ Software Requirements
 Introduction 
 -----------------------------------------------------------------------------
 
-Batch Win Installer is a tool to 
-* automatically install software on 64 bit Windows 10/11 x64 machine without prompts
+From a defined list of software, Batch Win Installer can:
+* automatically install software on 64 bit Windows 10/11 x64 machine silently without prompts
 * check what software is installed and offer to install and/or upgrade software
 * if online, scan program's websites directly to determine the latest version 
   of the software available
@@ -54,7 +46,6 @@ The advantages of Batch Win Installer :
 * the settings for software packages can be retrieved online on startup of Batch Win Installer 
 * on startup, Batch Win Installer will confirm the installers for the software is accessible and if online, will download missing installers
 
-
 Several command line switches are available to automate Batch-Win-Installer 
 
 -help                          Displays help text
@@ -64,7 +55,8 @@ Several command line switches are available to automate Batch-Win-Installer
 
 Requirements
 
-* 64 bit version of Windows 10 or Windows 11 with administrator access and initially online access to download configuration files and software installers for the first time
+* 64 bit version of Windows 10 or Windows 11 with administrator access
+* online access when run for the first time to download configuration files and software installers. 
 
 
 Installation
@@ -153,8 +145,9 @@ set uninstall.example=msiexec /qn /uninstall %installreg.example%
 
 Feedback
 --------
-Email batchwininstaller@gmail.com. 
-Visit the Trinidad and Tobago Computer Society's website at https://ttcs.tt/ and subscribe
 
+* Email : batchwininstaller@gmail.com
+* You can find me Mastodon at https://techhub.social/@devtee
+* Visit the Trinidad and Tobago Computer Society's (TTCS) https://ttcs.tt/ ; join the TTCS announce mailing list!
 
-Last updated : December 5 2022
+Last updated : December 21 2022
