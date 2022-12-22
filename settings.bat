@@ -17,7 +17,7 @@ rem sumatrapdf tuxpaint tuxpaintstamps vlc zoomclient
 set softwarelist=firefox libreoffice libreofficehelp pdfsam notepadplusplus vlc joplin bleachbit 7zip sumatrapdf tuxpaint tuxpaintstamps puzzlecollection
 rem
 rem bwiver - batch win installer version. Doesn't affect the operation of batch win installer
-set bwiver=0.7.1
+set bwiver=0.7.2
 rem introtitle1 and introtitle2 are shown in the menu header . Doesn't affect the operation of batch win installer
 set introtitle1=Batch-Win-Installer %bwiver% by Dev Anand Teelucksingh (https://github.com/devtee/batch-win-installer)
 set introtitle2=for Trinidad and Tobago Computer Society (https://ttcs.tt/).
