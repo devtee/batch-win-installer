@@ -1,0 +1,1 @@
+set uninstall.tomboy-ng="%ProgramFiles%\tomboy-ng\unins000.exe" /SILENT

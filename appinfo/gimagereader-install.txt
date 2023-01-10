@@ -1,0 +1,12 @@
+set pkgver.gimagereader=3.4.0
+set ver.gimagereader=%pkgver.gimagereader%
+set name.gimagereader=gImageReader
+set exe.gimagereader=gImageReader_%pkgver.gimagereader%_qt5_x86_64.exe
+set url.gimagereader=https://github.com/manisandro/gImageReader/releases/download/v%pkgver.gimagereader%/%exe.gimagereader%
+set arg.gimagereader=/S 
+set chk.gimagereader="%ProgramFiles%\gImageReader\bin\gimagereader-qt5.exe"
+set regtext.gimagereader=gImageReader
+set regsearch.gimagereader=%uninstallreg32%
+set regurl.gimagereader=https://github.com/manisandro/gImageReader/releases/latest
+set regexp.gimagereader=substring-after(/html/body/div[1]/div[4]/div/main/turbo-frame/div/div/div/div/div[1]/div[1]/div[1]/div[1]/h1,'Reader-')
+set onlineupdate.gimagereader=Y

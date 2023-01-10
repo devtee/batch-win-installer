@@ -1,0 +1,13 @@
+set pkgver.tomboy-ng=0.35
+set ver.tomboy-ng=%pkgver.tomboy-ng%
+set name.tomboy-ng=tomboy-ng
+set exe.tomboy-ng=tomboy-ng-setup-%pkgver.tomboy-ng%.exe
+set url.tomboy-ng=https://github.com/tomboy-notes/tomboy-ng/releases/download/v%pkgver.tomboy-ng%/%exe.tomboy-ng%
+set arg.tomboy-ng=/VERYSILENT 
+set chk.tomboy-ng="%ProgramFiles%\tomboy-ng\tomboy-ng.exe"
+set regtext.tomboy-ng=tomboy-ng
+set regsearch.tomboy-ng=%uninstallreg64%
+set regurl.tomboy-ng=https://github.com/tomboy-notes/tomboy-ng/wiki/Download_Release
+set regexp.tomboy-ng=substring-after(substring-before(/html/body/div[1]/div[4]/div/main/turbo-frame/div/div/div[3]/div/div[2]/div/div/h1[1],' Release'),'-ng v')
+set onlineupdate.tomboy-ng=Y
+

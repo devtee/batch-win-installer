@@ -1,0 +1,1 @@
+set uninstall.winmerge="%ProgramFiles%\WinMerge\unins000.exe" /SILENT
