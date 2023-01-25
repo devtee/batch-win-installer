@@ -1,4 +1,4 @@
-set pkgver.tomboy-ng=0.35
+set pkgver.tomboy-ng=0.35a
 set ver.tomboy-ng=%pkgver.tomboy-ng%
 set name.tomboy-ng=tomboy-ng
 set exe.tomboy-ng=tomboy-ng-setup-%pkgver.tomboy-ng%.exe
