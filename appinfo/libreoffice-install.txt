@@ -1,7 +1,7 @@
 set pkgver.libreoffice=7.5.0
 set ver.libreoffice=7.5.0.1
 set name.libreoffice=LibreOffice
-set exe.libreoffice=LibreOffice_%pkgver.libreoffice%_Win_x64.msi
+set exe.libreoffice=LibreOffice_%pkgver.libreoffice%_Win_x86-x64.msi
 set url.libreoffice=https://download.documentfoundation.org/libreoffice/stable/%pkgver.libreoffice%/win/x86_64/%exe.libreoffice%
 set arg.libreoffice=/qn /passive /norestart
 set chk.libreoffice=%ProgramFiles%\LibreOffice\program\soffice.exe
