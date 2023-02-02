@@ -1,5 +1,5 @@
-set pkgver.winmerge=2.16.24
-set ver.winmerge=2.16.24.0
+set pkgver.winmerge=2.16.26
+set ver.winmerge=2.16.26.0
 set name.winmerge=WinMerge
 set exe.winmerge=WinMerge-%pkgver.winmerge%-x64-Setup.exe
 set url.winmerge=https://github.com/WinMerge/winmerge/releases/download/v%pkgver.winmerge%/%exe.winmerge%
@@ -10,4 +10,3 @@ set regsearch.winmerge=%uninstallreg64%
 set regurl.winmerge=https://winmerge.org/downloads/
 set regexp.winmerge=/html/body/div[2]/main/p[2]/strong[1]
 set onlineupdate.winmerge=Y
-
