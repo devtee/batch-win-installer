@@ -1,7 +1,7 @@
 set pkgver.libreofficehelp=7.5.0
 set ver.libreofficehelp=7.5.0.1
 set name.libreofficehelp=LibreOffice Help Pack
-set exe.libreofficehelp=LibreOffice_%pkgver.libreofficehelp%_Win_x64_helppack_en-US.msi
+set exe.libreofficehelp=LibreOffice_%pkgver.libreofficehelp%_Win_x86-64_helppack_en-US.msi
 set url.libreofficehelp=https://download.documentfoundation.org/libreoffice/stable/%pkgver.libreofficehelp%/win/x86_64/%exe.libreofficehelp%
 set arg.libreofficehelp=/qn /passive /norestart
 set chk.libreofficehelp=%ProgramFiles%\LibreOffice\help\en-US\text\shared\need_help.html
