@@ -2,7 +2,7 @@ set pkgver.firefox=109.0.1
 set ver.firefox=%pkgver.firefox%
 set name.firefox=Mozilla Firefox
 set exe.firefox=Firefox Setup %pkgver.firefox%.exe
-set url.firefox=https://download.mozilla.org/?product=firefox-%pkgver.firefox%-ssl&os=win64&lang=en-US
+set url.firefox=https://download.mozilla.org/\?product^=firefox-%pkgver.firefox%-ssl^&os^=win64^&lang^=en-US
 set arg.firefox=-ms
 set chk.firefox=%ProgramFiles%\Mozilla Firefox\firefox.exe
 set regtext.firefox=Mozilla Firefox
