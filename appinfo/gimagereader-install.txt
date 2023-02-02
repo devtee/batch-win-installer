@@ -1,4 +1,4 @@
-set pkgver.gimagereader=3.4.0
+set pkgver.gimagereader=3.4.1
 set ver.gimagereader=%pkgver.gimagereader%
 set name.gimagereader=gImageReader
 set exe.gimagereader=gImageReader_%pkgver.gimagereader%_qt5_x86_64.exe
