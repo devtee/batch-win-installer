@@ -1,1 +1,1 @@
-set uninstall.sumatrapdf="%chk.spdf%" -uninstall -silent
+set uninstall.sumatrapdf="%chk.sumatrapdf%" -uninstall -silent
