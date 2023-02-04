@@ -11,21 +11,23 @@ rem install / upgrade software using the software installers
 rem check the software's websites for the latest version
 rem So you SHOULD edit this to suit your software needs.
 rem 
-rem List of software at https://raw.githubusercontent.com/devtee/batch-win-installer/main/appinfo/ as of December 5 2022 :
+rem List of software at https://raw.githubusercontent.com/devtee/batch-win-installer/main/appinfo/ as of January 25 2023 :
 rem 7zip adobereaderdc64 bleachbit firefox joplin libreoffice libreofficehelp naps2 notepadplusplus pdfcreatorfree pdfsam puzzlecollection 
-rem sumatrapdf tuxpaint tuxpaintstamps vlc zoomclient
+rem gimagereader sumatrapdf tuxpaint tuxpaintstamps vlc zoomclient  naps2 tomboy-ng winmerge
+
 set softwarelist=firefox libreoffice libreofficehelp pdfsam notepadplusplus vlc joplin bleachbit 7zip sumatrapdf tuxpaint tuxpaintstamps puzzlecollection
-rem
+
 rem bwiver - batch win installer version. Doesn't affect the operation of batch win installer
-set bwiver=0.7.2
 rem introtitle1 and introtitle2 are shown in the menu header . Doesn't affect the operation of batch win installer
 set introtitle1=Batch-Win-Installer %bwiver% by Dev Anand Teelucksingh (https://github.com/devtee/batch-win-installer)
 set introtitle2=for Trinidad and Tobago Computer Society (https://ttcs.tt/).
 rem orgname can be used to describe the org this batch file is used for. Doesn't affect the operation of batch win installer
 set orgname=TTCS
+rem
+rem --------------------------------------------------------------------------
 rem 
 rem Batch-Win-Installer - install/update Windows programs from a list and check program websites for latest versions
-rem Copyright (C) 2022 Dev Anand Teelucksingh batchwininstaller@gmail.com
+rem Copyright (C) 2023 Dev Anand Teelucksingh batchwininstaller@gmail.com
 rem Used by the Trinidad and Tobago Computer Society - learn more at https://ttcs.tt/ 
 rem
 rem This program is free software: you can redistribute it and/or modify

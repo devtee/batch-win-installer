@@ -1,5 +1,5 @@
-Batch-Win-Installer v0.7.2 by Dev Anand Teelucksingh 
-Batch-Win-Installer Copyright (C) 2022 Dev Anand Teelucksingh 
+Batch-Win-Installer v0.8.0 by Dev Anand Teelucksingh 
+Batch-Win-Installer Copyright (C) 2023 Dev Anand Teelucksingh 
 Project page : https://github.com/devtee/batch-win-installer
 Email comments to batchwininstaller@gmail.com
 
@@ -27,7 +27,7 @@ Software Requirements
 Introduction 
 -----------------------------------------------------------------------------
 
-From a defined list of software, Batch Win Installer can:
+From a list of software, Batch Win Installer can:
 * automatically install software on 64 bit Windows 10/11 x64 machine silently without prompts
 * check what software is installed and offer to install and/or upgrade software
 * if online, scan program's websites directly to determine the latest version 
@@ -45,6 +45,7 @@ The advantages of Batch Win Installer :
 * settings for software packages are stored as two separate text files allowing you to add software packages to install
 * the settings for software packages can be retrieved online on startup of Batch Win Installer 
 * on startup, Batch Win Installer will confirm the installers for the software is accessible and if online, will download missing installers
+* can specify packages to install/upgrade or check online as a command line arguement 
 
 Several command line switches are available to automate Batch-Win-Installer 
 
@@ -53,13 +54,20 @@ Several command line switches are available to automate Batch-Win-Installer
 -offlineupdate                 Skips any online update of configuration files and checks if software installed on machine and update if necessary
 -checkonline                   Check online for latest versions from software's websites ONLY
 
+install pkgname [pkgname2 ...]   - install pkgname (multiple packages can be specified)
+upgrade pkgname [pkgname2 ...]   - upgrade pkgname (multiple packages can be specified)
+checkonline pkgname ^[pkgname ...^] - check website to see if what the latest version for pkgname (multiple packages can be specified)
+
+
 Requirements
+------------
 
 * 64 bit version of Windows 10 or Windows 11 with administrator access
 * online access when run for the first time to download configuration files and software installers. 
 
 
 Installation
+------------
 
 To install, 
 * download the latest Batch-Win-Installer ZIP file from https://github.com/devtee/batch-win-installer/releases to a folder. 
