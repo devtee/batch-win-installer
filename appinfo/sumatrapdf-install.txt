@@ -8,5 +8,5 @@ set chk.sumatrapdf=%ProgramFiles%\SumatraPDF\SumatraPDF.exe
 set regtext.sumatrapdf=SumatraPDF
 set regsearch.sumatrapdf=%uninstallreg64%
 set regurl.sumatrapdf=https://www.sumatrapdfreader.org/docs/Version-history
-set regexp.sumatrapdf=substring-before(/html/body/div[2]/div[2]/div[1]/h3[1],' (')
+set regexp.sumatrapdf=substring-before(/html/body/div[2]/h3[1],' (')
 set onlineupdate.sumatrapdf=Y
