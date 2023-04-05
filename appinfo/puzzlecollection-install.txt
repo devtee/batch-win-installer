@@ -1,5 +1,5 @@
-set pkgver.puzzlecollection=20230402.0bd1a80
-set ver.puzzlecollection=0.0.13449.0
+set pkgver.puzzlecollection=20230404.4fcc1ea
+set ver.puzzlecollection=0.0.13451.0
 set name.puzzlecollection=Simon Tatham's Portable Puzzle Collection
 set exe.puzzlecollection=puzzles-%pkgver.puzzlecollection%-installer.msi
 set url.puzzlecollection=https://www.chiark.greenend.org.uk/~sgtatham/puzzles/%exe.puzzlecollection%
