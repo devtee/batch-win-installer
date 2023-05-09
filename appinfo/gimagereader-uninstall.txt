@@ -1,1 +1,0 @@
-set uninstall.gimagereader="%ProgramFiles%\gImageReader\Uninstall.exe" /S /AllUsers
