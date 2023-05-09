@@ -1,1 +1,0 @@
-set uninstall.convertall="%ProgramFiles(x86)%\ConvertAll\unins000.exe" /SILENT
