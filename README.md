@@ -37,15 +37,17 @@ checkonline pkgname [pkgname2 ...] - check website to see if what the latest ver
 * online access when run for the first time to download configuration files and software installers
 
 # Screenshots
-![first-run](https://user-images.githubusercontent.com/41971042/209055473-e30a092c-e483-4d2e-92d7-25806bf05845.png)
-![downloading-missing-installers](https://user-images.githubusercontent.com/41971042/209055493-a03d8bf0-f3e3-4eaa-a4e6-b5b31d983040.png)
-![checking-software-websites](https://user-images.githubusercontent.com/41971042/209055503-ce81a60c-c474-4352-973c-401490984b8d.png)
-![check-if-software-installed](https://user-images.githubusercontent.com/41971042/209055521-8fae5682-94b1-4a42-9a2a-6d9f89502e3c.png)
-![install-and-remove-software](https://user-images.githubusercontent.com/41971042/209055540-9723e3f9-02f9-43bc-85e8-f7e7df91a0cc.png)
+![batchwininstaller-help](https://github.com/devtee/batch-win-installer/assets/41971042/4ea8aec0-e64b-42ad-b250-e9e0e5c87e8c)
 
+![first-run-menu](https://github.com/devtee/batch-win-installer/assets/41971042/be06adb1-3351-418f-bfdc-16efd9826e48)
 
+![download-missing-installers](https://github.com/devtee/batch-win-installer/assets/41971042/6c669799-bbb7-472e-95af-466e4a86b279)
 
+![checking-latest-versions](https://github.com/devtee/batch-win-installer/assets/41971042/80e5aac5-03fa-49d4-9b17-2ea0c103c32f)
 
+![check-what-software-installed](https://github.com/devtee/batch-win-installer/assets/41971042/7a440956-57d4-4d7e-80f0-db6a57dc8762)
+
+![install-upgrade-software](https://github.com/devtee/batch-win-installer/assets/41971042/65745e1d-5c67-4d15-be03-0e1d65ee784b)
 
 
 # Installation
