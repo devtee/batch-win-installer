@@ -4,7 +4,7 @@ mode con: cols=135 lines=40
 cls
 rem Initialise variables
 set tpath=%~dp0
-set bwiver=0.8.0
+set bwiver=0.8.1
 set uninstallreg64=HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall
 set uninstallreg32=HKLM\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Uninstall
 set appinfopath=%tpath%appinfo
@@ -56,6 +56,8 @@ set cmdarg=
 if [%1]==[-onlineupdate] set arg=onlineupdate
 if [%1]==[-checkonline] set arg=checkonline
 if [%1]==[-offlineupdate] set arg=offlineupdate
+if [%1]==[-showprograms] set arg=showprograms
+if [%1]==[-showpackages] set arg=showprograms
 
 if [%1]==[install] set cmdarg=installpkg
 if [%1]==[upgrade] set cmdarg=upgradepkg
@@ -102,7 +104,20 @@ if %ERRORLEVEL% NEQ 1 (
  set Internet=Y
 ) 
 
+
+
+
 :checksoftwarelist
+
+if "%arg%"=="showprograms" (
+  if "%Internet%"=="N" (
+   echo Internet access required to see packages online
+   echo This will now exit.....
+   goto end
+  )  
+  call :showprograms
+  goto end 
+)
 
 for %%a in (temp-software-list.bat temp-uninstall-list.bat temp-online-list.bat) do (
    if exist "%temp%!\%%a" del "%temp%!\%%a"
@@ -111,7 +126,7 @@ set "software-config-missing-list="
 set "software-config-present-list="
 
 rem for each item in softwarelist, check if install file exists and add it to software-config-present. If zero length, give error and exit
-rem if not exist, if online, download install file, uninstall file and if followup exist, the reg file and set it to software-config-missing. if offline, error message and exit
+rem if install file does NOT exist, if online, download install file, uninstall file and if followup exist, the reg file and set it to software-config-missing. if offline, error message and exit
 
 for %%v in (%softwarelist%) do (
 if exist "%appinfopath%\%%v-install.txt" (
@@ -142,6 +157,7 @@ if not exist "%appinfopath%\%%v-install.txt" (
 )
 
 )
+
 
 :downloadmissingconfigs 
 
@@ -287,12 +303,14 @@ echo. 2. Check if software installed on machine and update if necessary (use to 
 
 if "%Internet%"=="Y" (
  echo  3. Check online for latest versions from software's websites ONLY
+ echo  4. List available software programs online 
  echo.
- echo  4. Exit Menu
+ echo  5. Exit Menu
  echo.
- choice /N /C:1234 /M "Select option (1 to 4)"
+ choice /N /C:12345 /M "Select option (1 to 5)"
 
- if ERRORLEVEL 4 goto end
+ if ERRORLEVEL 5 goto end
+ if ERRORLEVEL 4 goto showprogramslist 
  if ERRORLEVEL 3 goto checkonline
 ) else (
  echo.
@@ -388,6 +406,15 @@ echo.
 echo Returning to main menu
 goto displaymainmenu
 
+
+:showprogramslist
+
+call :showprograms
+echo.
+echo Returning to main menu
+goto displaymainmenu
+
+
 :installsoftwarelist
 rem for each item in softwarelist
 rem   echo text saying installing name and version 
@@ -427,7 +454,7 @@ for %%v in (%softwarelist%) do (
 call :is-software-installed %%v installedver.%%v installreg.%%v
 if !ERRORLEVEL! NEQ 0 (
  echo [42mNOT INSTALLED[0m  - !name.%%v! is not installed.
- set toinstall-list=%%v !toinstall-list!
+ set toinstall-list=!toinstall-list!%%v 
 ) else (	  
  if "!installedver.%%v!" == "!ver.%%v!" (
   echo Latest version !installedver.%%v! of !name.%%v! is installed.
@@ -439,7 +466,7 @@ if !ERRORLEVEL! NEQ 0 (
 )
 
 if "!toinstall-list!" == "" (
- ec
+ echo.
  echo No software needs to be installed
 ) else (
  echo.
@@ -533,7 +560,7 @@ goto end
 
 for %%v in (temp-software-list.bat temp-uninstall-list.bat temp.txt temp-online.bat temp-online-list.bat nvidiatemp.txt) do if exist "%temp%!%%v" del "%temp%!%%v"
 endlocal
-timeout /t 3
+timeout /t 4
 goto :eof
 
 rem  subroutines 
@@ -615,6 +642,29 @@ if %%~zA==0 (
 )
 exit /b 0
 
+:showprograms
+rem download json file from github and redirect all node with name to a file - do a directory listing of appinfo folder on github
+rem then for loop to only show the nodes ending with "-install.txt" which is the list of programs 
+"%xidelexe%" "%appinfourl%" -e '$json/name' > "%temp%\filelist.txt"
+echo.
+echo [96mList of programs online[0m
+echo --------------------------------------------------------
+for /f "tokens=* delims=" %%a in ('type "%temp%\filelist.txt"') do (
+    set "line=%%a"
+	
+	if "!line:~-12!"=="-install.txt" (
+      rem echo !line:~0,-12!
+	  <nul set /p screen="!line:~0,-12!   "
+    )
+	
+)
+echo.
+exit /b 0
+
+)
+
+
+
 :showlicense
 echo.
 echo Batch-Win-Installer %bwiver% - Install/update Windows programs from a list and 
@@ -640,7 +690,7 @@ exit /b
 
 :displayhelp
 echo.
-echo Batch-Win-Installer %bwiver% [-help] [-onlineupdate] [-offlineupdate] [-checkonline]
+echo Batch-Win-Installer %bwiver% [-help] [-onlineupdate] [-offlineupdate] [-checkonline] [-showprograms ^| -showpackages ]
 echo.
 echo Description: Install/update Windows programs from a list and check program websites for latest versions
 echo.
@@ -649,6 +699,7 @@ echo  -help              Displays this help message
 echo  -onlineupdate      Does online update of configuration files and checks if software installed on machine and update if necessary
 echo  -offlineupdate     Skips any online update of configuration files and checks if software installed on machine and update if necessary
 echo  -checkonline       Check online for latest versions from software's websites ONLY
+echo  -showprograms ^| -showpackages      Show list of programs available online
 echo.
 echo  install pkgname ^[pkgname2 ...^]   - install pkgname ^(multiple packages can be specified^)
 echo  upgrade pkgname ^[pkgname2 ...^]  - upgrade  pkgname ^(multiple packages can be specified^)
