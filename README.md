@@ -23,6 +23,12 @@ Several command line switches are available
 -onlineupdate      Does online update of configuration files and checks if software installed on machine and update if necessary
 -offlineupdate     Skips any online update of configuration files and checks if software installed on machine and update if necessary
 -checkonline       Check online for latest versions from software's websites ONLY
+-showprograms | -showpackages    Show list of programs available online
+
+install pkgname [pkgname2 ...]     - install pkgname (multiple packages can be specified)
+upgrade pkgname [pkgname2 ...]     - upgrade  pkgname (multiple packages can be specified)
+uninstall pkgname [pkgname2 ...]   - uninstall pkgname (multiple packages can be specified)
+checkonline pkgname [pkgname2 ...] - check website to see if what the latest version for pkgname (multiple packages can be specified)
 ```
 
 # Requirements
@@ -56,11 +62,12 @@ To install, unzip the latest Batch-Win-Installer.zip file to a folder. The Batch
 Next, edit settings.bat which contains the following lines to set certain environment variables
 
 ```
-set bwiver=0.7.0
+set onlineupdateurl=https://raw.githubusercontent.com/devtee/batch-win-installer/main/appinfo/
+set appinfourl=https://api.github.com/repos/devtee/batch-win-installer/contents/appinfo
 set introtitle1=Batch-Win-Installer %bwiver% by Dev Anand Teelucksingh - batchwininstaller@gmail.com -
 set introtitle2=for Trinidad and Tobago Computer Society (https://ttcs.tt/) 
 set orgname=TTCS
-set onlineupdateurl=https://raw.githubusercontent.com/devtee/batch-win-installer/main/appinfo/
+
 set softwarelist=firefox libreoffice libreofficehelp pdfsam notepadplusplus vlc joplin bleachbit 7zip sumatrapdf tuxpaint tuxpaintstamps puzzlecollection
 ```
 
