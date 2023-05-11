@@ -3,7 +3,7 @@ set ver.pdfsam=5.1.2.0
 set name.pdfsam=PDF Split and Merge
 set exe.pdfsam=pdfsam-%pkgver.pdfsam%.msi
 set url.pdfsam=https://github.com/torakiki/pdfsam/releases/download/v%pkgver.pdfsam%/%exe.pdfsam%
-set arg.pdfsam=/quiet /passive CHECK_FOR_UPDATES=false SKIPTHANKSPAGE=Yes
+set arg.pdfsam=/qb /norestart CHECK_FOR_UPDATES=false SKIPTHANKSPAGE=Yes
 set chk.pdfsam=%ProgramFiles%\PDFsam Basic\pdfsam.exe
 set regtext.pdfsam=PDFsam Basic
 set regsearch.pdfsam=%uninstallreg64%
