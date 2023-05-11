@@ -4,6 +4,7 @@ rem onlineupdateurl is the link to Batch Win Installer's GitHub project folder w
 rem contains the configuration files for the programs. 
 rem Change only if you've setup a folder for your own software configuration files
 set onlineupdateurl=https://raw.githubusercontent.com/devtee/batch-win-installer/main/appinfo/
+set appinfourl=https://api.github.com/repos/devtee/batch-win-installer/contents/appinfo
 rem 
 rem softwarelist is the list of software programs that Batch Win Installer will :
 rem download the software configuration files and software installers
@@ -44,4 +45,3 @@ rem See license.txt for the GNU General Public License.
 rem If missing, see <https://www.gnu.org/licenses/
 rem 
 rem Visit Batch Win Installer Github page at https://github.com/devtee/batch-win-installer
-
