@@ -1,6 +1,6 @@
 rem NOTE if updating version, delete the ZoomInstallerFull.msi from the files subfolder so that the latest version will be downloaded
-set pkgver.zoomclient=5.15.3.18551
-set ver.zoomclient=5.15.18551
+set pkgver.zoomclient=5.15.5.19404
+set ver.zoomclient=5.15.19404
 set name.zoomclient=Zoom Desktop Client
 set exe.zoomclient=ZoomInstallerFull.msi
 set url.zoomclient=https://zoom.us/client/%pkgver.zoomclient%/ZoomInstallerFull.msi?archType=x64
