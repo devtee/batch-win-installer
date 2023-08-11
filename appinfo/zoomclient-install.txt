@@ -8,7 +8,7 @@ set exe.zoomclient=ZoomInstallerFull.msi
 set url.zoomclient=https://zoom.us/client/%pkgver.zoomclient%/ZoomInstallerFull.msi?archType=x64
 set arg.zoomclient=/quiet /qn /norestart
 set chk.zoomclient=%ProgramFiles%\Zoom\bin
-set regtext.zoomclient=Zoom(64bit)
+set regtext.zoomclient=Zoom (64-bit)
 set regsearch.zoomclient=%uninstallreg64%
 set regurl.zoomclient=https://support.zoom.us/hc/en-us/articles/201361953-Release-notes-for-Windows
 set regexp.zoomclient=replace(substring-after(/html/body/main/div/section[2]/section[2]/div/h3[1],'version '), ' \((\d*)\)','.$1')
