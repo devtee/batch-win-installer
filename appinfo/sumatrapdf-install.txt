@@ -1,4 +1,4 @@
-set pkgver.sumatrapdf=3.5.1
+set pkgver.sumatrapdf=3.5.2
 set ver.sumatrapdf=%pkgver.sumatrapdf%
 set name.sumatrapdf=Sumatra PDF
 set exe.sumatrapdf=SumatraPDF-%pkgver.sumatrapdf%-64-install.exe
