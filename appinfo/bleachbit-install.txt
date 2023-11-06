@@ -8,5 +8,5 @@ set chk.bleachbit=%ProgramFiles(x86)%\BleachBit\bleachbit.exe
 set regtext.bleachbit=BleachBit *
 set regsearch.bleachbit=%uninstallreg32%
 set regurl.bleachbit=https://www.bleachbit.org/download/windows
-set regexp.bleachbit=substring-before(substring-after(/html/body/div[2]/div[1]/div[5]/div/div[2]/div[2]/div/div/div/div/div/div/p,'BleachBit '),' for')
+set regexp.bleachbit=substring-before(substring-after(/html/body/div[2]/div[1]/div[5]/div/div[2]/div[2]/div/div/div/div/div/div/ul/li[1]/a/@href,'BleachBit-'),'-setup')
 set onlineupdate.bleachbit=Y
