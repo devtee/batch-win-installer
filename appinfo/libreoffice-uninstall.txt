@@ -1,1 +1,1 @@
-set uninstall.libreoffice=msiexec /qn /uninstall %installreg.libreoffice%
+set uninstall.libreoffice=msiexec REBOOT=ReallySuppress /qn /uninstall %installreg.libreoffice%
