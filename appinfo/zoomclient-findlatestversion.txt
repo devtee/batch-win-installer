@@ -1,0 +1,3 @@
+@echo off
+curl -i -s "https://zoom.us/client/latest/ZoomInstallerFull.msi?archType=x64" | findstr /b location >"%temp%\zoomversion.txt"
+for /f "tokens=4 delims=/" %%a in (%temp%\zoomversion.txt) do @echo %%a>"%temp%\zoomversion.txt"
