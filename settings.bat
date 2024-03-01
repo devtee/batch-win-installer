@@ -1,29 +1,26 @@
-rem the following environment variables are used to customise Batch Win Installer
-rem 
-rem onlineupdateurl is the link to Batch Win Installer's GitHub project folder which 
-rem contains the configuration files for the programs. 
-rem Change only if you've setup a folder for your own software configuration files
 set onlineupdateurl=https://raw.githubusercontent.com/devtee/batch-win-installer/main/appinfo/
 set appinfourl=https://api.github.com/repos/devtee/batch-win-installer/contents/appinfo
-rem 
-rem softwarelist is the list of software programs that Batch Win Installer will :
-rem download the software configuration files and software installers
-rem install / upgrade software using the software installers 
-rem check the software's websites for the latest version
-rem So you SHOULD edit this to suit your software needs.
-rem 
-rem List of software at https://raw.githubusercontent.com/devtee/batch-win-installer/main/appinfo/ as of January 25 2023 :
-rem 7zip adobereaderdc64 bleachbit firefox joplin libreoffice libreofficehelp naps2 notepadplusplus pdfcreatorfree pdfsam puzzlecollection 
-rem gimagereader sumatrapdf tuxpaint tuxpaintstamps vlc zoomclient  naps2 tomboy-ng winmerge
-
-set softwarelist=firefox libreoffice libreofficehelp pdfsam notepadplusplus vlc joplin bleachbit 7zip sumatrapdf tuxpaint tuxpaintstamps puzzlecollection
-
-rem bwiver - batch win installer version. Doesn't affect the operation of batch win installer
-rem introtitle1 and introtitle2 are shown in the menu header . Doesn't affect the operation of batch win installer
 set introtitle1=Batch-Win-Installer %bwiver% by Dev Anand Teelucksingh (https://github.com/devtee/batch-win-installer)
 set introtitle2=for Trinidad and Tobago Computer Society (https://ttcs.tt/).
-rem orgname can be used to describe the org this batch file is used for. Doesn't affect the operation of batch win installer
 set orgname=TTCS
+set softwarelist=firefox libreoffice libreofficehelp pdfsam notepadplusplus vlc joplin bleachbit 7zip sumatrapdf tuxpaint tuxpaintstamps puzzlecollection
+goto end
+
+rem the above environment variables are used to customise Batch Win Installer
+rem 
+rem onlineupdateurl is the URL to Batch Win Installer's GitHub project folder which contains the configuration files for the programs. 
+rem appinfourl is the URL to Batch Win Installer's Github project folder that can be accessed with GitHub's API 
+rem Change only if you've setup a folder for your own software configuration files
+rem 
+rem introtitle1 and introtitle2 are shown in the menu header . Doesn't affect the operation of batch win installer
+rem
+rem orgname can be used to describe the org this batch file is used for. Doesn't affect the operation of batch win installer
+rem 
+rem softwarelist is the list of software programs that Batch Win Installer will :
+rem    download the software configuration files and software installers
+rem    install / upgrade software using the software installers 
+rem    check the software's websites for the latest version
+rem So you SHOULD edit this to suit your software needs.
 rem
 rem --------------------------------------------------------------------------
 rem 
@@ -45,3 +42,5 @@ rem See license.txt for the GNU General Public License.
 rem If missing, see <https://www.gnu.org/licenses/
 rem 
 rem Visit Batch Win Installer Github page at https://github.com/devtee/batch-win-installer
+
+:end
