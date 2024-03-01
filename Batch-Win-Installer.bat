@@ -4,13 +4,14 @@ mode con: cols=135 lines=40
 cls
 rem Initialise variables
 set tpath=%~dp0
-set bwiver=0.8.1
+set bwiver=0.8.2
 set uninstallreg64=HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall
 set uninstallreg32=HKLM\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Uninstall
 set appinfopath=%tpath%appinfo
 set filespath=%tpath%files
 set wgetexe=%tpath%wget/wget.exe
 set xidelexe=%tpath%xidel/xidel.exe
+
 
 rem confirm appinfo and filespath subfolders exist and create if not 
 if not exist "%appinfopath%\" mkdir "%appinfopath%\"
@@ -83,7 +84,6 @@ IF %ERRORLEVEL% NEQ 0 (
 )
 echo Administrator PRIVILEGES Detected.
 
-
 rem Test if we can access the Internet and download any files needed 
 
 set Internet=N
@@ -102,9 +102,13 @@ ping -n 2 8.8.8.8 | find "TTL=" > nul
 if %ERRORLEVEL% NEQ 1 (
  echo Internet Access Detected. 
  set Internet=Y
-) 
+)
 
+if %ERRORLEVEL% EQU 1 (
+ echo Internet Access NOT Detected. 
+)
 
+ 
 
 
 :checksoftwarelist
@@ -145,7 +149,12 @@ if not exist "%appinfopath%\%%v-install.txt" (
   if !ERRORLEVEL! EQU 0 (
    call :download "%appinfopath%\%%v.reg" from "%onlineupdateurl%%%v.reg" with errormsg "downloading reg file - Perhaps it was misspelt"
    if !ERRORLEVEL! NEQ 0 goto end
-  )	 
+  )
+  findstr /offline /b /c:"set getlatestver." "%appinfopath%!\%%v-install.txt">nul
+  if !ERRORLEVEL! EQU 0 (
+   call :download "%appinfopath%\%%v-findlatestversion.txt" from "%onlineupdateurl%%%v-findlatestversion.txt" with errormsg "downloading findlatestver file - Perhaps it was misspelt"
+   if !ERRORLEVEL! NEQ 0 goto end
+  )
   set software-config-missing-list=%%v !software-config-missing-list!
  )
  if "%Internet%"=="N" (
@@ -164,12 +173,13 @@ if not exist "%appinfopath%\%%v-install.txt" (
 rem  
 rem if offline goto checkinstallers and skip this section
 rem if software-config-present not empty, 
-rem    search install txt for "set onlineupdate" and for "set followup" and put those lines in temp-online-list.bat. then call temp-online.bat 
+rem    search install txt for "set onlineupdate" "set followup" and "set findlatestver" and put those lines in temp-online-list.bat. then call temp-online.bat 
 rem    for each software-config-present-list, 
 rem       if onlineupdate is set to Y, 
 rem         download install txt , uninstall txt and display name of configuration being updated 
 rem         check if zero length files and exit if so 
-rem         download reg if followup variable defined 
+rem         download reg if followup variable defined
+rem         download findlatestver txt 
 rem             
 if "%Internet%"=="N" goto checkinstallers
 
@@ -178,6 +188,8 @@ if not "!software-config-present-list!"=="" (
       findstr /offline /b /c:"set onlineupdate." "%appinfopath%!\%%v-install.txt">>"%temp%!temp-online-list.bat"
 	  echo.>>"%temp%!temp-online-list.bat"
 	  findstr /offline /b /c:"set followup." "%appinfopath%!\%%v-install.txt">>"%temp%!temp-online-list.bat"
+	  findstr /offline /b /c:"set getlatestver." "%appinfopath%!\%%v-install.txt">>"%temp%!temp-online-list.bat"
+	  
 	)  
    call "%temp%!temp-online-list.bat"
  
@@ -192,6 +204,9 @@ if not "!software-config-present-list!"=="" (
    	   if !ERRORLEVEL! NEQ 0 goto end
 	   if not "!followup.%%v!"=="" call :download "%appinfopath%\%%v.reg" from "%onlineupdateurl%%%v.reg" with errormsg "downloading reg file - Perhaps it was misspelt"
    	   if !ERRORLEVEL! NEQ 0 goto end
+	   if not "!getlatestver.%%v!"=="" call :download "%appinfopath%\%%v-findlatestversion.txt" from "%onlineupdateurl%%%v-findlatestversion.txt" with errormsg "downloading findlatestver file - Perhaps it was misspelt"
+	   if !ERRORLEVEL! NEQ 0 goto end
+
     )
    )
 )
@@ -390,8 +405,17 @@ if "%Internet%"=="N" (
 ) 
 
 for %%v in (%softwarelist%) do (
-  "%xidelexe%" --silent "!regurl.%%v!" -e "!regexp.%%v!">"%temp%temp.txt"
-  set /p latestver.%%v=<"%temp%temp.txt"
+rem if getlatestver is Y then execute the findlatestversion txt 
+  if "!getlatestver.%%v!"=="Y" (
+      type "!regurl.%%v!">"%temp%!%%v-findlatestversion.bat"
+	  call "%temp%!%%v-findlatestversion.bat"
+	  set /p latestver.%%v=<"!regexp.%%v!"
+  ) ELSE (
+     "%xidelexe%" --silent "!regurl.%%v!" -e "!regexp.%%v!">"%temp%temp.txt"
+	 set /p latestver.%%v=<"%temp%temp.txt"
+  )
+
+  
   if !latestver.%%v!==!pkgver.%%v! (
     echo No Update Needed  - Latest version of !name.%%v! online is !latestver.%%v!
   )	ELSE (
@@ -662,8 +686,6 @@ echo.
 exit /b 0
 
 )
-
-
 
 :showlicense
 echo.
