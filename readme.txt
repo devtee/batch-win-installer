@@ -1,4 +1,4 @@
-Batch-Win-Installer v0.8.0 by Dev Anand Teelucksingh 
+Batch-Win-Installer v0.8.2 by Dev Anand Teelucksingh 
 Batch-Win-Installer Copyright (C) 2023 Dev Anand Teelucksingh 
 Project page : https://github.com/devtee/batch-win-installer
 Email comments to batchwininstaller@gmail.com
@@ -79,8 +79,8 @@ Batch-Win Installer ZIP file contains the following files and folders
 - settings.bat
 - readme.txt (this file!)
 - license.txt
-- wget subfolder containing 64 bit version of GNU Wget v1.21.3, wget.exe from https://eternallybored.org/misc/wget/
-- xidel subfolder containing 64 bit version of Xidel v0.99 pre-release, xidel.exe from xidel-0.9.9.20220424.8389.2d2ee7befb8a.win64.zip dated 2022-04-24 from https://sourceforge.net/projects/videlibri/files/Xidel/Xidel%20development/ (Xidel's home page is https://www.videlibri.de/xidel.html)
+- wget subfolder containing 64 bit version of GNU Wget v1.21.4, wget.exe from https://eternallybored.org/misc/wget/
+- xidel subfolder containing 64 bit version of Xidel v0.99 pre-release, xidel.exe from xidel-0.9.9.20230616.8842.e14a96920e01.win64.zip dated 2023-06-16 from https://sourceforge.net/projects/videlibri/files/Xidel/Xidel%20development/ (Xidel's home page is https://www.videlibri.de/xidel.html)
 
 Next, edit settings.bat which contains the following lines to set certain environment variables
 
@@ -99,6 +99,10 @@ Settings for software packages are stored as two batch files in the appinfo subf
 
     name of program-install.txt
     name of program-uninstall.txt
+
+If a batch file is needed to find the latest version of software, another batch file in the appinfo subfolder is included
+    name of program-findlatestversion.txt 
+
 
 Here's a typical example-install.txt for the software program "example"
 
@@ -134,11 +138,14 @@ Here's a short explaination of each of these variables :
    So regsearch.example is set to either %uninstallreg64% or %uninstallreg32% so that Batch Win Installer "knows" where to 
    search for the program's uninstall entry in the Windows registry.
 * followup.example - this will be the cmd to run Windows 10 reg command to import example.reg. If Batch Win Installer is 
-  downloading the configuration files (example-install.txt and example-uninstall.txt) and it 
-  sees followup.example defined, it will download example.reg
-* regurl.example - this is the url where Batch Win Installer will query using xidel.exe to find the latest version of the software.
+  downloading the configuration files (example-install.txt and example-uninstall.txt) and it sees followup.example defined, it will download example.reg
+* getlatestversion.example  - this is set to "Y" when xidel will not be used and example-findlatestversion.txt would be used to return the latest version. 
+* regurl.example - this is the url where Batch Win Installer will query using xidel.exe to find the latest version of the software. 
+                   If getlatestversion.example is set to Y, this is set to the name of the batch file that would be called to get the latest version
 * regexp.example - this is the xpath expression that Batch Win Installer (using xidel.exe) will extract from the url specified in regurl.example 
-  to find the latest version of the software
+                   to find the latest version of the software. 
+				   If getlatestversion.example is set to Y, this is set to the name of the text file generated from the batch file from regurl variable that contains the latest version of the software
+
 
 example-uninstall.bat
 
@@ -151,6 +158,17 @@ set uninstall.example=msiexec /qn /uninstall %installreg.example%
   the software's product code GUID which varies with each version of the software.
 
 
+example-findlatestversion.bat
+
+If there is a need to use this method to query a website instaad of xidel using regurl.example and regexp.example, set getlatestversion.example to Y. 
+Here's a typical example-findlatestversion.txt for the software progam "example".
+
+@echo off
+curl -i -s "<example url>" | findstr /b location >"%temp%\temp.txt"
+for /f "tokens=4 delims=/" %%a in (%temp%\temp.txt) do @echo %%a>"%temp%\temp.txt"
+
+
+
 Feedback
 --------
 
@@ -158,4 +176,4 @@ Feedback
 * You can find me Mastodon at https://techhub.social/@devtee
 * Visit the Trinidad and Tobago Computer Society's (TTCS) https://ttcs.tt/ ; join the TTCS announce mailing list!
 
-Last updated : December 21 2022
+Last updated : March 1 2024
