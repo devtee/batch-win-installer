@@ -1,4 +1,4 @@
-set pkgver.firefox=123.0
+set pkgver.firefox=123.0.1
 set ver.firefox=%pkgver.firefox%
 set name.firefox=Mozilla Firefox
 set exe.firefox=Firefox Setup %pkgver.firefox%.exe
