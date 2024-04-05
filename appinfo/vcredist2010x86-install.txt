@@ -1,0 +1,12 @@
+set pkgver.vcredist2010x86=10.0.40219.325
+set ver.vcredist2010x86=10.0.40219
+set name.vcredist2010x86=Visual Studio 2010 (VC++ 10.0) redistributable SP1 x86
+set exe.vcredist2010x86=vcredist_x86.exe
+set url.vcredist2010x86=https://download.microsoft.com/download/1/6/5/165255E7-1014-4D0A-B094-B6A430A6BFFC/vcredist_x86.exe
+set arg.vcredist2010x86=/q /norestart  
+set chk.vcredist2010x86=%windir%\SysWOW64\msvcr100.dll
+set regtext.vcredist2010x86=Microsoft Visual C++ 2010  x86 Redistributable
+set regsearch.vcredist2010x86=%uninstallreg32%
+set regurl.vcredist2010x86=https://learn.microsoft.com/en-us/cpp/windows/latest-supported-vc-redist?view=msvc-170#visual-studio-2010-vc-100-sp1-no-longer-supported
+set regexp.vcredist2010x86=/html/body/div[2]/div/section/div/div[1]/main/div[3]/table[4]/tbody/tr[1]/td[2]
+set onlineupdate.vcredist2010x86=N
