@@ -1,5 +1,5 @@
-set pkgver.libreoffice=24.2.2
-set ver.libreoffice=24.2.2.2
+set pkgver.libreoffice=24.2.3
+set ver.libreoffice=24.2.3.2
 set name.libreoffice=LibreOffice
 set exe.libreoffice=LibreOffice_%pkgver.libreoffice%_Win_x86-64.msi
 set url.libreoffice=https://download.documentfoundation.org/libreoffice/stable/%pkgver.libreoffice%/win/x86_64/%exe.libreoffice%
