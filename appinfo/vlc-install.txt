@@ -1,4 +1,4 @@
-set pkgver.vlc=3.0.20
+set pkgver.vlc=3.0.21
 set ver.vlc=%pkgver.vlc%
 set name.vlc=VideoLAN
 set exe.vlc=vlc-%pkgver.vlc%-win64.exe
