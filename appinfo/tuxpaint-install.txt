@@ -1,5 +1,5 @@
-set pkgver.tuxpaint=0.9.32
-set ver.tuxpaint=0.9.32
+set pkgver.tuxpaint=0.9.33
+set ver.tuxpaint=0.9.33
 set name.tuxpaint=TuxPaint
 set exe.tuxpaint=tuxpaint-%pkgver.tuxpaint%-windows-x86_64-installer.exe
 set url.tuxpaint=https://sourceforge.net/projects/tuxpaint/files/tuxpaint/%pkgver.tuxpaint%/%exe.tuxpaint%/download
