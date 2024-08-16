@@ -1,5 +1,5 @@
-set pkgver.pdfcreatorfree=5.2.2
-set ver.pdfcreatorfree=5.2.2
+set pkgver.pdfcreatorfree=5.3.0
+set ver.pdfcreatorfree=5.3.0
 set name.pdfcreatorfree=PDFCreator Free
 set exe.pdfcreatorfree=PDFCreator-5_2_2-Setup.exe
 set url.pdfcreatorfree=https://download.pdfforge.org/download/pdfcreator/PDFCreator-stable?download
