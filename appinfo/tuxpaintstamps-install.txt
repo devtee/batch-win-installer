@@ -1,8 +1,8 @@
 set pkgver.tuxpaintstamps=2024-10-25
-set ver.tuxpaintstamps=2024-10-25
+set ver.tuxpaintstamps=2024.10.25
 set name.tuxpaintstamps=TuxPaint Stamps
 set exe.tuxpaintstamps=tuxpaint-stamps-%ver.tuxpaintstamps%-windows-installer.exe
-set url.tuxpaintstamps=https://sourceforge.net/projects/tuxpaint/files/tuxpaint-stamps/%ver.tuxpaintstamps%/%exe.tuxpaintstamps%/download
+set url.tuxpaintstamps=https://sourceforge.net/projects/tuxpaint/files/tuxpaint-stamps/%pkg.tuxpaintstamps%/%exe.tuxpaintstamps%/download
 set arg.tuxpaintstamps=/VERYSILENT /NORESTART
 set chk.tuxpaintstamps=%ProgramFiles%\TuxPaint\unins001.exe
 set regtext.tuxpaintstamps=Tux Paint Stamps
