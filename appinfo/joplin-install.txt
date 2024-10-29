@@ -1,4 +1,4 @@
-set pkgver.joplin=3.0.15
+set pkgver.joplin=3.1.20
 set ver.joplin=%pkgver.joplin%
 set name.joplin=Joplin
 set exe.joplin=Joplin-Setup-%pkgver.joplin%.exe
