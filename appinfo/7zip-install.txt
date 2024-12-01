@@ -1,6 +1,6 @@
-set pkgver.7zip=24.08
-set pkgverplain.7zip=2408
-set ver.7zip=24.08.00.0
+set pkgver.7zip=24.09
+set pkgverplain.7zip=2409
+set ver.7zip=24.09.00.0
 set name.7zip=7-Zip
 set exe.7zip=7z%pkgverplain.7zip%-x64.msi
 set url.7zip=https://www.7-zip.org/a/%exe.7zip%
