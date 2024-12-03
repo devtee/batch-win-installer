@@ -1,6 +1,6 @@
-set pkgver.adobereaderdc64=24.004.20272
-set pkgno.adobereaderdc64=2400420272
-set ver.adobereaderdc64=24.004.20272
+set pkgver.adobereaderdc64=24.005.20307
+set pkgno.adobereaderdc64=2400520307
+set ver.adobereaderdc64=24.005.20307
 set name.adobereaderdc64=Adobe Reader DC (64bit)
 set exe.adobereaderdc64=AcroRdrDCx64%pkgno.adobereaderdc64%_en_US.exe
 set url.adobereaderdc64=https://ardownload2.adobe.com/pub/adobe/acrobat/win/AcrobatDC/%pkgno.adobereaderdc64%/%exe.adobereaderdc64%
