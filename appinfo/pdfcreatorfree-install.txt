@@ -1,7 +1,7 @@
 set pkgver.pdfcreatorfree=5.3.3
 set ver.pdfcreatorfree=5.3.3
 set name.pdfcreatorfree=PDFCreator Free
-set exe.pdfcreatorfree=PDFCreator-5_3_2-Setup.exe
+set exe.pdfcreatorfree=PDFCreator-5_3_3-Setup.exe
 set url.pdfcreatorfree=https://download.pdfforge.org/download/pdfcreator/PDFCreator-stable?download
 set arg.pdfcreatorfree=/VerySilent /DisableContextMenu /COMPONENTS="none"
 set chk.pdfcreatorfree=%ProgramFiles%\PDFCreator\PDFCreator.exe
