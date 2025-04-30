@@ -1,5 +1,5 @@
-set pkgver.libreofficehelp=25.2.2
-set ver.libreofficehelp=25.2.2.2
+set pkgver.libreofficehelp=25.2.3
+set ver.libreofficehelp=25.2.3.2
 set name.libreofficehelp=LibreOffice Help Pack
 set exe.libreofficehelp=LibreOffice_%pkgver.libreofficehelp%_Win_x86-64_helppack_en-US.msi
 set url.libreofficehelp=https://download.documentfoundation.org/libreoffice/stable/%pkgver.libreofficehelp%/win/x86_64/%exe.libreofficehelp%
