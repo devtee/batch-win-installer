@@ -1,4 +1,4 @@
-set pkgver.notepadplusplus=8.8
+set pkgver.notepadplusplus=8.8.1
 set ver.notepadplusplus=%pkgver.notepadplusplus%
 set name.notepadplusplus=Notepad++
 set exe.notepadplusplus=npp.%ver.notepadplusplus%.Installer.x64.exe
