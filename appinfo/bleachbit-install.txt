@@ -1,5 +1,5 @@
 set pkgver.bleachbit=5.0.0
-set ver.bleachbit=5.0.0.2665
+set ver.bleachbit=5.0.0.2936
 set name.bleachbit=BleachBit
 set exe.bleachbit=BleachBit-%pkgver.bleachbit%-setup.exe
 set url.bleachbit=https://download.bleachbit.org/%exe.bleachbit%
