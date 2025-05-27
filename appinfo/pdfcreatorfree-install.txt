@@ -1,3 +1,4 @@
+rem Note **** Latest version as of 27 May 2025 is 6.0.1 but silent installation on a Windows computer connected to a domain fails as it requires a license to be purchased  ****
 set pkgver.pdfcreatorfree=5.3.3
 set ver.pdfcreatorfree=5.3.3
 set name.pdfcreatorfree=PDFCreator Free
