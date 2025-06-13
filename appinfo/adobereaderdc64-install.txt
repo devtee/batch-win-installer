@@ -1,4 +1,4 @@
-set pkgver.adobereaderdc64=25.001.205xx  
+set pkgver.adobereaderdc64=25.001.205xx
 set pkgno.adobereaderdc64=2500120531
 set ver.adobereaderdc64=25.001.20531
 set name.adobereaderdc64=Adobe Reader DC (64bit)
