@@ -1,5 +1,5 @@
-set pkgver.libreoffice=25.2.5
-set ver.libreoffice=25.2.5.2
+set pkgver.libreoffice=25.8.0
+set ver.libreoffice=25.8.0.1
 set name.libreoffice=LibreOffice
 set exe.libreoffice=LibreOffice_%pkgver.libreoffice%_Win_x86-64.msi
 set url.libreoffice=https://download.documentfoundation.org/libreoffice/stable/%pkgver.libreoffice%/win/x86_64/%exe.libreoffice%
@@ -11,3 +11,4 @@ set uninstall.libreoffice=msiexec /qn /uninstall %installreg.libreoffice%
 set regurl.libreoffice=https://www.libreoffice.org/download/download/
 set regexp.libreoffice=/html/body/section[1]/div/article/div[1]/div/div[1]/span[1]
 set onlineupdate.libreoffice=Y
+
