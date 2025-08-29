@@ -12,5 +12,3 @@ set regurl.libreofficehelp=https://www.libreoffice.org/download/download/
 set regexp.libreofficehelp=substring-after(substring-before(/html/body/section[1]/div/article/div[1]/div/div[1]/ul/li[1]/a/@href,'/win'),'stable/')
 set onlineupdate.libreofficehelp=Y
 
-
-
