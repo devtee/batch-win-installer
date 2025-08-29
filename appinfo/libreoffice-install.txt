@@ -12,6 +12,3 @@ set regurl.libreoffice=https://www.libreoffice.org/download/download/
 set regexp.libreoffice=/html/body/section[1]/div/article/div[1]/div/div[1]/span[1]
 set onlineupdate.libreoffice=Y
 
-
-
-
