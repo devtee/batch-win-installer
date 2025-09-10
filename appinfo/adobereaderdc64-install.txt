@@ -1,6 +1,6 @@
-set pkgver.adobereaderdc64=25.001.20672
-set pkgno.adobereaderdc64=2500120672
-set ver.adobereaderdc64=25.001.20672
+set pkgver.adobereaderdc64=25.001.20693
+set pkgno.adobereaderdc64=2500120693
+set ver.adobereaderdc64=25.001.20693
 set name.adobereaderdc64=Adobe Reader DC (64bit)
 set exe.adobereaderdc64=AcroRdrDCx64%pkgno.adobereaderdc64%_en_US.exe
 set url.adobereaderdc64=https://ardownload2.adobe.com/pub/adobe/acrobat/win/AcrobatDC/%pkgno.adobereaderdc64%/%exe.adobereaderdc64%
@@ -11,4 +11,5 @@ set regsearch.adobereaderdc64=%uninstallreg64%
 set regurl.adobereaderdc64=https://www.adobe.com/devnet-docs/acrobatetk/tools/ReleaseNotesDC/index.html
 set regexp.adobereaderdc64=substring-before(/html/body/div/section/div[2]/div/div[2]/div/div/div[1]/div[1]/ul/li[1],' ')
 set onlineupdate.adobereaderdc64=Y
+
 
