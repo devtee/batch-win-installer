@@ -1,5 +1,5 @@
-set pkgver.puzzlecollection=20250904.2376227
-set ver.puzzlecollection=0.0.14335.0
+set pkgver.puzzlecollection=20250926.e00cb46
+set ver.puzzlecollection=0.0.14357.0
 set name.puzzlecollection=Simon Tatham's Portable Puzzle Collection
 set exe.puzzlecollection=puzzles-%pkgver.puzzlecollection%-installer.msi
 set url.puzzlecollection=https://www.chiark.greenend.org.uk/~sgtatham/puzzles/%exe.puzzlecollection%
@@ -10,6 +10,7 @@ set regsearch.puzzlecollection=%uninstallreg64%
 set regurl.puzzlecollection=https://www.chiark.greenend.org.uk/~sgtatham/puzzles/devel/
 set regexp.puzzlecollection=substring-before(substring-after(/html/body/address,'version '),']')
 set onlineupdate.puzzlecollection=Y
+
 
 
 
