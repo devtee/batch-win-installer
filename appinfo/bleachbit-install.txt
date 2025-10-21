@@ -1,5 +1,5 @@
 set pkgver.bleachbit=5.0.2
-set ver.bleachbit=5.0.2.2936
+set ver.bleachbit=5.0.2.3065
 set name.bleachbit=BleachBit
 set exe.bleachbit=BleachBit-%pkgver.bleachbit%-setup.exe
 set url.bleachbit=https://download.bleachbit.org/%exe.bleachbit%
@@ -10,5 +10,4 @@ set regsearch.bleachbit=%uninstallreg32%
 set regurl.bleachbit=https://www.bleachbit.org/download/windows
 set regexp.bleachbit=substring-before(substring-after(/html/body/div[2]/div[1]/div[5]/div/div[2]/div/div/div/div/div/div/div/p[1],'BleachBit '),' for')
 set onlineupdate.bleachbit=Y
-
 
