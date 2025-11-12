@@ -1,4 +1,4 @@
-set pkgver.firefox=144.0.2
+set pkgver.firefox=145.0
 set ver.firefox=%pkgver.firefox%
 set name.firefox=Mozilla Firefox
 set exe.firefox=Firefox Setup %pkgver.firefox%.exe
@@ -12,4 +12,3 @@ set uninstall.firefox="%ProgramFiles%\Mozilla Firefox\uninstall\helper.exe" -ms
 set regurl.firefox=https://www.mozilla.org/en-US/firefox/releases/
 set regexp.firefox=/html[@data-latest-firefox]/attribute::data-latest-firefox
 set onlineupdate.firefox=Y
-
