@@ -1,3 +1,4 @@
 @echo off
-curl -i -s "https://zoom.us/client/latest/ZoomInstallerFull.msi?archType=x64" | findstr /b location >"%temp%\temp.txt"
+curl -i -s "https://zoom.us/client/latest/ZoomInstallerFull.msi?archType=x64" | findstr /b Location >"%temp%\temp.txt"
 for /f "tokens=4 delims=/" %%a in (%temp%\temp.txt) do @echo %%a>"%temp%\temp.txt"
+
