@@ -5,7 +5,7 @@ set pkgver.zoomclient=6.6.11.23272
 set ver.zoomclient=6.6.23272
 set name.zoomclient=Zoom Workspace Client
 set exe.zoomclient=ZoomInstallerFull.msi
-set url.zoomclient=https://zoom.us/client/%pkgver.zoomclient%/ZoomInstallerFull.msi?archType=x64
+set url.zoomclient=https://cdn.zoom.us/prod/%pkgver.zoomclient%/x64/ZoomInstallerFull.msi
 set arg.zoomclient=/quiet /qn /norestart
 set chk.zoomclient=%ProgramFiles%\Zoom\bin
 set regtext.zoomclient=Zoom Workplace (64-bit)
@@ -14,3 +14,4 @@ set getlatestver.zoomclient=Y
 set regurl.zoomclient=%appinfopath%!\zoomclient-findlatestversion.txt
 set regexp.zoomclient=%temp%\temp.txt
 set onlineupdate.zoomclient=Y
+
