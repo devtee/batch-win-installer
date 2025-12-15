@@ -1,8 +1,8 @@
-rem Note **** Latest version as of 9 December 2025 is 6.2.0 but silent installation on a Windows computer connected to a domain fails as it requires a license to be purchased  ****
-set pkgver.pdfcreatorfree=6.2.0
-set ver.pdfcreatorfree=6.2.0
+rem Note **** Latest version as of 15 December 2025 is 6.2.1 but silent installation on a Windows computer connected to a domain fails as it requires a license to be purchased  ****
+set pkgver.pdfcreatorfree=6.2.1
+set ver.pdfcreatorfree=6.2.1
 set name.pdfcreatorfree=PDFCreator Free
-set exe.pdfcreatorfree=PDFCreator-6_2_0-Setup.exe
+set exe.pdfcreatorfree=PDFCreator-6_2_1-Setup.exe
 set url.pdfcreatorfree=https://download.pdfforge.org/download/pdfcreator/PDFCreator-stable?download
 set arg.pdfcreatorfree=/VerySilent /DisableContextMenu /COMPONENTS="none"
 set chk.pdfcreatorfree=%ProgramFiles%\PDFCreator\PDFCreator.exe
@@ -11,3 +11,4 @@ set regsearch.pdfcreatorfree=%uninstallreg64%
 set regurl.pdfcreatorfree=https://download.pdfforge.org/download/pdfcreator
 set regexp.pdfcreatorfree=substring-after(substring-before(normalize-space(/html/body/div[1]/div[2]/div/div/div[2]/section/h3[1]),' published'),'Release ')
 set onlineupdate.pdfcreatorfree=Y
+
