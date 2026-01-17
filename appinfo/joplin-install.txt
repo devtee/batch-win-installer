@@ -1,4 +1,4 @@
-set pkgver.joplin=3.5.11
+set pkgver.joplin=3.5.12
 set ver.joplin=%pkgver.joplin%
 set name.joplin=Joplin
 set exe.joplin=Joplin-Setup-%pkgver.joplin%.exe
@@ -10,3 +10,4 @@ set regsearch.joplin=%uninstallreg64%
 set regurl.joplin=https://github.com/laurent22/joplin/releases/latest
 set regexp.joplin=substring((//h1)[4],'2')
 set onlineupdate.joplin=Y
+
