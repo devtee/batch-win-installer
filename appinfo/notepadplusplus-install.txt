@@ -1,4 +1,4 @@
-set pkgver.notepadplusplus=8.9
+set pkgver.notepadplusplus=8.9.1
 set ver.notepadplusplus=%pkgver.notepadplusplus%
 set name.notepadplusplus=Notepad++
 set exe.notepadplusplus=npp.%ver.notepadplusplus%.Installer.x64.exe
@@ -10,4 +10,3 @@ set regsearch.notepadplusplus=%uninstallreg64%
 set regurl.notepadplusplus=https://notepad-plus-plus.org/
 set regexp.notepadplusplus=substring-after(/html/body/div/header/div/div[1]/p/a/strong,'Version ')
 set onlineupdate.notepadplusplus=Y
-
