@@ -1,5 +1,5 @@
-set pkgver.pdfsam=5.4.1
-set ver.pdfsam=5.4.1.0
+set pkgver.pdfsam=5.4.5
+set ver.pdfsam=5.4.5.0
 set name.pdfsam=PDF Split and Merge
 set exe.pdfsam=pdfsam-basic-%pkgver.pdfsam%-windows-x64.msi
 set url.pdfsam=https://github.com/torakiki/pdfsam/releases/download/v%pkgver.pdfsam%/%exe.pdfsam%
