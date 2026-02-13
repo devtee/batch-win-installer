@@ -1,6 +1,6 @@
-set pkgver.7zip=25.01
-set pkgverplain.7zip=2501
-set ver.7zip=25.01.00.0
+set pkgver.7zip=26.00
+set pkgverplain.7zip=2600
+set ver.7zip=26.00.00.0
 set name.7zip=7-Zip
 set exe.7zip=7z%pkgverplain.7zip%-x64.msi
 set url.7zip=https://www.7-zip.org/a/%exe.7zip%
@@ -11,3 +11,4 @@ set regsearch.7zip=%uninstallreg64%
 set regurl.7zip=https://www.7-zip.org/download.html
 set regexp.7zip=substring(/html/body/table/tbody/tr/td[2]/p[1]/b,16,5)
 set onlineupdate.7zip=Y
+
