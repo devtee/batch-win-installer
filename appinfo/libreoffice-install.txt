@@ -1,8 +1,17 @@
 set pkgver.libreoffice=26.2.0
 set ver.libreoffice=26.2.0.3
 set name.libreoffice=LibreOffice
+if /i "%CPUarch%"=="AMD64" (
 set exe.libreoffice=LibreOffice_%pkgver.libreoffice%_Win_x86-64.msi
-set url.libreoffice=https://download.documentfoundation.org/libreoffice/stable/%pkgver.libreoffice%/win/x86_64/%exe.libreoffice%
+set SHA256.libreoffice=efdf4696a7f8d94c749efe260acb2fd1d29d0dd30cb1e3c5104fde2b503e9a64
+set url.libreoffice=https://download.documentfoundation.org/libreoffice/stable/%pkgver.libreoffice%/win/x86_64/LibreOffice_%pkgver.libreoffice%_Win_x86-64.msi
+)
+if /i "%CPUarch%"=="ARM64" (
+set exe.libreoffice=LibreOffice_%pkgver.libreoffice%_Win_aarch64.msi
+set SHA256.libreoffice=dfa8ba95f8423c1994b56724f74f1476c0c9b835c172ac5ea0de714427a2bfde
+set url.libreoffice=https://download.documentfoundation.org/libreoffice/stable/%pkgver.libreoffice%/win/aarch64/LibreOffice_%pkgver.libreoffice%_Win_aarch64.msi
+)
+
 set arg.libreoffice=/qn /passive /norestart
 set chk.libreoffice=%ProgramFiles%\LibreOffice\program\soffice.exe
 set regtext.libreoffice=LibreOffice * (multilanguage)
@@ -11,5 +20,3 @@ set uninstall.libreoffice=msiexec /qn /uninstall %installreg.libreoffice%
 set regurl.libreoffice=https://www.libreoffice.org/download/download/
 set regexp.libreoffice=/html/body/section[1]/div/article/div[1]/div/div[1]/span[1]
 set onlineupdate.libreoffice=Y
-
-
