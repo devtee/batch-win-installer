@@ -13,4 +13,4 @@ set regtext.puzzlecollection=Simon Tatham's Portable Puzzle Collection
 set regsearch.puzzlecollection=%uninstallreg64%
 set regurl.puzzlecollection=https://www.chiark.greenend.org.uk/~sgtatham/puzzles/devel/
 set regexp.puzzlecollection=substring-before(substring-after(/html/body/address,'version '),']')
-set onlineupdate.puzzlecollection=N
+set onlineupdate.puzzlecollection=Y
