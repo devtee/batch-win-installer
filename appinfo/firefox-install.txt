@@ -1,9 +1,21 @@
 set pkgver.firefox=148.0
 set ver.firefox=%pkgver.firefox%
 set name.firefox=Mozilla Firefox
-set exe.firefox=Firefox Setup %pkgver.firefox%.exe
-rem the url requires special characters to be escaped 
-set url.firefox=https://download-installer.cdn.mozilla.net/pub/firefox/releases/%pkgver.firefox%/win64/en-US/%exe.firefox%
+
+rem Note SHA256 checksums are found at https://ftp.mozilla.org/pub/firefox/releases/
+
+if /i "%CPUarch%"=="AMD64" (
+ set exe.firefox=Firefox Setup %pkgver.firefox%.exe
+ set SHA256.firefox=b8947332afddefe9854445026a7534c768e1097f24121b04aab3afec54591b2f
+ set url.firefox=https://download-installer.cdn.mozilla.net/pub/firefox/releases/%pkgver.firefox%/win64/en-US/Firefox Setup %pkgver.firefox%.exe
+)
+
+if /i "%CPUarch%"=="ARM64" (
+ set exe.firefox=Firefox Setup %pkgver.firefox%.exe
+ set SHA256.firefox=631671a9e1fad2eff82bcb3d83e6924ff9548c1167cc45fea099cd3066658eef
+ set url.firefox=https://download-installer.cdn.mozilla.net/pub/firefox/releases/%pkgver.firefox%/win64-aarch64/en-US/Firefox Setup %pkgver.firefox%.exe
+)
+
 set arg.firefox=-ms
 set chk.firefox=%ProgramFiles%\Mozilla Firefox\firefox.exe
 set regtext.firefox=Mozilla Firefox
