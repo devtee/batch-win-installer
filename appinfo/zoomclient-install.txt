@@ -4,8 +4,20 @@ rem ----------------------------------------------------------------------------
 set pkgver.zoomclient=6.7.5.30439
 set ver.zoomclient=6.7.30439
 set name.zoomclient=Zoom Workspace Client
+
+if /i "%CPUarch%"=="AMD64" (
 set exe.zoomclient=ZoomInstallerFull.msi
+set SHA256.zoomclient=e864cce4773e0b5255c3b9d92d67930c5b73694c38c47d445fb1c616d7bfee4a
 set url.zoomclient=https://cdn.zoom.us/prod/%pkgver.zoomclient%/x64/ZoomInstallerFull.msi
+)
+
+if /i "%CPUarch%"=="ARM64" (
+set exe.zoomclient=ZoomInstallerFull.msi
+set SHA256.zoomclient=d720a4d873d14291174344b87dc31dbf5ee94abb0d52b6258d6c41f9d2375310
+set url.zoomclient=https://cdn.zoom.us/prod/%pkgver.zoomclient%/arm64/ZoomInstallerFull.msi
+)
+
+
 set arg.zoomclient=/quiet /qn /norestart
 set chk.zoomclient=%ProgramFiles%\Zoom\bin
 set regtext.zoomclient=Zoom Workplace (64-bit)
