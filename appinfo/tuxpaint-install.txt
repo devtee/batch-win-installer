@@ -14,4 +14,4 @@ set regtext.tuxpaint=Tux Paint 0*
 set regsearch.tuxpaint=%uninstallreg64%
 set regurl.tuxpaint=https://tuxpaint.org/download/windows/
 set regexp.tuxpaint=substring-after(substring-before(/html/body/div/div/main/div/table/tbody/tr/td[1]/p[2]/a/font,`-windows`),`tuxpaint-`)
-set onlineupdate.tuxpaint=N
+set onlineupdate.tuxpaint=Y
