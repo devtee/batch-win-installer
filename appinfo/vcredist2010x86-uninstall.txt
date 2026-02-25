@@ -1,1 +1,0 @@
-set uninstall.vcredist2010x86=msiexec /qn /norestart /uninstall %installreg.vcredist2010x86%
