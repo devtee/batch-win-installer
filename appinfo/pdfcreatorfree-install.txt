@@ -1,9 +1,17 @@
-rem Note **** Latest version as of 26 January 2026 is 6.2.1 but silent installation on a Windows computer connected to a domain fails as it requires a license to be purchased  ****
+rem **** silent installation on a Windows computer connected to a domain requires a license to be purchased.  ****
+rem ****   5.3.3 was the last version that allowed installation to a Windows machine connected to a domain without requiring a license to be purchased    ****
+
 set pkgver.pdfcreatorfree=6.2.1
+set pkgno.pdfcreatorfree=6_2_1
 set ver.pdfcreatorfree=6.2.1
 set name.pdfcreatorfree=PDFCreator Free
-set exe.pdfcreatorfree=PDFCreator-6_2_1-Setup.exe
-set url.pdfcreatorfree=https://download.pdfforge.org/download/pdfcreator/PDFCreator-stable?download
+
+rem PDFCreator doesn't have a native ARM version but installer is universal 
+
+set exe.pdfcreatorfree=PDFCreator-%pkgno.pdfcreatorfree%-Setup.exe
+set SHA256.pdfcreatorfree=edd2526be007593983acc8c9fa32ab08b2f0f60ae0b538923099b2349d9b4545
+set url.pdfcreatorfree=https://cdn.download.pdfforge.org/pdfcreator/%pkgver.pdfcreatorfree%/PDFCreator-%pkgno.pdfcreatorfree%-Setup.exe
+
 set arg.pdfcreatorfree=/VerySilent /DisableContextMenu /COMPONENTS="none"
 set chk.pdfcreatorfree=%ProgramFiles%\PDFCreator\PDFCreator.exe
 set regtext.pdfcreatorfree=PDFCreator
