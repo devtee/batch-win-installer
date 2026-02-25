@@ -1,12 +1,17 @@
-set pkgver.tuxpaint=0.9.35
+set pkgver.tuxpaint=0.9.35-3
 set ver.tuxpaint=0.9.35
 set name.tuxpaint=TuxPaint
+
+rem Tuxpaint exe works for both AMD64 and ARM64 so no check needed 
+
 set exe.tuxpaint=tuxpaint-%pkgver.tuxpaint%-windows-x86_64-installer.exe
-set url.tuxpaint=https://sourceforge.net/projects/tuxpaint/files/tuxpaint/%pkgver.tuxpaint%/%exe.tuxpaint%/download
+set SHA256.tuxpaint=9d393d1c829ff9d74c1dff0c5726f47773a44c989bf0ce521d266f0a6fcf6c4c
+set url.tuxpaint=https://sourceforge.net/projects/tuxpaint/files/tuxpaint/%ver.tuxpaint%/tuxpaint-%pkgver.tuxpaint%-windows-x86_64-installer.exe/download
+
 set arg.tuxpaint=/VERYSILENT /NORESTART
 set chk.tuxpaint=%ProgramFiles%\TuxPaint\tuxpaint.exe
 set regtext.tuxpaint=Tux Paint 0*
 set regsearch.tuxpaint=%uninstallreg64%
 set regurl.tuxpaint=https://tuxpaint.org/download/windows/
-set regexp.tuxpaint=substring-after(substring-before(/html/body/div/div[1]/main/div/table/tbody/tr/td[1]/p[2], ' (x86'), 'Paint ')
-set onlineupdate.tuxpaint=Y
+set regexp.tuxpaint=substring-after(substring-before(/html/body/div/div/main/div/table/tbody/tr/td[1]/p[2]/a/font,`-windows`),`tuxpaint-`)
+set onlineupdate.tuxpaint=N
