@@ -1,8 +1,13 @@
 set pkgver.pdfsam=5.4.5
 set ver.pdfsam=5.4.5.0
 set name.pdfsam=PDF Split and Merge
+
+rem no ARM64 version exists
+
 set exe.pdfsam=pdfsam-basic-%pkgver.pdfsam%-windows-x64.msi
-set url.pdfsam=https://github.com/torakiki/pdfsam/releases/download/v%pkgver.pdfsam%/%exe.pdfsam%
+set SHA256.pdfsam=f3215eaad4b22ac8e0b75f098cd4061e5997d32b73f7fdb4cdff1801bd7b8bd7
+set url.pdfsam=https://github.com/torakiki/pdfsam/releases/download/v%pkgver.pdfsam%/pdfsam-basic-%pkgver.pdfsam%-windows-x64.msi
+
 set arg.pdfsam=/qb /norestart CHECK_FOR_UPDATES=false SKIPTHANKSPAGE=Yes
 set chk.pdfsam=%ProgramFiles%\PDFsam Basic\pdfsam.exe
 set regtext.pdfsam=PDFsam Basic
