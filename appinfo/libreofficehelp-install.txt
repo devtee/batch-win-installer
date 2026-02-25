@@ -1,8 +1,18 @@
 set pkgver.libreofficehelp=26.2.0
 set ver.libreofficehelp=26.2.0.3
 set name.libreofficehelp=LibreOffice Help Pack
+if /i "%CPUarch%"=="AMD64" (
 set exe.libreofficehelp=LibreOffice_%pkgver.libreofficehelp%_Win_x86-64_helppack_en-US.msi
-set url.libreofficehelp=https://download.documentfoundation.org/libreoffice/stable/%pkgver.libreofficehelp%/win/x86_64/%exe.libreofficehelp%
+set SHA256.libreofficehelp=55b235cc401f8cd389f45904828359c4681c7ab647752c797dc8f17e611a0f62
+set url.libreofficehelp=https://download.documentfoundation.org/libreoffice/stable/%pkgver.libreofficehelp%/win/x86_64/LibreOffice_%pkgver.libreofficehelp%_Win_x86-64_helppack_en-US.msi
+)
+
+if /i "%CPUarch%"=="ARM64" (
+set exe.libreofficehelp=LibreOffice_%pkgver.libreofficehelp%_Win_aarch64_helppack_en-US.msi
+set SHA256.libreofficehelp=ae9e813d45f242a1032bf0c7c9f62ee2c3d793a2b9bbae433daccf2606e0f9dc
+set url.libreofficehelp=https://download.documentfoundation.org/libreoffice/stable/%pkgver.libreofficehelp%/win/aarch64/LibreOffice_%pkgver.libreofficehelp%_Win_aarch64_helppack_en-US.msi
+)
+
 set arg.libreofficehelp=/qn /passive /norestart
 set chk.libreofficehelp=%ProgramFiles%\LibreOffice\help\en-US\text\shared\need_help.html
 set regtext.libreofficehelp=LibreOffice * Help Pack
