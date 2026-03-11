@@ -1,22 +1,21 @@
 rem -------------------------------------------------------------------------------------------------------------------------------------
 rem NOTE if updating version, DELETE the ZoomInstallerFull.msi from the files subfolder so that the latest version will be downloaded
 rem -------------------------------------------------------------------------------------------------------------------------------------
-set pkgver.zoomclient=6.7.5.30439
-set ver.zoomclient=6.7.30439
+set pkgver.zoomclient=6.7.8.32670
+set ver.zoomclient=6.7.32670
 set name.zoomclient=Zoom Workspace Client
 
 if /i "%CPUarch%"=="AMD64" (
 set exe.zoomclient=ZoomInstallerFull.msi
-set SHA256.zoomclient=e864cce4773e0b5255c3b9d92d67930c5b73694c38c47d445fb1c616d7bfee4a
+set SHA256.zoomclient=30d5f32594755de3c79ad6fc960c6a88bbd9a0a5d8d2d94a0772ce8cba577c94
 set url.zoomclient=https://cdn.zoom.us/prod/%pkgver.zoomclient%/x64/ZoomInstallerFull.msi
 )
 
 if /i "%CPUarch%"=="ARM64" (
 set exe.zoomclient=ZoomInstallerFull.msi
-set SHA256.zoomclient=d720a4d873d14291174344b87dc31dbf5ee94abb0d52b6258d6c41f9d2375310
+set SHA256.zoomclient=0203fae57242526ce91663edb1db71620ab92de62f948c6f8e4ca34a3acaafa8
 set url.zoomclient=https://cdn.zoom.us/prod/%pkgver.zoomclient%/arm64/ZoomInstallerFull.msi
 )
-
 
 set arg.zoomclient=/quiet /qn /norestart
 set chk.zoomclient=%ProgramFiles%\Zoom\bin
@@ -26,3 +25,4 @@ set getlatestver.zoomclient=Y
 set regurl.zoomclient=%appinfopath%!\zoomclient-findlatestversion.txt
 set regexp.zoomclient=%temp%\temp.txt
 set onlineupdate.zoomclient=Y
+
