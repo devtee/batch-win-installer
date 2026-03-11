@@ -1,22 +1,21 @@
-set pkgver.adobereaderdc64=25.001.21265
-set pkgno.adobereaderdc64=2500121265
+set pkgver.adobereaderdc64=25.001.21288
+set pkgno.adobereaderdc64=2500121288
 set ver.adobereaderdc64=%pkgver.adobereaderdc64%
 
 rem No native ARM version of Adobe Acrobat Reader exists as of Feb 24 2026 but recommended to install 32 bit version of Adobe Reader
 
 if /i "%CPUarch%"=="AMD64" (
  set name.adobereaderdc64=Adobe Reader DC ^(64bit^)
- set SHA256.adobereaderdc64=4095264fe24e730dfc635862f4a8faff69dcae19f1c8eee31fc8f9dd51eda0aa
+ set SHA256.adobereaderdc64=4ede8c9765987d4ab020c2d7493e5fad81f7ed159587d4e5ceefd54617ff30da
  set exe.adobereaderdc64=AcroRdrDCx64%pkgno.adobereaderdc64%_en_US.exe
  set url.adobereaderdc64=https://ardownload2.adobe.com/pub/adobe/acrobat/win/AcrobatDC/%pkgno.adobereaderdc64%/AcroRdrDCx64%pkgno.adobereaderdc64%_en_US.exe
 )
 rem latest version not available as 32 bit installer - using last previous version 2500121223
 if /i "%CPUarch%"=="ARM64" (
  set name.adobereaderdc64=Adobe Reader DC ^(32bit^)
- set exe.adobereaderdc64=AcroRdrDC2500121223_en_US.exe
- set SHA256.adobereaderdc64=acdd9df4209420dd125e9fdb50f92bc28b52f5ed5e519e549134ecce62a61e41
- set url.adobereaderdc64=https://ardownload2.adobe.com/pub/adobe/reader/win/AcrobatDC/2500121223/AcroRdrDC2500121223_en_US.exe
-
+ set exe.adobereaderdc64=AcroRdrDC%pkgno.adobereaderdc64%_en_US.exe
+ set SHA256.adobereaderdc64=f1548fe6a2375870f9bb3934dd62f8bc5db12233af933eed35d64599e54bd7e1
+ set url.adobereaderdc64=https://ardownload2.adobe.com/pub/adobe/reader/win/AcrobatDC/%pkgno.adobereaderdc64%/AcroRdrDC%pkgno.adobereaderdc64%_en_US.exe
 )
 
 set arg.adobereaderdc64=/sAll /rs /msi EULA_ACCEPT=YES 
@@ -26,4 +25,3 @@ set regsearch.adobereaderdc64=%uninstallreg64%
 set regurl.adobereaderdc64=https://www.adobe.com/devnet-docs/acrobatetk/tools/ReleaseNotesDC/index.html
 set regexp.adobereaderdc64=substring-before(/html/body/div/section/div[2]/div/div[2]/div/div/div[2]/ul/li[1]/p/a/span,' ')
 set onlineupdate.adobereaderdc64=Y
-
