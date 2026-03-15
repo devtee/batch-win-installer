@@ -1,22 +1,77 @@
-setlocal enabledelayedexpansion ENABLEEXTENSIONS
+setlocal enableextensions enabledelayedexpansion
 @echo off
 mode con: cols=135 lines=40
 cls
+rem Check if running on 32 bit Windows and exit if so 
+if /i "%PROCESSOR_ARCHITECTURE%"=="x86" (
+  echo Batch Win Installer does not support 32 bit Windows. 
+  echo This will now Exit
+  goto end
+)  
+
+:admintest
+rem Test if this batch file is running as Administrator if not, invoke Powershell command to rerun this batch file
+rem with admin privileges 
+NET SESSION >nul 2>&1
+IF %ERRORLEVEL% NEQ 0 (
+    echo Requesting Administrator Privileges
+	rem Need to test if arguments were presented ; if not then have to invoke Powershell command without ArgumentList to rerun batch file
+	if "%~1" == "" (
+	   powershell -Command "Start-Process -FilePath '\"%~f0\"' -Verb RunAs"
+   	) else (
+	   powershell -Command "Start-Process -FilePath '\"%~f0\"' -ArgumentList '%*' -Verb RunAs"
+	)
+	   
+	goto :eof
+)
+echo Administrator Privileges Detected.
+
+
 rem Initialise variables
 set tpath=%~dp0
-set bwiver=0.9.0
+pushd %tpath%
+set bwiver=1.0.0
+set onlineupdateurl=https://raw.githubusercontent.com/devtee/batch-win-installer/main/appinfo/
+set appinfourl=https://api.github.com/repos/devtee/batch-win-installer/contents/appinfo
+set introtitle1=Batch-Win-Installer %bwiver% by Dev Anand Teelucksingh (https://github.com/devtee/batch-win-installer)
+set introtitle2=for Trinidad and Tobago Computer Society (https://ttcs.tt/) 
+set orgname=TTCS
+
 set uninstallreg64=HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall
 set uninstallreg32=HKLM\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Uninstall
-set appinfopath=%tpath%appinfo
-set filespath=%tpath%files
-set wgetexe=%tpath%wget/wget.exe
-set xidelexe=%tpath%xidel/xidel.exe
+set appinfopath=.\appinfo
 
-rem confirm appinfo and filespath subfolders exist and create if not 
-if not exist "%appinfopath%\" mkdir "%appinfopath%\"
-if not exist "%filespath%\" mkdir "%filespath%\"
+rem for /F %%a in ('echo prompt $E ^| cmd') do set "ESC=%%a"
+for /f %%a in ('powershell -noprofile -command "[char]27"') do set "ESC=%%a"
 
-rem check presence of wget and xidel.exe in the subfolder and settings.bat in the same folder 
+
+set softwarelist=firefox libreoffice libreofficehelp pdfsam notepadplusplus vlc joplin bleachbit 7zip sumatrapdf puzzlecollection
+
+set dots=.................................................
+
+rem set variables depending on processor architecture 
+rem wget has a ARM version but xidel does not as of Feb 19 2026
+if /i "%PROCESSOR_ARCHITECTURE%"=="AMD64" set CPUarch=AMD64
+if /i "%PROCESSOR_ARCHITECTURE%"=="ARM64" set CPUarch=ARM64
+
+
+if /i "%CPUarch%"=="AMD64" ( 
+  set wgetexe=.\wget\amd64\wget.exe
+  set xidelexe=.\xidel\xidel.exe
+  set wgetexesha256=6136e66e41acd14c409c2d3eb10d48a32febaba04267303d0460ed3bee746cc5
+  set xidelexesha256=85df0559a9e4a137f3388ab57524f55d8d8ab57579d49cdad31ede39fba288f1
+  set filespath=.\files\AMD64
+)
+
+if /i "%CPUarch%"=="ARM64" ( 
+  set wgetexe=".\wget\arm64\wget.exe"
+  set xidelexe=.\xidel\xidel.exe
+  set wgetexesha256=356df847b5be2478b74ecbe9ae0b2150ef328b10073f93b0e1719e4c88bada02
+  set xidelexesha256=85df0559a9e4a137f3388ab57524f55d8d8ab57579d49cdad31ede39fba288f1
+  set filespath=.\files\ARM64
+)
+
+rem check presence of wget and xidel.exe in the subfolder
 if not exist "%wgetexe%" (
    echo wget.exe in this subfolder is missing. wget for windows can be downloaded at https://eternallybored.org/misc/wget/
    echo Exiting...
@@ -28,13 +83,19 @@ if not exist "%xidelexe%" (
    goto end
 )
 
-if not exist "%tpath%settings.bat" (
-   echo settings.bat is missing. Exiting ..
-   goto end
-)    
+rem Verify checksums of wget and xidel to ensure files were not tampered with. Exit if SHA256 are different
+<nul set /p ="Verifying wget.exe....."
+rem echo Verifying wget.exe...
+call :checksum "Wget.exe" "%wgetexe%" %wgetexesha256%
+if !ERRORLEVEL! NEQ 0 goto end
+<nul set /p ="Verifying xidel.exe...."
+call :checksum "Xidel.exe" "%xidelexe%" %xidelexesha256%
+if !ERRORLEVEL! NEQ 0 goto end
 
-rem call settings.bat to set variables like softwarelist
-call "%tpath%!settings.bat"
+
+rem confirm appinfo and filespath subfolders exist and create if not 
+if not exist "%appinfopath%\" mkdir "%appinfopath%\"
+if not exist "%filespath%\" mkdir "%filespath%\"
 
 rem show license
 call :showlicense
@@ -66,35 +127,20 @@ if [%1]==[checkonline] set cmdarg=checkonlinepkg
 
 if DEFINED cmdarg (
   if "%~2" == "" (
-     echo [101;93m ERROR [0m - No package^(s^) specified. This will now exit....
+     echo %ESC%[101;93m ERROR %ESC%[0m - No package^(s^) specified. This will now exit....
 	 goto end
   )
   rem For install upgrade uninstall command, need to set softwarelist to what was specified in the command line
   for /F "tokens=1*" %%a in ("%*") do set softwarelist=%%b
 )
 
-:admintest
-rem Test if this batch file is running as Administrator if not, invoke Powershell command to rerun this batch file
-rem with admin privileges 
-NET SESSION >nul 2>&1
-IF %ERRORLEVEL% NEQ 0 (
-    echo Requesting Administrator Privileges
-	rem Need to test if arguments were presented ; if not then have to invoke Powershell command without ArgumentList to rerun batch file
-	if "%~1" == "" (
-	   powershell -Command "Start-Process -FilePath '\"%~f0\"' -Verb RunAs"
-   	) else (
-	   powershell -Command "Start-Process -FilePath '\"%~f0\"' -ArgumentList '%*' -Verb RunAs"
-	)
-	   
-	goto :eof
-)
-echo Administrator Privileges Detected.
 
+rem admintest was done here first but moved 
 rem Test if we can access the Internet and download any files needed 
 
 set Internet=N
 
-if "%arg%"=="offlineupdate" (
+if "%arg%"=="offlineupdate" (  	
   goto checksoftwarelist
 )
 
@@ -116,6 +162,16 @@ if %ERRORLEVEL% EQU 1 (
 
 :checksoftwarelist
 
+echo.
+echo ----------------------------------------------------------------------------------------------
+echo Software list is : %softwarelist%
+echo.
+echo %ESC%[96mIf you wish to edit the list of software that Batch-Win-Installer will check, 
+echo edit this batch file to set the softwarelist variablez %ESC%[0m
+echo ----------------------------------------------------------------------------------------------
+echo.
+
+
 if "%arg%"=="showprograms" (
   if "%Internet%"=="N" (
    echo Internet access required to see packages online
@@ -135,40 +191,86 @@ set "software-config-present-list="
 rem for each item in softwarelist, check if install file exists and add it to software-config-present. If zero length, give error and exit
 rem if install file does NOT exist and if online, download install file, uninstall file and if followup exist, the reg file and set it to software-config-missing. if offline, error message and exit
 
+echo.
+echo %ESC%[4mVerifying software configuration files%ESC%[0m
+echo %ESC%[1m------------------------------------------------------------%ESC%[0m
+echo.
+
 for %%v in (%softwarelist%) do (
-if exist "%appinfopath%\%%v-install.txt" (
-  call :checkifzerolength "%appinfopath%\%%v-install.txt" with errormsg "Please check the configuration file and re-edit and/or delete to download again"
-  if !ERRORLEVEL! NEQ 0 goto end
+      
+   if exist "%appinfopath%\%%v-install.txt" (
+     set "line=%%v %ESC%[90m!dots!%ESC%[0m" 
+     <nul set /p ="!line:~0,50!"
+     <nul set /p =%ESC%[0m[%ESC%[92m Found%ESC%[0m ]
+     echo.
+     set software-config-present-list=%%v !software-config-present-list!
+   )   
+   if not exist "%appinfopath%\%%v-install.txt" (
+     set software-config-missing-list=%%v !software-config-missing-list!
+     set "line=%%v %ESC%[90m!dots!%ESC%[0m" 
+     <nul set /p ="!line:~0,50!"
+     <nul set /p =%ESC%[0m[%ESC%[91m MISSING%ESC%[0m ]
+     echo.
+   ) 
 )
-set software-config-present-list=%%v !software-config-present-list!
-   
-if not exist "%appinfopath%\%%v-install.txt" (
+
+if "%software-config-missing-list%"=="" goto downloadmissingconfigs
+
+
+
+
+
+if not "%software-config-missing-list%"=="" (
+  if "%Internet%"=="N" (
+  echo.
+  echo Configuration files missing. 
+  echo Download or copy configuration files to the appinfo subfolder or enable online acccess and re-run this batch file.
+  echo This will now exit....
+  echo.
+  goto end
+  )    
+)
+
+
+
+
+
+echo.
+echo %ESC%[4mDownloading missing software configuration files%ESC%[0m
+echo %ESC%[1m------------------------------------------------------------%ESC%[0m
+echo.
+
+
+for %%v in (%software-config-missing-list%) do (
+
  if "%Internet%"=="Y" (
-  call :download "%appinfopath%\%%v-install.txt" from "%onlineupdateurl%%%v-install.txt" with errormsg "downloading configuration file - Perhaps it was misspelt"
+  set "line=%%v Install.txt %ESC%[90m!dots!%ESC%[0m" 
+  <nul set /p ="!line:~0,50!"
+  call :download "%appinfopath%\%%v-install.txt" from "%onlineupdateurl%%%v-install.txt" with errormsg "Configuration Install txt not found."
   if !ERRORLEVEL! NEQ 0 goto end
-  call :download  "%appinfopath%\%%v-uninstall.txt" from "%onlineupdateurl%%%v-uninstall.txt" with errormsg "downloading configuration file - Perhaps it was misspelt"
+  
+  set "line=%%v Uninstall.txt %ESC%[90m!dots!%ESC%[0m" 
+  <nul set /p ="!line:~0,50!"
+  call :download  "%appinfopath%\%%v-uninstall.txt" from "%onlineupdateurl%%%v-uninstall.txt" with errormsg "Configuration uninstall txt not found."
   if !ERRORLEVEL! NEQ 0 goto end
+  
   findstr /offline /b /c:"set followup." "%appinfopath%!\%%v-install.txt">nul
   if !ERRORLEVEL! EQU 0 (
-   call :download "%appinfopath%\%%v.reg" from "%onlineupdateurl%%%v.reg" with errormsg "downloading reg file - Perhaps it was misspelt"
+   set "line=%%v Registry File %ESC%[90m!dots!%ESC%[0m" 
+   <nul set /p ="!line:~0,50!"
+   call :download "%appinfopath%\%%v.reg" from "%onlineupdateurl%%%v.reg" with errormsg "Configuration registry file not found."
    if !ERRORLEVEL! NEQ 0 goto end
   )
   findstr /offline /b /c:"set getlatestver." "%appinfopath%!\%%v-install.txt">nul
   if !ERRORLEVEL! EQU 0 (
-   call :download "%appinfopath%\%%v-findlatestversion.txt" from "%onlineupdateurl%%%v-findlatestversion.txt" with errormsg "downloading findlatestver file - Perhaps it was misspelt"
+   set "line=%%v FindLatestVersion.txt %ESC%[90m!dots!%ESC%[0m" 
+   <nul set /p ="!line:~0,50!"
+   call :download "%appinfopath%\%%v-findlatestversion.txt" from "%onlineupdateurl%%%v-findlatestversion.txt" with errormsg "Configuration findlatestversion not found."
    if !ERRORLEVEL! NEQ 0 goto end
   )
-  set software-config-missing-list=%%v !software-config-missing-list!
  )
- if "%Internet%"=="N" (
-  echo Configuration file for %%v missing. 
-  echo Download or copy configuration files to the appinfo subfolder or enable online acccess and re-run this batch file.
-  echo This will now exit....
-  goto end
- )  
 )
 
-)
 
 :downloadmissingconfigs 
 rem  
@@ -183,6 +285,7 @@ rem         download reg if followup variable defined
 rem         download findlatestver txt 
 rem             
 if "%Internet%"=="N" goto checkinstallers
+if "!software-config-present-list!"=="" goto checkinstallers
 
 if not "!software-config-present-list!"=="" (
     for %%v in (%software-config-present-list%) do (
@@ -193,37 +296,56 @@ if not "!software-config-present-list!"=="" (
 	  
 	)  
    call "%temp%!temp-online-list.bat"
-
+   echo.
    choice /N /C:YNO /M "Press N or O to skip downloading Configuration Updates or Y to Download Configuration Updates (default is Y in 4 seconds)..." /T 4 /D Y
    IF ERRORLEVEL 3 goto skipconfigupdates
    IF ERRORLEVEL 2 goto skipconfigupdates
-   IF ERRORLEVEL 1 echo.
+   IF ERRORLEVEL 1 goto downloadthoseconfigupdates
+)
 
-   <nul set /p screen="Downloading configuration updates .. "
+:downloadthoseconfigupdates
 
+echo.
+echo %ESC%[4mDownloading Latest Software Configurations%ESC%[0m
+echo %ESC%[1m-----------------------------------------------------------%ESC%[0m
+echo.
    for %%v in (%software-config-present-list%) do (
     if "!onlineupdate.%%v!"=="Y" (
-	   <nul set /p screen="%%v .. "
-	   call :download "%appinfopath%\%%v-install.txt" from "%onlineupdateurl%%%v-install.txt" with errormsg "downloading configuration file. Check the download location."
+	   set "line=%%v install.txt %ESC%[90m!dots!%ESC%[0m" 
+       <nul set /p ="!line:~0,50!"
+	   call :download "%appinfopath%\%%v-install.txt" from "%onlineupdateurl%%%v-install.txt" with errormsg "install.txt not found."
 	   if !ERRORLEVEL! NEQ 0 goto end
-       call :download  "%appinfopath%\%%v-uninstall.txt" from "%onlineupdateurl%%%v-uninstall.txt" with errormsg "downloading configuration file - Check the download location"
+       set "line=%%v uninstall.txt %ESC%[90m!dots!%ESC%[0m" 
+       <nul set /p ="!line:~0,50!"
+	   call :download  "%appinfopath%\%%v-uninstall.txt" from "%onlineupdateurl%%%v-uninstall.txt" with errormsg "uninstall.txt not found"
    	   if !ERRORLEVEL! NEQ 0 goto end
-	   if not "!followup.%%v!"=="" call :download "%appinfopath%\%%v.reg" from "%onlineupdateurl%%%v.reg" with errormsg "downloading reg file - Perhaps it was misspelt"
-   	   if !ERRORLEVEL! NEQ 0 goto end
-	   if not "!getlatestver.%%v!"=="" call :download "%appinfopath%\%%v-findlatestversion.txt" from "%onlineupdateurl%%%v-findlatestversion.txt" with errormsg "downloading findlatestver file - Perhaps it was misspelt"
-	   if !ERRORLEVEL! NEQ 0 goto end
+	   
+	   if not "!followup.%%v!"=="" (
+	    set "line=%%v registry file %ESC%[90m!dots!%ESC%[0m" 
+        <nul set /p ="!line:~0,50!"
+		call :download "%appinfopath%\%%v.reg" from "%onlineupdateurl%%%v.reg" with errormsg "registry file not found"
+		if !ERRORLEVEL! NEQ 0 goto end
+	   )
+   	   
+	   if not "!getlatestver.%%v!"=="" (
+	    set "line=%%v findlatestversion.txt %ESC%[90m!dots!%ESC%[0m" 
+        <nul set /p ="!line:~0,50!"
+		call :download "%appinfopath%\%%v-findlatestversion.txt" from "%onlineupdateurl%%%v-findlatestversion.txt" with errormsg "findlatestver file not found"
+		if !ERRORLEVEL! NEQ 0 goto end
+       )		 
+	   
     )
    )
-)
+
+goto checkinstallers
+
 
 :skipconfigupdates
 
 echo.
-echo.
 IF NOT DEFINED cmdarg (
-echo.
-echo [96mIf you wish to edit the list of software that Batch-Win-Installer will check, 
-echo edit the softwarelist variable in settings.bat[0m
+echo %ESC%[96mIf you wish to edit the list of software that Batch-Win-Installer will check, 
+echo edit this batch file to set the softwarelist variable. %ESC%[0m
 echo.
 ) 
 
@@ -266,21 +388,29 @@ if "%cmdarg%"=="checkonlinepkg" goto checkonline
 
 set "missinglist="
 echo.
-echo Checking software installers in %orgname% folder 
-echo --------------------------------------------------
+echo %ESC%[4mChecking and Verifying software installers in %orgname% folder%ESC%[0m
+echo %ESC%[1m------------------------------------------------------------%ESC%[0m
+
 echo.
+
 for %%v in (%softwarelist%) do (
+
+set "line=!name.%%v! %ESC%[90m!dots!%ESC%[0m" 
+
 if exist "%filespath%\!exe.%%v!" (
- call :checkifzerolength "%filespath%\!exe.%%v!" with errormsg "Please check the configuration file for !name.%%v! and delete the zero length file"
+ rem do checksum to see if file matches checksum
+ <nul set /p ="!line:~0,50!"
+ call :checksum "!name.%%v!" "%filespath%\!exe.%%v!" !SHA256.%%v!
+ 
  if !ERRORLEVEL! NEQ 0 goto end
- echo Installer for !name.%%v! found - !exe.%%v!
 ) ELSE (
- echo [101;93m MISSING [0m - Installer for !name.%%v! - !exe.%%v! not found 
- set missinglist=%%v !missinglist!
+   <nul set /p ="!line:~0,50!"
+   <nul set /p ="%ESC%[0m[ %ESC%[91mMISSING%ESC%[0m ]"
+   set missinglist=%%v !missinglist!
+   echo.
 )	
 )
 
-echo.
 echo.
 if "%missinglist%"=="" goto mainmenu
 
@@ -293,13 +423,34 @@ if "%Internet%"=="N" (
 )
 
 if "%Internet%"=="Y" (
-  echo Downloading missing installers since online...
+
+  echo %ESC%[4mDownloading Missing Installers since online%ESC%[0m
+  echo %ESC%[1m------------------------------------------------------------%ESC%[0m
   echo.
   for %%v in (!missinglist!) do (
-    echo Downloading !name.%%v!...
-    call :download "%filespath%\!exe.%%v!" from "!url.%%v!" with errormsg "Check the configuration file - perhaps a newer version of the software was released and/or the download location has changed."
+    
+	set "line=!name.%%v! %ESC%[90m!dots!%ESC%[0m" 
+	<nul set /p ="!line:~0,50!"
+	
+    call :download "%filespath%\!exe.%%v!" from "!url.%%v!" with errormsg "Check config : Download path may be outdated. Exiting...."
 	if !ERRORLEVEL! NEQ 0 goto end
+	
   )
+  
+  echo.
+  echo %ESC%[4mVerifying Checksums of Downloaded Installers%ESC%[0m
+  echo %ESC%[1m------------------------------------------------------------%ESC%[0m
+  echo.
+  
+  for %%v in (!missinglist!) do (
+     rem do checksum to see if file matches checksum
+	
+	set "line=!name.%%v! %ESC%[90m!dots!%ESC%[0m" 
+	<nul set /p ="!line:~0,50!"
+	
+	call :checksum "!name.%%v!" "%filespath%\!exe.%%v!" !SHA256.%%v!
+	if !ERRORLEVEL! NEQ 0 goto end
+  ) 
 )
 
 :mainmenu  
@@ -423,12 +574,12 @@ rem if getlatestver is Y then execute the findlatestversion txt ; else run xidel
   )   
 
   if !latestver.%%v!=="ERROR" (
-     echo [101;93mERROR[0m - Unable to check !name.%%v! online 
+     echo %ESC%[101;93mERROR%ESC%[0m - Unable to check !name.%%v! online 
   ) else (                   
    if !latestver.%%v!==!pkgver.%%v! (
      echo No Update Needed  - Latest version of !name.%%v! online is !latestver.%%v!
    )	ELSE (
-     echo [42mNEW Version Found[0m - Latest version of !name.%%v! online is !latestver.%%v!
+     echo %ESC%[42mNEW Version Found%ESC%[0m - Latest version of !name.%%v! online is !latestver.%%v!
    )
   )  
 ) 
@@ -454,6 +605,8 @@ rem for each item in softwarelist
 rem   echo text saying installing name and version 
 rem   run installer with silent arguments for silent install
 rem   if followup variable set, run followup cmd which is the registry edit to set the displayversion 
+
+
 
 for %%v in (%softwarelist%) do (
   echo Installing !name.%%v! !pkgver.%%v!
@@ -487,13 +640,13 @@ for %%v in (%softwarelist%) do (
 
 call :is-software-installed %%v installedver.%%v installreg.%%v
 if !ERRORLEVEL! NEQ 0 (
- echo [42mNOT INSTALLED[0m  - !name.%%v! is not installed.
+ echo %ESC%[42mNOT INSTALLED%ESC%[0m  - !name.%%v! is not installed.
  set toinstall-list=!toinstall-list!%%v 
 ) else (	  
  if "!installedver.%%v!" == "!ver.%%v!" (
   echo Latest version !installedver.%%v! of !name.%%v! is installed.
  ) else (
-  echo [104mUPDATE NEEDED[0m - Need to update !name.%%v! from !installedver.%%v! to !ver.%%v!
+  echo %ESC%[104mUPDATE NEEDED%ESC%[0m - Need to update !name.%%v! from !installedver.%%v! to !ver.%%v!
   set updatelist=%%v !updatelist!
   )
 )
@@ -532,7 +685,7 @@ if "%doupdate%"=="Y" (
 )   
 
 echo.
-echo [101;93m NOTE : Please Close ALL Software Before Updating[0m
+echo %ESC%[101;93m NOTE : Please Close ALL Software Before Updating%ESC%[0m
 echo.
 
 if "!updatelist!" == "" (
@@ -566,6 +719,7 @@ goto displaymainmenu
 if "!toinstall-list!" == "" (
    echo Nothing to Install.
 ) else (
+ 
   for %%v in (!toinstall-list!) do (
     echo Installing !name.%%v!
     "%filespath%\!exe.%%v!" !arg.%%v!
@@ -576,6 +730,8 @@ if "!toinstall-list!" == "" (
 :updatesoftwarelist
 
 if "!updatelist!" == "" goto end
+
+
 
 call "%temp%!temp-uninstall-list.bat"
 for %%k in (!updatelist!) do ( 
@@ -597,8 +753,8 @@ goto end
 
 for %%v in (temp-software-list.bat temp-uninstall-list.bat temp.txt temp-online.bat temp-online-list.bat nvidiatemp.txt) do if exist "%temp%!%%v" del "%temp%!%%v"
 endlocal
-timeout /t 4
-cd %tpath%
+timeout /t 20
+popd
 goto :eof
 
 rem  subroutines 
@@ -656,28 +812,50 @@ exit /b 0
 :download 
 rem download [file] from [url] with errormsg "[errormsg]"
 rem download [file] from [url] using wget and check if a zero length file, exit
-"%wgetexe%" -q --progress=bar -O %1 %3
+
+"%wgetexe%" --https-only -q -O %1 %3
 if !ERRORLEVEL! NEQ 0 (
- echo [101;93m ERROR [0m - %6
- echo This will now exit
- del /q %1
+ <nul set /p =""
+ <nul set /p ="[%ESC%[91m ERROR %ESC%[0m] - %6"
+ if exist "%~1" del /q "%~1" 
  exit /b 1
 )
-call :checkifzerolength %1 with errormsg " "
-if !ERRORLEVEL! NEQ 0 exit /b 2
 
+if %~z1 == 0 (
+  <nul set/p ="%ESC%[101;93m ERROR %ESC%[0m file %~1 is a zero-length file
+  del /q "%~1"
+  exit /b 2
+) 
+
+<nul set /p ="%ESC%[0m[%ESC%[92m Download complete %ESC%[0m]"
+echo.
 exit /b 0
 
-:checkifzerolength 
-rem checkifzerolength [filename] with errormsg "[errormsg]"
-for /F %%A in (%1) do (
-if %%~zA==0 (
- echo [101;93m ERROR [0m file %%A is a zero-length file 
- echo %4
- echo This will now exit
- exit /b 2
+
+:checksum
+rem checksum [name] [filename] [expectedsha256]
+rem returns 0 is checksum matches ; 1 if mismatch
+
+rem First, ensure the file actually exists and isn't empty
+if not exist "%~2" (
+   echo  [101;93m ERROR [0m - File not found for checksum.
+   exit /b 1
 )
+if %~z2 == 0 (
+   echo  [101;93m ERROR [0m - Cannot verify empty file.
+   exit /b 1
 )
+
+for /f "delims=" %%A in ('certutil -hashfile %2 SHA256 ^| find /v ":"') do set "actualhash=%%A"
+
+if /i "%actualhash%"=="%3" (
+   <nul set /p =%ESC%[0m[%ESC%[92m OK %ESC%[0m]
+   echo.
+) else (
+   <nul set /p =[%ESC%[91m FAIL %ESC%[0m] - Checksum mismatch. File corrupted or modified.
+   echo.
+   exit /b 1
+)   
 exit /b 0
 
 :showprograms
@@ -685,7 +863,7 @@ rem download json file from github and redirect all node with name to a file - d
 rem then for loop to only show the nodes ending with "-install.txt" which is the list of programs 
 "%xidelexe%" "%appinfourl%" -e '$json/name' > "%temp%\filelist.txt"
 echo.
-echo [96mList of programs online[0m
+echo %ESC%[96mList of programs online%ESC%[0m
 echo --------------------------------------------------------
 for /f "tokens=* delims=" %%a in ('type "%temp%\filelist.txt"') do (
     set "line=%%a"
@@ -706,7 +884,7 @@ echo.
 echo Batch-Win-Installer %bwiver% - Install/update Windows programs from a list and 
 echo                             check program websites for latest versions
 echo.
-echo Copyright (C) 2023 Dev Anand Teelucksingh 
+echo Copyright (C) 2023-2026 Dev Anand Teelucksingh 
 echo Used by the Trinidad and Tobago Computer Society - learn more at https://ttcs.tt/ 
 echo Project page : https://github.com/devtee/batch-win-installer
 echo Email comments to batchwininstaller@gmail.com
@@ -743,4 +921,3 @@ echo  uninstall pkgname ^[pkgname2 ...^]  - uninstall pkgname ^(multiple package
 echo  checkonline pkgname ^[pkgname2 ...^] - check website to see if what the latest version for pkgname ^(multiple packages can be specified^)
 echo.
 exit /b
-
