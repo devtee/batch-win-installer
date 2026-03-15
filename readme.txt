@@ -1,12 +1,12 @@
-Batch-Win-Installer v0.9.0 by Dev Anand Teelucksingh 
-Batch-Win-Installer Copyright (C) 2023 Dev Anand Teelucksingh 
+Batch-Win-Installer v1.0.0 by Dev Anand Teelucksingh 
+Batch-Win-Installer Copyright (C) 2023-2026 Dev Anand Teelucksingh 
 Project page : https://github.com/devtee/batch-win-installer
 Email comments to batchwininstaller@gmail.com
 
 This program comes with ABSOLUTELY NO WARRANTY; This is free software, and you are welcome to redistribute it under certain conditions;
 
 Batch-Win-Installer - install/update Windows programs and check program websites for latest versions
-Copyright (C) 2022 Dev Anand Teelucksingh batchwininstaller@gmail.com
+Copyright (C) 2022-2026 Dev Anand Teelucksingh batchwininstaller@gmail.com
 
 This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by
 the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
@@ -20,7 +20,7 @@ You should have received a copy of the GNU General Public License along with thi
 Software Requirements 
 -----------------------------------------------------------------------------
 
-- Tested on 64-bit Windows 10 and Windows 11
+- Tested on 64-bit Windows 10 and Windows 11 
 - Batch Win Installer requires Administrator Rights to be able to install/update programs
 
 -----------------------------------------------------------------------------
@@ -76,7 +76,6 @@ To install,
 Batch-Win Installer ZIP file contains the following files and folders
 
 - Batch-Win-Installer.bat
-- settings.bat
 - readme.txt (this file!)
 - license.txt
 - wget subfolder containing 64 bit version of GNU Wget v1.21.4, wget.exe from https://eternallybored.org/misc/wget/
@@ -84,7 +83,7 @@ Batch-Win Installer ZIP file contains the following files and folders
 
 Next, edit settings.bat which contains the following lines to set certain environment variables
 
-The critical one to edit is the softwarelist variable which is the list of software programs that Batch Win Installer will :
+The critical one to edit is the softwarelist variable in Batch-Win-Installer which is the list of software programs that Batch Win Installer will :
 * download the software configuration files and software installers
 * install / upgrade software using the software installers
 * check the software's websites for the latest version
@@ -111,8 +110,20 @@ example-install.txt
 set pkgver.example=105.0.3
 set ver.example=%pkgver.example%
 set name.example=Example Package
+
+if /i "%CPUarch%"=="AMD64" (
 set exe.example=Example Setup %pkgver.example%.exe
+set SHA256.example=b8947332afddefe9854445026a7534c768e1067f24121b04aab3afec54591b2f
 set url.example="https://example.example/download/%exe.example%"
+)
+
+if /i "%CPUarch%"=="ARM64" (
+ set exe.firefox=Firefox Setup %pkgver.firefox%.exe
+ set SHA256.firefox=631671b5ssffad2eff82bcb3d83e6924ff9548c1167cc45fea099cd3066658hhe
+ set url.firefox=https://download-installer.cdn.mozilla.net/pub/firefox/releases/%pkgver.firefox%/win64-aarch64/en-US/Firefox Setup %pkgver.firefox%.exe
+)
+
+
 set arg.example=-ms
 set chk.example=%ProgramFiles%\example\example.exe
 set regtext.example=Example
@@ -127,8 +138,21 @@ Here's a short explaination of each of these variables :
 * ver.example - this is the version number of the software when its installed on a Windows machine. Typically in the Windows Registry, the software typically puts the version in the DisplayVersion subkey. 
   However, some installers DON'T create the DisplayVersion subkey so for those programs, a .reg file with the DisplayVersion subkey with 
   the proper version will have to be provided and the followup.example will import such a reg file after installation.
-* exe.example - this is the name of the installer file when downloaded
-* url.example - this is the direct download URL of the software ; Batch Win Installer will download the installer (via wget) and put it in the files subfolder
+  
+* name.example = The short name of the software  
+
+* if /i "%CPUarch%"=="AMD64" (....) - this says if Windows is running under 64 bit x86 Windows, then set the variables within ()
+* if /i "%CPUarch%"=="ARM64" (....) - this says if Windows is running under 64 bit ARM Windows, then set the variables within ()
+
+This allows for Batch Win Installer to support different versions of programs that could install on different versions of Windows
+(64 bit x86 Windows and/or 64 bit ARM CPUs) 
+ * exe.example - this is the name of the installer file when downloaded
+ * SHA256.example - this is the SHA-256 checksum of the exe.example installer. When downloaded or when Batch Win Installer is first run, 
+   the SHA256 checksums of the installers in the %filespath% folder are calculated and compared with the SHA256 checksums in these files.
+   If they are different, it means the file is possibly corrupted or tampered with and installation should not continue.
+ * url.example - this is the direct download URL of the software ; Batch Win Installer will download the installer (via wget) and put it in the files subfolder
+
+
 * arg.example - the command line switches passed to the installer to install silently.
 * chk.example - the location of a file which proves that the software is installed.
 * regtext.example - the unique text that will allow Batch Win Installer to find the registry entry for the installed program.
@@ -175,4 +199,4 @@ Feedback
 * You can find me Mastodon at https://techhub.social/@devtee 
 * Visit the Trinidad and Tobago Computer Society's (TTCS) https://ttcs.tt/ ; join the TTCS announce mailing list!
 
-Last updated : December 5 2024
+Last updated : March 15 2026
