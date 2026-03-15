@@ -37,17 +37,13 @@ checkonline pkgname [pkgname2 ...] - check website to see if what the latest ver
 * online access when run for the first time to download configuration files and software installers
 
 # Screenshots
-![batchwininstaller-help](https://github.com/devtee/batch-win-installer/assets/41971042/4ea8aec0-e64b-42ad-b250-e9e0e5c87e8c)
 
-![first-run-menu](https://github.com/devtee/batch-win-installer/assets/41971042/be06adb1-3351-418f-bfdc-16efd9826e48)
-
-![download-missing-installers](https://github.com/devtee/batch-win-installer/assets/41971042/6c669799-bbb7-472e-95af-466e4a86b279)
-
-![checking-latest-versions](https://github.com/devtee/batch-win-installer/assets/41971042/80e5aac5-03fa-49d4-9b17-2ea0c103c32f)
-
-![check-what-software-installed](https://github.com/devtee/batch-win-installer/assets/41971042/7a440956-57d4-4d7e-80f0-db6a57dc8762)
-
-![install-upgrade-software](https://github.com/devtee/batch-win-installer/assets/41971042/65745e1d-5c67-4d15-be03-0e1d65ee784b)
+<img width="1215" height="800" alt="batch-win-installer-help" src="https://github.com/user-attachments/assets/a80df635-ceef-491c-b55c-cbcb2169afb1" />
+<img width="1215" height="800" alt="first-run-menu" src="https://github.com/user-attachments/assets/441354bd-b126-49f6-bab5-edb9818f14e7" />
+<img width="1215" height="800" alt="downloading-configuration-updates" src="https://github.com/user-attachments/assets/7529eeac-278f-4113-9ef4-fd8498bdf571" />
+<img width="1215" height="800" alt="checking-latest-versions" src="https://github.com/user-attachments/assets/23b5fbb5-73f2-4430-a85e-dafb2d5dadab" />
+<img width="1215" height="800" alt="verifying-installers" src="https://github.com/user-attachments/assets/c38eb19c-4ac2-4ad7-8a40-23ca6e9638f7" />
+<img width="1215" height="800" alt="check-what-software-installed" src="https://github.com/user-attachments/assets/729a0a40-e55b-4d9b-b92c-78c13c192727" />
 
 
 # Installation
