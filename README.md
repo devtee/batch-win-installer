@@ -164,11 +164,11 @@ set uninstall.example=msiexec /qn /uninstall %installreg.example%
 %installreg.example% is the software's subkey found in the Windows Registry under either %uninstallreg64% or %uninstallreg32%, 
 which is usually the software's product code GUID which varies with each version of the software. 
 
-
 ### example-findlatestversion.bat
 
 If there is a need to use this method to query a website instaad of xidel using regurl.example and regexp.example, set getlatestversion.example to Y. 
 Here's a typical example-findlatestversion.txt for the software progam "example".
+
 ---
 @echo off
 curl -i -s "<example url>" | findstr /b location >"%temp%\temp.txt"
