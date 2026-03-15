@@ -54,23 +54,23 @@ checkonline pkgname [pkgname2 ...] - check website to see if what the latest ver
 
 To install, unzip the latest Batch-Win-Installer.zip file to a folder. The Batch-Win-Installer.zip contains the following files and folders
 * Batch-Win-Installer.bat 
-* settings.bat
 * readme.txt
 * license.txt
-* wget subfolder containing 64 bit version of GNU Wget v1.21.3, wget.exe from https://eternallybored.org/misc/wget/
+* wget subfolder containing 64 bit AMD64 and ARM64 versions of GNU Wget v1.21.3, wget.exe from https://eternallybored.org/misc/wget/
 * xidel subfolder containing 64 bit version of Xidel v0.99 pre-release, xidel.exe from xidel-0.9.9.20220424.8389.2d2ee7befb8a.win64.zip dated 2022-04-24
   from https://sourceforge.net/projects/videlibri/files/Xidel/Xidel%20development/ (Xidel's home page is https://www.videlibri.de/xidel.html)
 
-Next, edit settings.bat which contains the following lines to set certain environment variables
+Next, edit Batch-Win-Installer which contains the following lines to set certain environment variables 
 
 ```
+set bwiver=1.0.0
 set onlineupdateurl=https://raw.githubusercontent.com/devtee/batch-win-installer/main/appinfo/
 set appinfourl=https://api.github.com/repos/devtee/batch-win-installer/contents/appinfo
-set introtitle1=Batch-Win-Installer %bwiver% by Dev Anand Teelucksingh - batchwininstaller@gmail.com -
+set introtitle1=Batch-Win-Installer %bwiver% by Dev Anand Teelucksingh (https://github.com/devtee/batch-win-installer)
 set introtitle2=for Trinidad and Tobago Computer Society (https://ttcs.tt/) 
 set orgname=TTCS
 
-set softwarelist=firefox libreoffice libreofficehelp pdfsam notepadplusplus vlc joplin bleachbit 7zip sumatrapdf tuxpaint tuxpaintstamps puzzlecollection
+set softwarelist=firefox libreoffice libreofficehelp pdfsam notepadplusplus vlc joplin bleachbit 7zip sumatrapdf puzzlecollection
 ```
 
 The critical one to edit is **softwarelist** which is the list of software programs that Batch Win Installer will :
@@ -92,11 +92,22 @@ Settings for software packages are stored as two batch files in the appinfo subf
 Here's a typical example-install.txt for the software program "example"
 
 ```
-set pkgver.example=105.0.3
+set pkgver.example=1105.0.2
 set ver.example=%pkgver.example%
 set name.example=Example Package
-set exe.example=Example Setup %pkgver.example%.exe
-set url.example="https://example.example/download/%exe.example%"
+
+if /i "%CPUarch%"=="AMD64" (
+ set exe.example=Example-Setup-x64-%pkgver.example%.exe
+ set SHA256.example=c388d0444871ca11b21237001af158cfddad7e137851795e5b65cee69g468347
+ set url.example=https://example.example/download/Example-Setup-x64-%pkgver.example%.exe
+)
+
+if /i "%CPUarch%"=="ARM64" (
+ set exe.example=Example-Setup-arm64-%pkgver.example%.exe
+ set SHA256.example=92fac666911336f3bbf3d99fdc48ec36fe20ac7a4200556936e61a80541fg9371
+ set url.example=https://example.example/download/Example-Setup-arm64-%pkgver.example%.exe
+)
+
 set arg.example=-ms
 set chk.example=%ProgramFiles%\example\example.exe
 set regtext.example=Example
@@ -112,10 +123,23 @@ Here's a short explaination of each of these variables :
                 However, some installers DON'T create the DisplayVersion subkey so for those programs, 
                 a .reg file with the DisplayVersion subkey with the proper version will have to be provided
                 and the followup.example will import such a reg file after installation
+* name.example - The short name of the software
+
+* if /i "%CPUarch%"=="AMD64" (....) - this says if Windows is running under 64 bit x86 Windows, then set the variables within ()
+* if /i "%CPUarch%"=="ARM64" (....) - this says if Windows is running under 64 bit ARM Windows, then set the variables within ()
+
+This allows for Batch Win Installer to support different versions of programs that could install on different versions of Windows
+(64 bit x86 Windows and/or 64 bit ARM CPUs) 
                 
 * exe.example - this is the name of the installer file when downloaded
+* SHA256.example - this is the SHA-256 checksum of the exe.example installer. When downloaded or when Batch Win Installer is first run, 
+   the SHA256 checksums of the installers in the %filespath% folder are calculated and compared with the SHA256 checksums in these files.
+   If they are different, it means the file is possibly corrupted or tampered with and installation should not continue.
 * url.example - this is the direct download URL of the software ; Batch Win Installer will download the installer (via wget) 
                 and put it in the files subfolder 
+
+Typically only exe.example, SHA256.example and url.example differ for installers for 64 bit x86 Windows and 64 bit ARM Windows. 
+
 * arg.example - the command line switches passed to the installer to install silently.
 * chk.example - the location of a file which proves that the software is installed.
 * regtext.example - the unique text that will allow Batch Win Installer to find the registry entry for the installed program
@@ -141,10 +165,20 @@ set uninstall.example=msiexec /qn /uninstall %installreg.example%
 which is usually the software's product code GUID which varies with each version of the software. 
 
 
+### example-findlatestversion.bat
+
+If there is a need to use this method to query a website instaad of xidel using regurl.example and regexp.example, set getlatestversion.example to Y. 
+Here's a typical example-findlatestversion.txt for the software progam "example".
+---
+@echo off
+curl -i -s "<example url>" | findstr /b location >"%temp%\temp.txt"
+for /f "tokens=4 delims=/" %%a in (%temp%\temp.txt) do @echo %%a>"%temp%\temp.txt"
+---
 
 # Feedback
 
 * Email : batchwininstaller@gmail.com
-* You can find me Mastodon at https://techhub.social/@devtee
+* You can find me Mastodon at https://techhub.social/@devtee and Bluesky at https://bsky.app/profile/devatee.bsky.social
 * Visit the Trinidad and Tobago Computer Society's (TTCS) https://ttcs.tt/ and join the TTCS announce mailing list!
 
+Last updated : March 15 2026
