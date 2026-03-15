@@ -169,11 +169,11 @@ which is usually the software's product code GUID which varies with each version
 If there is a need to use this method to query a website instaad of xidel using regurl.example and regexp.example, set getlatestversion.example to Y. 
 Here's a typical example-findlatestversion.txt for the software progam "example".
 
----
+...
 @echo off
 curl -i -s "<example url>" | findstr /b location >"%temp%\temp.txt"
 for /f "tokens=4 delims=/" %%a in (%temp%\temp.txt) do @echo %%a>"%temp%\temp.txt"
----
+...
 
 # Feedback
 
