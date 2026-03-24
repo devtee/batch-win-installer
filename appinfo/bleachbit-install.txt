@@ -12,5 +12,5 @@ set chk.bleachbit=%ProgramFiles(x86)%\BleachBit\bleachbit.exe
 set regtext.bleachbit=BleachBit
 set regsearch.bleachbit=%uninstallreg32%
 set regurl.bleachbit=https://www.bleachbit.org/download/windows
-set regexp.bleachbit=substring-before(substring-after(/html/body/div[2]/div[1]/div[5]/div/div[2]/div/div/div/div/div/div/div/p[1],'BleachBit '),' (stable)')
+set regexp.bleachbit=substring(/html/body/div[2]/div/main/div/div/section/div/div[2]/div/article/div/div/div/div/p[1],20,5)
 set onlineupdate.bleachbit=Y
