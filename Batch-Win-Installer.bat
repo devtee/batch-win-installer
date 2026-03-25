@@ -26,34 +26,30 @@ IF %ERRORLEVEL% NEQ 0 (
 )
 echo Administrator Privileges Detected.
 
-
 rem Initialise variables
 set tpath=%~dp0
 pushd %tpath%
-set bwiver=1.0.0
+set dots=.................................................
+for /f %%a in ('powershell -noprofile -command "[char]27"') do set "ESC=%%a"
+set uninstallreg64=HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall
+set uninstallreg32=HKLM\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Uninstall
+set appinfopath=.\appinfo
+rem --------------------------------------------------------
+rem   Customise these variables to suit your environment 
+rem --------------------------------------------------------
+set bwiver=1.0.1
 set onlineupdateurl=https://raw.githubusercontent.com/devtee/batch-win-installer/main/appinfo/
 set appinfourl=https://api.github.com/repos/devtee/batch-win-installer/contents/appinfo
 set introtitle1=Batch-Win-Installer %bwiver% by Dev Anand Teelucksingh (https://github.com/devtee/batch-win-installer)
 set introtitle2=for Trinidad and Tobago Computer Society (https://ttcs.tt/) 
 set orgname=TTCS
 
-set uninstallreg64=HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall
-set uninstallreg32=HKLM\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Uninstall
-set appinfopath=.\appinfo
-
-rem for /F %%a in ('echo prompt $E ^| cmd') do set "ESC=%%a"
-for /f %%a in ('powershell -noprofile -command "[char]27"') do set "ESC=%%a"
-
-
 set softwarelist=firefox libreoffice libreofficehelp pdfsam notepadplusplus vlc joplin bleachbit 7zip sumatrapdf puzzlecollection
-
-set dots=.................................................
 
 rem set variables depending on processor architecture 
 rem wget has a ARM version but xidel does not as of Feb 19 2026
 if /i "%PROCESSOR_ARCHITECTURE%"=="AMD64" set CPUarch=AMD64
 if /i "%PROCESSOR_ARCHITECTURE%"=="ARM64" set CPUarch=ARM64
-
 
 if /i "%CPUarch%"=="AMD64" ( 
   set wgetexe=.\wget\amd64\wget.exe
@@ -91,7 +87,6 @@ if !ERRORLEVEL! NEQ 0 goto end
 <nul set /p ="Verifying xidel.exe...."
 call :checksum "Xidel.exe" "%xidelexe%" %xidelexesha256%
 if !ERRORLEVEL! NEQ 0 goto end
-
 
 rem confirm appinfo and filespath subfolders exist and create if not 
 if not exist "%appinfopath%\" mkdir "%appinfopath%\"
@@ -134,8 +129,6 @@ if DEFINED cmdarg (
   for /F "tokens=1*" %%a in ("%*") do set softwarelist=%%b
 )
 
-
-rem admintest was done here first but moved 
 rem Test if we can access the Internet and download any files needed 
 
 set Internet=N
@@ -570,7 +563,10 @@ rem if getlatestver is Y then execute the findlatestversion txt ; else run xidel
 	  call "%temp%!%%v-findlatestversion.bat"
 	  set /p latestver.%%v=<"!regexp.%%v!"
   ) ELSE (
-     "%xidelexe%" -H "Accept-Language: en-US" --silent "!regurl.%%v!" -e "!regexp.%%v!">"%temp%temp.txt" 2> nul && set /p latestver.%%v=<"%temp%temp.txt" || set latestver.%%v="ERROR"
+  rem "%xidelexe%" -H "Accept-Language: en-US" --silent "!regurl.%%v!" -e "!regexp.%%v!">"%temp%temp.txt" 2> nul && set /p latestver.%%v=<"%temp%temp.txt" || set latestver.%%v="ERROR"
+    set latestver.%%v="ERROR"
+	"%xidelexe%" -H "Accept-Language: en-US" --silent !regurl.%%v! -e "!regexp.%%v!">"%temp%temp.txt"
+	set /p latestver.%%v=<"%temp%temp.txt"
   )   
 
   if !latestver.%%v!=="ERROR" (
