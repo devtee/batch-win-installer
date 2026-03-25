@@ -1,4 +1,4 @@
-Batch-Win-Installer v1.0.0 by Dev Anand Teelucksingh 
+Batch-Win-Installer v1.0.1 by Dev Anand Teelucksingh 
 Batch-Win-Installer Copyright (C) 2023-2026 Dev Anand Teelucksingh 
 Project page : https://github.com/devtee/batch-win-installer
 Email comments to batchwininstaller@gmail.com
@@ -112,17 +112,16 @@ set ver.example=%pkgver.example%
 set name.example=Example Package
 
 if /i "%CPUarch%"=="AMD64" (
-set exe.example=Example Setup %pkgver.example%.exe
-set SHA256.example=b8947332afddefe9854445026a7534c768e1067f24121b04aab3afec54591b2f
-set url.example="https://example.example/download/%exe.example%"
+set exe.example=Example-Setup-x64-%pkgver.example%.exe
+set SHA256.example=c388d0444871ca11b21237001af158cfddad7e137851795e5b65cee69g468347
+set url.example=https://example.example/download/Example-Setup-x64-%pkgver.example%.exe
 )
 
 if /i "%CPUarch%"=="ARM64" (
- set exe.firefox=Firefox Setup %pkgver.firefox%.exe
- set SHA256.firefox=631671b5ssffad2eff82bcb3d83e6924ff9548c1167cc45fea099cd3066658hhe
- set url.firefox=https://download-installer.cdn.mozilla.net/pub/firefox/releases/%pkgver.firefox%/win64-aarch64/en-US/Firefox Setup %pkgver.firefox%.exe
+ set exe.example=Example-Setup-arm64-%pkgver.example%.exe
+ set SHA256.example=92fac666911336f3bbf3d99fdc48ec36fe20ac7a4200556936e61a80541fg9371
+ set url.example=https://example.example/download/Example-Setup-arm64-%pkgver.example%.exe
 )
-
 
 set arg.example=-ms
 set chk.example=%ProgramFiles%\example\example.exe
@@ -139,7 +138,7 @@ Here's a short explaination of each of these variables :
   However, some installers DON'T create the DisplayVersion subkey so for those programs, a .reg file with the DisplayVersion subkey with 
   the proper version will have to be provided and the followup.example will import such a reg file after installation.
   
-* name.example = The short name of the software  
+* name.example - The short name of the software  
 
 * if /i "%CPUarch%"=="AMD64" (....) - this says if Windows is running under 64 bit x86 Windows, then set the variables within ()
 * if /i "%CPUarch%"=="ARM64" (....) - this says if Windows is running under 64 bit ARM Windows, then set the variables within ()
@@ -196,7 +195,7 @@ Feedback
 --------
 
 * Email : batchwininstaller@gmail.com
-* You can find me Mastodon at https://techhub.social/@devtee 
+* You can find me Mastodon at https://techhub.social/@devtee and Bluesky at https://bsky.app/profile/devatee.bsky.social
 * Visit the Trinidad and Tobago Computer Society's (TTCS) https://ttcs.tt/ ; join the TTCS announce mailing list!
 
-Last updated : March 15 2026
+Last updated : March 25 2026
