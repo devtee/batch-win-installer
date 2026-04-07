@@ -1,16 +1,16 @@
-set pkgver.sumatrapdf=3.6
+set pkgver.sumatrapdf=3.6.1
 set ver.sumatrapdf=%pkgver.sumatrapdf%
 set name.sumatrapdf=Sumatra PDF
 
 if /i "%CPUarch%"=="AMD64" (
  set exe.sumatrapdf=SumatraPDF-%pkgver.sumatrapdf%-64-install.exe
- set SHA256.sumatrapdf=810183f4f89da182639d7c30f529242df6c2c6444697790806db50b0e14bee54
+ set SHA256.sumatrapdf=1eee71cccd2ea6e94d5bcea54ee2f759844da3e1a0ee2f6045035b1d17b94381
  set url.sumatrapdf=https://www.sumatrapdfreader.org/dl/rel/%pkgver.sumatrapdf%/SumatraPDF-%pkgver.sumatrapdf%-64-install.exe
 )
 
 if /i "%CPUarch%"=="ARM64" (
 set exe.sumatrapdf=SumatraPDF-%pkgver.sumatrapdf%-arm64-install.exe
-set SHA256.sumatrapdf=d820bc66d4e9935f725a141f58584352b84ffaebbe5804b19201c94ab1ba1078
+set SHA256.sumatrapdf=758e6e870ffeb87ea44f4424f47043578ca35462cf026f43f6ff9fd334b3d0fa
 set url.sumatrapdf=https://www.sumatrapdfreader.org/dl/rel/%pkgver.sumatrapdf%/SumatraPDF-%pkgver.sumatrapdf%-arm64-install.exe
 )
 
