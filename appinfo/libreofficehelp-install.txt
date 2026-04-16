@@ -17,6 +17,6 @@ set regtext.libreofficehelp=LibreOffice * Help Pack
 set regsearch.libreofficehelp=%uninstallreg64%
 set uninstall.libreofficehelp=msiexec /qn /uninstall %installreg.libreofficehelp%
 set regurl.libreofficehelp=https://www.libreoffice.org/download/
-set regexp.libreofficehelp=substring(/html/body/section[3]/form/div/p[1]/span[1]/strong,13,6)
+set regexp.libreofficehelp=normalize-space(/html/body/section[1]/div/div/p[1])
 set onlineupdate.libreofficehelp=Y
 
