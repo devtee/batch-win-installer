@@ -1,5 +1,5 @@
-set pkgver.bleachbit=5.0.2
-set ver.bleachbit=5.0.2.3065
+set pkgver.bleachbit=6.0.0
+set ver.bleachbit=6.0.0.3482
 set name.bleachbit=BleachBit
 
 rem Bleachbit has no specific ARM64 version
