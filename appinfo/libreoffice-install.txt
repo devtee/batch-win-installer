@@ -1,4 +1,4 @@
-set pkgver.libreoffice=26.3.2
+set pkgver.libreoffice=26.2.3
 set ver.libreoffice=26.2.3.2
 set name.libreoffice=LibreOffice
 if /i "%CPUarch%"=="AMD64" (
