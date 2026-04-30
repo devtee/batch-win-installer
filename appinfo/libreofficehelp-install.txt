@@ -1,14 +1,14 @@
-set pkgver.libreofficehelp=26.2.2
-set ver.libreofficehelp=26.2.2.2
+set pkgver.libreofficehelp=26.2.3
+set ver.libreofficehelp=26.2.3.2
 set name.libreofficehelp=LibreOffice Help Pack
 if /i "%CPUarch%"=="AMD64" (
 set exe.libreofficehelp=LibreOffice_%pkgver.libreofficehelp%_Win_x86-64_helppack_en-US.msi
-set SHA256.libreofficehelp=0738f89526b796db3a2d8c04d80983c23a6e997ef01990e922faebe0eda38cee
+set SHA256.libreofficehelp=7d4ee4f99dc327c985c8f10730e049ec415b6e65b2a22baee6feabf8ebd1056c
 set url.libreofficehelp=https://download.documentfoundation.org/libreoffice/stable/%pkgver.libreofficehelp%/win/x86_64/LibreOffice_%pkgver.libreofficehelp%_Win_x86-64_helppack_en-US.msi
 )
 if /i "%CPUarch%"=="ARM64" (
 set exe.libreofficehelp=LibreOffice_%pkgver.libreofficehelp%_Win_aarch64_helppack_en-US.msi
-set SHA256.libreofficehelp=b4fc7cb56358761f8ad8f9435c524e5323b05418845e1f68fab0fbae983e6a05
+set SHA256.libreofficehelp=4da126df7b4b3fa5a7ba1718366d11d19899e7ea5fe52134848af1aa0cacc83f
 set url.libreofficehelp=https://download.documentfoundation.org/libreoffice/stable/%pkgver.libreofficehelp%/win/aarch64/LibreOffice_%pkgver.libreofficehelp%_Win_aarch64_helppack_en-US.msi
 )
 set arg.libreofficehelp=/qn /passive /norestart
@@ -19,4 +19,3 @@ set uninstall.libreofficehelp=msiexec /qn /uninstall %installreg.libreofficehelp
 set regurl.libreofficehelp=https://www.libreoffice.org/download/
 set regexp.libreofficehelp=normalize-space(/html/body/section[1]/div/div/p[1])
 set onlineupdate.libreofficehelp=Y
-
