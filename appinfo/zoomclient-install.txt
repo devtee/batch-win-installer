@@ -1,19 +1,19 @@
 rem -------------------------------------------------------------------------------------------------------------------------------------
 rem NOTE if updating version, DELETE the ZoomInstallerFull.msi from the files subfolder so that the latest version will be downloaded
 rem -------------------------------------------------------------------------------------------------------------------------------------
-set pkgver.zoomclient=7.0.2.34412
-set ver.zoomclient=7.0.34412
+set pkgver.zoomclient=7.0.5.38856
+set ver.zoomclient=7.0.38856
 set name.zoomclient=Zoom Workspace Client
 
 if /i "%CPUarch%"=="AMD64" (
 set exe.zoomclient=ZoomInstallerFull.msi
-set SHA256.zoomclient=4c9f29c5936bb5536739e846b924b32fc2952e0ec07df23e281ac70d9a9d57fc
+set SHA256.zoomclient=cb045d5943c546746b4236e8c3b6be4726e84e6e747c6251c90f666a66ead94d
 set url.zoomclient=https://cdn.zoom.us/prod/%pkgver.zoomclient%/x64/ZoomInstallerFull.msi
 )
 
 if /i "%CPUarch%"=="ARM64" (
 set exe.zoomclient=ZoomInstallerFull.msi
-set SHA256.zoomclient=02df9bc2d6917204dc32a73a7502d67dd93d018725c86f27b8a616f604a7b499
+set SHA256.zoomclient=8870662dde3a3c83063d2d90ec24ddd22f3ecdfaf3f4daa0a1bd4f4a8ccdb6fc
 set url.zoomclient=https://cdn.zoom.us/prod/%pkgver.zoomclient%/arm64/ZoomInstallerFull.msi
 )
 
