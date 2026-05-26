@@ -1,4 +1,4 @@
-set pkgver.notepadplusplus=8.9.6
+set pkgver.notepadplusplus=8.9.6.1
 set ver.notepadplusplus=%pkgver.notepadplusplus%
 set name.notepadplusplus=Notepad++
 
@@ -6,13 +6,13 @@ rem See https://github.com/notepad-plus-plus/notepad-plus-plus/releases/ for SHA
 
 if /i "%CPUarch%"=="AMD64" (
 set exe.notepadplusplus=npp.%ver.notepadplusplus%.Installer.x64.exe
-set SHA256.notepadplusplus=2ff794611c96ebbeb116ecd1ca4b97183435287bf7c24eef96c4fe2b11e5b8a0
+set SHA256.notepadplusplus=d8414ee7a38dd3a88c1d7479d115f7e2dc142970f995cb6d34e9c6f104b245c7
 set url.notepadplusplus=https://github.com/notepad-plus-plus/notepad-plus-plus/releases/download/v%pkgver.notepadplusplus%/npp.%ver.notepadplusplus%.Installer.x64.exe
 )
 
 if /i "%CPUarch%"=="ARM64" (
 set exe.notepadplusplus=npp.%ver.notepadplusplus%.Installer.arm64.exe
-set SHA256.notepadplusplus=75ac9c66ee33d673ac3f7185386d2559547bb8ee9acb62adac9815445042ea3c
+set SHA256.notepadplusplus=94602d8952f1ba3cab1daf8d791989695e95e46d970a8ce133a2221b6390314c
 set url.notepadplusplus=https://github.com/notepad-plus-plus/notepad-plus-plus/releases/download/v%pkgver.notepadplusplus%/npp.%ver.notepadplusplus%.Installer.arm64.exe
 )
 
