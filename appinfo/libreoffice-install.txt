@@ -17,5 +17,5 @@ set regtext.libreoffice=LibreOffice * (multilanguage)
 set regsearch.libreoffice=%uninstallreg64%
 set uninstall.libreoffice=msiexec /qn /uninstall %installreg.libreoffice%
 set regurl.libreoffice=https://www.libreoffice.org/download/
-set regexp.libreoffice=normalize-space(/html/body/section[1]/div/div/p[1])
+set regexp.libreoffice=normalize-space(/html/body/section[1]/div/div[1]/p[1])
 set onlineupdate.libreoffice=Y
