@@ -1,14 +1,14 @@
-set pkgver.libreoffice=26.2.3
-set ver.libreoffice=26.2.3.2
+set pkgver.libreoffice=26.2.4
+set ver.libreoffice=26.2.4.2
 set name.libreoffice=LibreOffice
 if /i "%CPUarch%"=="AMD64" (
 set exe.libreoffice=LibreOffice_%pkgver.libreoffice%_Win_x86-64.msi
-set SHA256.libreoffice=468d1fb3880af3bcddac002e9054155912c70b45d105bfa1c82036f33456133d
+set SHA256.libreoffice=202f26cda071c5aa4996a5a28412fddceb3891dceb0366982c62650456c0730f
 set url.libreoffice=https://download.documentfoundation.org/libreoffice/stable/%pkgver.libreoffice%/win/x86_64/LibreOffice_%pkgver.libreoffice%_Win_x86-64.msi
 )
 if /i "%CPUarch%"=="ARM64" (
 set exe.libreoffice=LibreOffice_%pkgver.libreoffice%_Win_aarch64.msi
-set SHA256.libreoffice=9f2bd820b928a96fc7d2dd8dc02995ddbde329d8377933a94ddeb5a5a1cb3cb9
+set SHA256.libreoffice=1cd35d4d2821f6b6e7e65a2fc7c0faa2b5074ecd0ad90c5eb30af8a4f86d3b0d
 set url.libreoffice=https://download.documentfoundation.org/libreoffice/stable/%pkgver.libreoffice%/win/aarch64/LibreOffice_%pkgver.libreoffice%_Win_aarch64.msi
 )
 set arg.libreoffice=/qn /passive /norestart
