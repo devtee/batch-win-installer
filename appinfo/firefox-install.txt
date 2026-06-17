@@ -1,4 +1,4 @@
-set pkgver.firefox=151.0.4
+set pkgver.firefox=152.0
 set ver.firefox=%pkgver.firefox%
 set name.firefox=Mozilla Firefox
 
@@ -7,7 +7,7 @@ rem Search for "win64/en-US/Firefox Setup" and "win64-aarch64/en-US/Firefox Setu
 
 if /i "%CPUarch%"=="AMD64" (
  set exe.firefox=Firefox Setup %pkgver.firefox%.exe
- set SHA256.firefox=528cf4d62c9e627231718d2c567cb5ac290d7279c97daae347e8227cdefd46ef
+ set SHA256.firefox=7b6270dcbd5d6308ae3053414dc64f1a9abb8be9fd6171d00b92074c7d2c2f3d
  set url.firefox=https://download-installer.cdn.mozilla.net/pub/firefox/releases/%pkgver.firefox%/win64/en-US/Firefox Setup %pkgver.firefox%.exe
 )
 
