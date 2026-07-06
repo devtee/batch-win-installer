@@ -3,6 +3,7 @@ set ver.bleachbit=6.0.2.3482
 set name.bleachbit=BleachBit
 
 rem Bleachbit has no specific ARM64 version
+rem checksums at https://download.bleachbit.org/bleachbit-%pkgver%-sha256sum.txt
 set exe.bleachbit=BleachBit-%pkgver.bleachbit%-setup.exe
 set SHA256.bleachbit=16532bc640315f87bd66e04f78b137e1ec90db2d0b7357bfcc47af8873e0076e
 set url.bleachbit=https://download.bleachbit.org/BleachBit-%pkgver.bleachbit%-setup.exe
