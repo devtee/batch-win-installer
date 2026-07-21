@@ -1,8 +1,8 @@
 rem -------------------------------------------------------------------------------------------------------------------------------------
 rem NOTE if updating version, DELETE the ZoomInstallerFull.msi from the files subfolder so that the latest version will be downloaded
 rem -------------------------------------------------------------------------------------------------------------------------------------
-set pkgver.zoomclient=7.1.0.41345
-set ver.zoomclient=7.1.41345
+set pkgver.zoomclient=7.1.5.43453
+set ver.zoomclient=7.1.43453
 set name.zoomclient=Zoom Workspace Client
 
 if /i "%CPUarch%"=="AMD64" (
