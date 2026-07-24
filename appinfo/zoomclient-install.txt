@@ -13,7 +13,7 @@ set url.zoomclient=https://cdn.zoom.us/prod/%pkgver.zoomclient%/x64/ZoomInstalle
 
 if /i "%CPUarch%"=="ARM64" (
 set exe.zoomclient=ZoomInstallerFull.msi
-set SHA256.zoomclient=5cad8a32a60fab358637652be7aa4ec1703737540e5fc60a243265cc90fbc063
+set SHA256.zoomclient=b01a501625746b969ae05720463598eb12a5f7340f26363551d80f36a58f5ae9
 set url.zoomclient=https://cdn.zoom.us/prod/%pkgver.zoomclient%/arm64/ZoomInstallerFull.msi
 )
 
