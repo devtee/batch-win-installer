@@ -1,5 +1,6 @@
 rem -------------------------------------------------------------------------------------------------------------------------------------
 rem NOTE if updating version, DELETE the ZoomInstallerFull.msi from the files subfolder so that the latest version will be downloaded
+rem  Zoom installers at at https://zoom.us/download/admin
 rem -------------------------------------------------------------------------------------------------------------------------------------
 set pkgver.zoomclient=7.1.5.43453
 set ver.zoomclient=7.1.43453
