@@ -1,14 +1,16 @@
-set pkgver.libreofficehelp=26.2.4
-set ver.libreofficehelp=26.2.4.2
+set pkgver.libreofficehelp=26.2.5
+set ver.libreofficehelp=26.2.5.2
 set name.libreofficehelp=LibreOffice Help Pack
+
+rem  See https://www.libreoffice.org/download/#other_versions to get SHA sums
 if /i "%CPUarch%"=="AMD64" (
 set exe.libreofficehelp=LibreOffice_%pkgver.libreofficehelp%_Win_x86-64_helppack_en-US.msi
-set SHA256.libreofficehelp=816250081adee71b0f8470abfcffa18f0463a137f3dbb999cc93d15f63641fcd
+set SHA256.libreofficehelp=bb4f1e9c5abc52a997d1f361dec6eea69cf1c9dc58ce804d7fdf150d52dfd031
 set url.libreofficehelp=https://download.documentfoundation.org/libreoffice/stable/%pkgver.libreofficehelp%/win/x86_64/LibreOffice_%pkgver.libreofficehelp%_Win_x86-64_helppack_en-US.msi
 )
 if /i "%CPUarch%"=="ARM64" (
 set exe.libreofficehelp=LibreOffice_%pkgver.libreofficehelp%_Win_aarch64_helppack_en-US.msi
-set SHA256.libreofficehelp=2f3a5e7086a9d1352ecfb8636226945e8c908b65c1724a5705999d5a9dbab1c9
+set SHA256.libreofficehelp=776bd50bc98e20587d0e13068b639ee86f6248abd1f63ea1a74460d6a0ee61ca
 set url.libreofficehelp=https://download.documentfoundation.org/libreoffice/stable/%pkgver.libreofficehelp%/win/aarch64/LibreOffice_%pkgver.libreofficehelp%_Win_aarch64_helppack_en-US.msi
 )
 set arg.libreofficehelp=/qn /passive /norestart
