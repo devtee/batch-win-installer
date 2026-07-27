@@ -1,5 +1,5 @@
-set pkgver.puzzlecollection=20260523.7ad37c6
-set ver.puzzlecollection=0.0.14596.0
+set pkgver.puzzlecollection=20260720.3c36322
+set ver.puzzlecollection=0.0.14654.0
 set name.puzzlecollection=Simon Tatham's Portable Puzzle Collection
 
 rem No ARM64 version
