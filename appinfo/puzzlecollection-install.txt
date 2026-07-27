@@ -4,7 +4,7 @@ set name.puzzlecollection=Simon Tatham's Portable Puzzle Collection
 
 rem No ARM64 version
 set exe.puzzlecollection=puzzles-%pkgver.puzzlecollection%-installer.msi
-set SHA256.puzzlecollection=848eff0f85a33ddf337afe1b67948f832a972261a6e4a9d0114a383f8cc6f1b2
+set SHA256.puzzlecollection=3e5d8c3b8e3d42faa17e10329f4d9aea562f81752600d6dab5a7803c3245e126
 set url.puzzlecollection=https://www.chiark.greenend.org.uk/~sgtatham/puzzles/puzzles-%pkgver.puzzlecollection%-installer.msi
 
 set arg.puzzlecollection=/qn /norestart
