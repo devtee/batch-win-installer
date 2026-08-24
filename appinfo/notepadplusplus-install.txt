@@ -1,4 +1,4 @@
-set pkgver.notepadplusplus=8.9.7
+set pkgver.notepadplusplus=8.9.8
 set ver.notepadplusplus=%pkgver.notepadplusplus%
 set name.notepadplusplus=Notepad++
 
@@ -6,7 +6,7 @@ rem See https://github.com/notepad-plus-plus/notepad-plus-plus/releases/ for SHA
 
 if /i "%CPUarch%"=="AMD64" (
 set exe.notepadplusplus=npp.%ver.notepadplusplus%.Installer.x64.exe
-set SHA256.notepadplusplus=1884e093bae261c4942210334e1f2eae71354913e4ded3cc1a4a18c5320741ec
+set SHA256.notepadplusplus=7b2a949bf460fb37a3888c9048698f43222a185a48323023df1c51e78a3ca1c2
 set url.notepadplusplus=https://github.com/notepad-plus-plus/notepad-plus-plus/releases/download/v%pkgver.notepadplusplus%/npp.%ver.notepadplusplus%.Installer.x64.exe
 )
 
