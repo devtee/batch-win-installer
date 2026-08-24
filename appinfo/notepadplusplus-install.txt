@@ -12,7 +12,7 @@ set url.notepadplusplus=https://github.com/notepad-plus-plus/notepad-plus-plus/r
 
 if /i "%CPUarch%"=="ARM64" (
 set exe.notepadplusplus=npp.%ver.notepadplusplus%.Installer.arm64.exe
-set SHA256.notepadplusplus=4bb261857e22505c36e1196b4f6326df41b4c0fffc527dc9933fe0b210f7cb02
+set SHA256.notepadplusplus=3ac2c91245e980c4fd0991e5c1971439e234c0713e994d1dae532c70b7528587
 set url.notepadplusplus=https://github.com/notepad-plus-plus/notepad-plus-plus/releases/download/v%pkgver.notepadplusplus%/npp.%ver.notepadplusplus%.Installer.arm64.exe
 )
 
