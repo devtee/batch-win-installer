@@ -1,0 +1,21 @@
+set pkgver.libreoffice-still=26.2.5
+set ver.libreoffice-still=26.2.5.2
+set name.libreoffice-still=LibreOffice
+if /i "%CPUarch%"=="AMD64" (
+set exe.libreoffice-still=LibreOffice_%pkgver.libreoffice-still%_Win_x86-64.msi
+set SHA256.libreoffice-still=f15ba07bfcb0186986cf3171063506f5d207c11f8cc051ba0d135209e9e915f9
+set url.libreoffice-still=https://download.documentfoundation.org/libreoffice/stable/%pkgver.libreoffice-still%/win/x86_64/LibreOffice_%pkgver.libreoffice-still%_Win_x86-64.msi
+)
+if /i "%CPUarch%"=="ARM64" (
+set exe.libreoffice-still=LibreOffice_%pkgver.libreoffice-still%_Win_aarch64.msi
+set SHA256.libreoffice-still=48e99bba813c65a823b86a9fe8c0746a415f3d0e9459255f81f745f58fd353aa
+set url.libreoffice-still=https://download.documentfoundation.org/libreoffice/stable/%pkgver.libreoffice-still%/win/aarch64/LibreOffice_%pkgver.libreoffice-still%_Win_aarch64.msi
+)
+set arg.libreoffice-still=/qn /passive /norestart
+set chk.libreoffice-still=%ProgramFiles%\LibreOffice\program\soffice.exe
+set regtext.libreoffice-still=LibreOffice * (multilanguage)
+set regsearch.libreoffice-still=%uninstallreg64%
+set uninstall.libreoffice-still=msiexec /qn /uninstall %installreg.libreoffice-still%
+set regurl.libreoffice-still=https://www.libreoffice.org/download/
+set regexp.libreoffice-still=normalize-space(/html/body/section[1]/div/div[1]/p[1])
+set onlineupdate.libreoffice-still=Y

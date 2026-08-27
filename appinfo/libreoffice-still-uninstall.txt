@@ -1,0 +1,1 @@
+set uninstall.libreoffice-still=msiexec REBOOT=ReallySuppress /qn /uninstall %installreg.libreoffice-still%
