@@ -10,7 +10,7 @@ set url.libreofficehelp-still=https://download.documentfoundation.org/libreoffic
 )
 if /i "%CPUarch%"=="ARM64" (
 set exe.libreofficehelp-still=LibreOffice_%pkgver.libreofficehelp-still%_Win_aarch64_helppack_en-US.msi
-set SHA256.libreofficehelp-still=c07ceebf92e026bfba887f9c5859fcab2939f9d2dfddbc14e56d0894ca1833e7
+set SHA256.libreofficehelp-still=776bd50bc98e20587d0e13068b639ee86f6248abd1f63ea1a74460d6a0ee61ca
 set url.libreofficehelp-still=https://download.documentfoundation.org/libreoffice/stable/%pkgver.libreofficehelp-still%/win/aarch64/LibreOffice_%pkgver.libreofficehelp-still%_Win_aarch64_helppack_en-US.msi
 )
 set arg.libreofficehelp-still=/qn /passive /norestart
