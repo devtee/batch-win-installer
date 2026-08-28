@@ -5,7 +5,7 @@ set name.libreofficehelp-still=LibreOffice Still Help Pack
 rem  See https://www.libreoffice.org/download/#other_versions to get SHA sums
 if /i "%CPUarch%"=="AMD64" (
 set exe.libreofficehelp-still=LibreOffice_%pkgver.libreofficehelp-still%_Win_x86-64_helppack_en-US.msi
-set SHA256.libreofficehelp-still=d7601a7b4a5cff4cdc59e6c1e22f31d30347d56e0026a9fea4d15dddde3a49a9
+set SHA256.libreofficehelp-still=bb4f1e9c5abc52a997d1f361dec6eea69cf1c9dc58ce804d7fdf150d52dfd031
 set url.libreofficehelp-still=https://download.documentfoundation.org/libreoffice/stable/%pkgver.libreofficehelp-still%/win/x86_64/LibreOffice_%pkgver.libreofficehelp-still%_Win_x86-64_helppack_en-US.msi
 )
 if /i "%CPUarch%"=="ARM64" (
