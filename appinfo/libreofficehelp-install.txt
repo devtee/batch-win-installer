@@ -1,6 +1,6 @@
 set pkgver.libreofficehelp=26.8.0
 set ver.libreofficehelp=26.8.0.3
-set name.libreofficehelp=LibreOffice Help Pack
+set name.libreofficehelp=LibreOffice Still Help Pack
 
 rem  See https://www.libreoffice.org/download/#other_versions to get SHA sums
 if /i "%CPUarch%"=="AMD64" (
