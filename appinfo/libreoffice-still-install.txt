@@ -1,6 +1,6 @@
 set pkgver.libreoffice-still=26.2.5
 set ver.libreoffice-still=26.2.5.2
-set name.libreoffice-still=LibreOffice
+set name.libreoffice-still=LibreOffice Still
 if /i "%CPUarch%"=="AMD64" (
 set exe.libreoffice-still=LibreOffice_%pkgver.libreoffice-still%_Win_x86-64.msi
 set SHA256.libreoffice-still=f15ba07bfcb0186986cf3171063506f5d207c11f8cc051ba0d135209e9e915f9
