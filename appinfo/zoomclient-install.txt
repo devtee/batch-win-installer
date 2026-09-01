@@ -8,7 +8,7 @@ set name.zoomclient=Zoom Workspace Client
 
 if /i "%CPUarch%"=="AMD64" (
 set exe.zoomclient=ZoomInstallerFull.msi
-set SHA256.zoomclient=5c45549aa924ee807215465aec6ca8f743520e2cd0b6ff8698b4a023e5b22204
+set SHA256.zoomclient=aa80801ac68d327014da0a6e387f37976d1e405e8a02ea40ce5b73cf47c3302
 set url.zoomclient=https://cdn.zoom.us/prod/%pkgver.zoomclient%/x64/ZoomInstallerFull.msi
 )
 
