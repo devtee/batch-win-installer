@@ -1,6 +1,6 @@
-set pkgver.7zip=26.02
-set pkgverplain.7zip=2602
-set ver.7zip=26.02.00.0
+set pkgver.7zip=26.03
+set pkgverplain.7zip=2603
+set ver.7zip=26.03.00.0
 set name.7zip=7-Zip
 
 rem sha256 found at https://github.com/ip7z/7zip/releases
