@@ -1,16 +1,16 @@
-set pkgver.libreofficehelp-still=26.2.5
-set ver.libreofficehelp-still=26.2.5.2
+set pkgver.libreofficehelp-still=26.2.6
+set ver.libreofficehelp-still=26.2.6.3
 set name.libreofficehelp-still=LibreOffice Still Help Pack
 
 rem  See https://www.libreoffice.org/download/#other_versions to get SHA sums
 if /i "%CPUarch%"=="AMD64" (
 set exe.libreofficehelp-still=LibreOffice_%pkgver.libreofficehelp-still%_Win_x86-64_helppack_en-US.msi
-set SHA256.libreofficehelp-still=bb4f1e9c5abc52a997d1f361dec6eea69cf1c9dc58ce804d7fdf150d52dfd031
+set SHA256.libreofficehelp-still=a9eaf5d81ba7387f5c36fcefa6749371a58bc66a5c1cd3f50950577be425e5f0
 set url.libreofficehelp-still=https://download.documentfoundation.org/libreoffice/stable/%pkgver.libreofficehelp-still%/win/x86_64/LibreOffice_%pkgver.libreofficehelp-still%_Win_x86-64_helppack_en-US.msi
 )
 if /i "%CPUarch%"=="ARM64" (
 set exe.libreofficehelp-still=LibreOffice_%pkgver.libreofficehelp-still%_Win_aarch64_helppack_en-US.msi
-set SHA256.libreofficehelp-still=776bd50bc98e20587d0e13068b639ee86f6248abd1f63ea1a74460d6a0ee61ca
+set SHA256.libreofficehelp-still=1321fdcd5f40085aa2fa38d9994da7a6acd52bb168674a1cdacfae84f61d015a
 set url.libreofficehelp-still=https://download.documentfoundation.org/libreoffice/stable/%pkgver.libreofficehelp-still%/win/aarch64/LibreOffice_%pkgver.libreofficehelp-still%_Win_aarch64_helppack_en-US.msi
 )
 set arg.libreofficehelp-still=/qn /passive /norestart
@@ -19,5 +19,5 @@ set regtext.libreofficehelp-still=LibreOffice * Help Pack
 set regsearch.libreofficehelp-still=%uninstallreg64%
 set uninstall.libreofficehelp-still=msiexec /qn /uninstall %installreg.libreofficehelp-still%
 set regurl.libreofficehelp-still=https://www.libreoffice.org/download/
-set regexp.libreofficehelp-still=normalize-space(/html/body/section[1]/div/div[1]/p[1])
+set regexp.libreofficehelp-still='substring-after(//option[@value="previous"], " ")'
 set onlineupdate.libreofficehelp-still=Y
