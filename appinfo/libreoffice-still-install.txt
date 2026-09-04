@@ -1,5 +1,5 @@
 set pkgver.libreoffice-still=26.2.6
-set ver.libreoffice-still=26.2.6.3
+set ver.libreoffice-still=26.2.6.2
 set name.libreoffice-still=LibreOffice Still
 if /i "%CPUarch%"=="AMD64" (
 set exe.libreoffice-still=LibreOffice_%pkgver.libreoffice-still%_Win_x86-64.msi
@@ -17,5 +17,5 @@ set regtext.libreoffice-still=LibreOffice * (multilanguage)
 set regsearch.libreoffice-still=%uninstallreg64%
 set uninstall.libreoffice-still=msiexec /qn /uninstall %installreg.libreoffice-still%
 set regurl.libreoffice-still=https://www.libreoffice.org/download/
-set regexp.libreoffice-still='substring-after(//option[@value="previous"], " ")'
+set regexp.libreoffice-still=normalize-space(/html/body/section[1]/div/div[1]/p[1])
 set onlineupdate.libreoffice-still=Y
