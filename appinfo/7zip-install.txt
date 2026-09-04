@@ -7,12 +7,12 @@ rem sha256 found at https://github.com/ip7z/7zip/releases
 
 if /i "%CPUarch%"=="AMD64" (
  set exe.7zip=7z%pkgverplain.7zip%-x64.msi
- set SHA256.7zip=db407a4f6d4999e5c7bc00ce8a882be94717b56e7fa68140fe3f12605d91643e
+ set SHA256.7zip=c0680064d698a62dd4a5a47f403db356a6531a5473e4c4b1d090ea2590513926
  set url.7zip=https://www.7-zip.org/a/7z%pkgverplain.7zip%-x64.msi
 )
 if /i "%CPUarch%"=="ARM64" (
 set exe.7zip=7z%pkgverplain%-arm64.exe
-set SHA256.7zip=7c6fde79ed5e11b81c7bb6573b7962d3b6322aa5fce69c33ed19f672b55173ab
+set SHA256.7zip=e22ce71c11dcf503c448fe51e56f41830eb4e1344fa5c7731ae63bce533a8e8e
 set url.7zip=https://www.7-zip.org/a/7z%pkgverplain%-arm64.exe
 )
 
