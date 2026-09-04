@@ -1,5 +1,5 @@
 set pkgver.libreofficehelp-still=26.2.6
-set ver.libreofficehelp-still=26.2.6.3
+set ver.libreofficehelp-still=26.2.6.2
 set name.libreofficehelp-still=LibreOffice Still Help Pack
 
 rem  See https://www.libreoffice.org/download/#other_versions to get SHA sums
@@ -19,5 +19,5 @@ set regtext.libreofficehelp-still=LibreOffice * Help Pack
 set regsearch.libreofficehelp-still=%uninstallreg64%
 set uninstall.libreofficehelp-still=msiexec /qn /uninstall %installreg.libreofficehelp-still%
 set regurl.libreofficehelp-still=https://www.libreoffice.org/download/
-set regexp.libreofficehelp-still='substring-after(//option[@value="previous"], " ")'
+set regexp.libreofficehelp-still=normalize-space(/html/body/section[1]/div/div[1]/p[1])
 set onlineupdate.libreofficehelp-still=Y
