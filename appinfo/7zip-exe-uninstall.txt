@@ -1,0 +1,1 @@
+set uninstall.7zip=%ProgramFiles%\7-Zip\Uninstall.exe" /S
