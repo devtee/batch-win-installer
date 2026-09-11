@@ -6,7 +6,7 @@ set name.7zip-exe=7-Zip
 rem sha256 found at https://github.com/ip7z/7zip/releases
 
 if /i "%CPUarch%"=="AMD64" (
- set exe.7zip-exe=7z%pkgverplain.7zip%-x64.exe
+ set exe.7zip-exe=7z%pkgverplain.7zip-exe%-x64.exe
  set SHA256.7zip-exe=0859c524b8a63551848f0c246abddcb1d0b7b656b0fbfe879f8d85e61a9e6edd
  set url.7zip-exe=https://github.com/ip7z/7zip/releases/download/%pkgver.7zip-exe%/7z%pkgverplain.7zip-exe%-x64.exe
 )
