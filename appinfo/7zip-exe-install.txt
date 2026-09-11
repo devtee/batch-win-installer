@@ -1,26 +1,26 @@
-set pkgver.7zip=26.03
-set pkgverplain.7zip=2603
-set ver.7zip=26.03.00.0
-set name.7zip=7-Zip
+set pkgver.7zip-exe=26.03
+set pkgverplain.7zip-exe=2603
+set ver.7zip-exe=26.03.00.0
+set name.7zip-exe=7-Zip
 
 rem sha256 found at https://github.com/ip7z/7zip/releases
 
 if /i "%CPUarch%"=="AMD64" (
- set exe.7zip=7z%pkgverplain.7zip%-x64.exe
- set SHA256.7zip=0859c524b8a63551848f0c246abddcb1d0b7b656b0fbfe879f8d85e61a9e6edd
- set url.7zip=https://github.com/ip7z/7zip/releases/download/%pkgver.7zip%/7z%pkgverplain.7zip%-x64.exe
+ set exe.7zip-exe=7z%pkgverplain.7zip%-x64.exe
+ set SHA256.7zip-exe=0859c524b8a63551848f0c246abddcb1d0b7b656b0fbfe879f8d85e61a9e6edd
+ set url.7zip-exe=https://github.com/ip7z/7zip/releases/download/%pkgver.7zip-exe%/7z%pkgverplain.7zip-exe%-x64.exe
 )
 
 if /i "%CPUarch%"=="ARM64" (
-set exe.7zip=7z%pkgverplain%-arm64.exe
-set SHA256.7zip=e22ce71c11dcf503c448fe51e56f41830eb4e1344fa5c7731ae63bce533a8e8e
-set url.7zip=https://github.com/ip7z/7zip/releases/download/%pkgver.7zip%/%exe.7zip%
+set exe.7zip-exe=7z%pkgverplain%-arm64.exe
+set SHA256.7zip-exe=e22ce71c11dcf503c448fe51e56f41830eb4e1344fa5c7731ae63bce533a8e8e
+set url.7zip-exe=https://github.com/ip7z/7zip/releases/download/%pkgver.7zip-exe%/%exe.7zip-exe%
 )
 
-set arg.7zip=/S
-set chk.7zip=%ProgramFiles%\7-Zip\7z.exe
-set regtext.7zip=7-Zip *
-set regsearch.7zip=%uninstallreg64%
-set regurl.7zip=https://www.7-zip.org/download.html
-set regexp.7zip=substring(/html/body/table/tbody/tr/td[2]/p[1]/b,16,5)
-set onlineupdate.7zip=N
+set arg.7zip-exe=/S
+set chk.7zip-exe=%ProgramFiles%\7-Zip\7z.exe
+set regtext.7zip-exe=7-Zip *
+set regsearch.7zip-exe=%uninstallreg64%
+set regurl.7zip-exe=https://www.7-zip.org/download.html
+set regexp.7zip-exe=substring(/html/body/table/tbody/tr/td[2]/p[1]/b,16,5)
+set onlineupdate.7zip-exe=Y
