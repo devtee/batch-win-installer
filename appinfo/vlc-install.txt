@@ -1,19 +1,17 @@
-set pkgver.vlc=3.0.23
+set pkgver.vlc=3.0.24
 set ver.vlc=%pkgver.vlc%
 set name.vlc=VideoLAN
 
 if /i "%CPUarch%"=="AMD64" (
 set exe.vlc=vlc-%pkgver.vlc%-win64.exe
-set SHA256.vlc=20ad191348684b470ddc4e05204316f3d8e39655f412b3e392a0eef97639daaf
+set SHA256.vlc=d711e1e1fe52052748c39080c7dce63f6b7e4c315efedf1774a3f1957b782ff3
 set url.vlc=https://get.videolan.org/vlc/%pkgver.vlc%/win64/vlc-%pkgver.vlc%-win64.exe
 )
 
-
 if /i "%CPUarch%"=="ARM64" (
 set exe.vlc=vlc-%pkgver.vlc%-winarm64.exe
-set SHA256.vlc=f1feeeefbe76299c9e0fe8df3d9dd7b30a96d6aef5dc842a22f5cfb577822427
+set SHA256.vlc=1377f8a7aa8094cf73bc5a36428a652f3da41017fe16a522e0f7941723000bfb
 set url.vlc=https://get.videolan.org/vlc/%pkgver.vlc%/win64/vlc-%pkgver.vlc%-winarm64.exe
-
 )
 
 set arg.vlc=/S
