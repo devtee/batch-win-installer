@@ -6,8 +6,6 @@ set pkgver.zoomclient=7.2.1.48556
 set ver.zoomclient=7.2.48556
 set name.zoomclient=Zoom Workspace Client
 
-rem admin installers can be found at https://zoom.us/download/admin 
-
 if /i "%CPUarch%"=="AMD64" (
 set exe.zoomclient=ZoomInstallerFull.msi
 set SHA256.zoomclient=b0dac9fa5237d2e18144ca723644460e7cc26675e5d3db0f89fdfe47ad8c429b
