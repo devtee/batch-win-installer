@@ -14,7 +14,7 @@ set SHA256.sumatrapdf=758e6e870ffeb87ea44f4424f47043578ca35462cf026f43f6ff9fd334
 set url.sumatrapdf=https://www.sumatrapdfreader.org/dl/rel/%pkgver.sumatrapdf%/SumatraPDF-%pkgver.sumatrapdf%-arm64-install.exe
 )
 
-set arg.sumatrapdf=-s -all-usersd820bc66d4e9935f725a141f58584352b84ffaebbe5804b19201c94ab1ba1078
+set arg.sumatrapdf=-s -all-users
 set chk.sumatrapdf=%ProgramFiles%\SumatraPDF\SumatraPDF.exe
 set regtext.sumatrapdf=SumatraPDF
 set regsearch.sumatrapdf=%uninstallreg64%
