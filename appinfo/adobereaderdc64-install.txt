@@ -1,12 +1,12 @@
-set pkgver.adobereaderdc64=26.002.21931
-set pkgno.adobereaderdc64=2600221931
+set pkgver.adobereaderdc64=26.002.21996
+set pkgno.adobereaderdc64=2600221996
 set ver.adobereaderdc64=%pkgver.adobereaderdc64%
 
 rem No native ARM version of Adobe Acrobat Reader exists as of April 13 2026 but recommended to install 32 bit version of Adobe Reader
 
 if /i "%CPUarch%"=="AMD64" (
  set name.adobereaderdc64=Adobe Reader DC ^(64bit^)
- set SHA256.adobereaderdc64=eb26aabf9b3d64949594157780f240e23e81ffb73300d41239046e7d4af7707a
+ set SHA256.adobereaderdc64=9259c4726b16e7444383da6c65ff54b669fee45b777d8e971f6cbcabc120a203
  set exe.adobereaderdc64=AcroRdrDCx64%pkgno.adobereaderdc64%_en_US.exe
  set url.adobereaderdc64=https://ardownload2.adobe.com/pub/adobe/acrobat/win/AcrobatDC/%pkgno.adobereaderdc64%/AcroRdrDCx64%pkgno.adobereaderdc64%_en_US.exe
 )
@@ -23,5 +23,5 @@ set chk.adobereaderdc64=%ProgramFiles%\Adobe\Acrobat DC\Acrobat\Acrobat.exe
 set regtext.adobereaderdc64=Adobe Acrobat (64-bit)
 set regsearch.adobereaderdc64=%uninstallreg64%
 set regurl.adobereaderdc64=https://www.adobe.com/devnet-docs/acrobatetk/tools/ReleaseNotesDC/index.html
-set regexp.adobereaderdc64=substring-before(/html/body/div/section/div[2]/div/div[2]/div/div/div[2]/ul/li[1]/p/a/span,' ')
+set regexp.adobereaderdc64=substring-before(/html/body/div/section/div[2]/div/div[2]/div/section/section[2]/ul/li[1]/p/a/span,' ')
 set onlineupdate.adobereaderdc64=Y
