@@ -1,5 +1,5 @@
 set pkgver.libreofficehelp=26.8.1
-set ver.libreofficehelp=26.8.1.3
+set ver.libreofficehelp=26.8.1.1
 set name.libreofficehelp=LibreOffice Help Pack
 
 rem  See https://www.libreoffice.org/download/#other_versions to get SHA sums
