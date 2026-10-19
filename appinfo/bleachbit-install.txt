@@ -1,11 +1,11 @@
-set pkgver.bleachbit=6.0.5
-set ver.bleachbit=6.0.5.521
+set pkgver.bleachbit=6.0.6
+set ver.bleachbit=6.0.6.633
 set name.bleachbit=BleachBit
 
 rem Bleachbit has no specific ARM64 version
 rem checksums at https://download.bleachbit.org/bleachbit-%pkgver%-sha256sum.txt
 set exe.bleachbit=BleachBit-%pkgver.bleachbit%-setup.exe
-set SHA256.bleachbit=1d30fef43e94e94c564ffee8d8c81080c00998e6b3edcf7f2d2bc6df24e1d698
+set SHA256.bleachbit=a8d27535cdc53e89c21090eabca6026d32c4d385863f8dfc6fc8814bda7881c4
 set url.bleachbit=https://download.bleachbit.org/BleachBit-%pkgver.bleachbit%-setup.exe
 
 set arg.bleachbit=/S /allusers
