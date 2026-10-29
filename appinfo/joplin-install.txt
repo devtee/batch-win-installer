@@ -1,10 +1,10 @@
-set pkgver.joplin=3.7.21
+set pkgver.joplin=3.7.22
 set ver.joplin=%pkgver.joplin%
 set name.joplin=Joplin
 
 rem Joplin has no specific ARM64 version
 set exe.joplin=Joplin-Setup-%pkgver.joplin%.exe
-set SHA256.joplin=4222536c69360a30a566627b35c2e1cd8d38d0c79735ebde4e39edbcddd750cd
+set SHA256.joplin=ee11551239e7d680f76c6a4ddbc2362dda850981904fdb365298e4d43bf1df4d
 set url.joplin=https://github.com/laurent22/joplin/releases/download/v%pkgver.joplin%/Joplin-Setup-%pkgver.joplin%.exe
 set arg.joplin=/ALLUSERS=1 /S
 set chk.joplin=%ProgramFiles%\Joplin\Joplin.exe
