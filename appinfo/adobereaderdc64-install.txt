@@ -1,12 +1,12 @@
-set pkgver.adobereaderdc64=26.002.22031
-set pkgno.adobereaderdc64=2600222031
+set pkgver.adobereaderdc64=26.003.22075
+set pkgno.adobereaderdc64=2600322075
 set ver.adobereaderdc64=%pkgver.adobereaderdc64%
 
 rem No native ARM version of Adobe Acrobat Reader exists as of April 13 2026 but recommended to install 32 bit version of Adobe Reader
 
 if /i "%CPUarch%"=="AMD64" (
  set name.adobereaderdc64=Adobe Reader DC ^(64bit^)
- set SHA256.adobereaderdc64=86e98feb3f2afa66656a85cbbc6fb71d6a3217ebf8fdc21f4d1a54d21cb45028
+ set SHA256.adobereaderdc64=93a9c1bc2824610bbbf778c29a5aa316bb9ac7cc8ead4c58ceb9f1dc318f04d9
  set exe.adobereaderdc64=AcroRdrDCx64%pkgno.adobereaderdc64%_en_US.exe
  set url.adobereaderdc64=https://ardownload2.adobe.com/pub/adobe/acrobat/win/AcrobatDC/%pkgno.adobereaderdc64%/AcroRdrDCx64%pkgno.adobereaderdc64%_en_US.exe
 )
