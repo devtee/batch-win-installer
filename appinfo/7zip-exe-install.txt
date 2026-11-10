@@ -1,19 +1,19 @@
-set pkgver.7zip-exe=26.05
-set pkgverplain.7zip-exe=2605
-set ver.7zip-exe=26.05
+set pkgver.7zip-exe=26.06
+set pkgverplain.7zip-exe=2606
+set ver.7zip-exe=26.06
 set name.7zip-exe=7-Zip
 
 rem sha256 found at https://github.com/ip7z/7zip/releases
 
 if /i "%CPUarch%"=="AMD64" (
  set exe.7zip-exe=7z%pkgverplain.7zip-exe%-x64.exe
- set SHA256.7zip-exe=fd99e86f57d8f429ef5ed045bf98315af962e2309b0f1ba87a147a44c71647d0
+ set SHA256.7zip-exe=9b697f65ecc2d9b0152f5ee96d72dde522a7827690349d9307935dacf40f42ec
  set url.7zip-exe=https://github.com/ip7z/7zip/releases/download/%pkgver.7zip-exe%/7z%pkgverplain.7zip-exe%-x64.exe
 )
 
 if /i "%CPUarch%"=="ARM64" (
 set exe.7zip-exe=7z%pkgverplain.7zip-exe%-arm64.exe
-set SHA256.7zip-exe=86d5790d5dd84cab4636c3bb7fab10d3ed7cd3e57e6119401bd2769e28165268
+set SHA256.7zip-exe=036a00d478ef81f4b4b85fb37b0f934d558341f3f51aa7d36d2a26454740e625
 set url.7zip-exe=https://github.com/ip7z/7zip/releases/download/%pkgver.7zip-exe%/%exe.7zip-exe%
 )
 
