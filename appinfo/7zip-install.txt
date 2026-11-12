@@ -8,12 +8,12 @@ rem sha256 found at https://github.com/ip7z/7zip/releases
 if /i "%CPUarch%"=="AMD64" (
  set exe.7zip=7z%pkgverplain.7zip%-x64.msi
  set SHA256.7zip=6dc822569e777d9a3ecd5ffcbc22b55600af87e6c5d9810a64e8566cf5a4af9f
- set url.7zip=https://www.7-zip.org/a/7z%pkgverplain.7zip%-x64.msi
+ set url.7zip=https://github.com/ip7z/7zip/releases/download/%pkgver.7zip%/%exe.7zip%
 )
 if /i "%CPUarch%"=="ARM64" (
-set exe.7zip=7z%pkgverplain%-arm64.exe
+set exe.7zip=7z%pkgverplain.7zip%-arm64.exe
 set SHA256.7zip=036a00d478ef81f4b4b85fb37b0f934d558341f3f51aa7d36d2a26454740e625
-set url.7zip=https://www.7-zip.org/a/7z%pkgverplain%-arm64.exe
+set url.7zip=https://github.com/ip7z/7zip/releases/download/%pkgver.7zip%/%exe.7zip%
 )
 
 set arg.7zip=/qn /norestart
