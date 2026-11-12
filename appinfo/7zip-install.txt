@@ -17,10 +17,10 @@ set SHA256.7zip=036a00d478ef81f4b4b85fb37b0f934d558341f3f51aa7d36d2a26454740e625
 set url.7zip=https://github.com/ip7z/7zip/releases/download/%pkgver.7zip%/%exe.7zip%
 )
 
-set arg.7zip-exe=/S
-set chk.7zip-exe=%ProgramFiles%\7-Zip\7z.exe
-set regtext.7zip-exe=7-Zip *
-set regsearch.7zip-exe=%uninstallreg64%
-set regurl.7zip-exe=https://www.7-zip.org/download.html
-set regexp.7zip-exe=substring(/html/body/table/tbody/tr/td[2]/p[1]/b,16,5)
-set onlineupdate.7zip-exe=Y
+set arg.7zip=/S
+set chk.7zip=%ProgramFiles%\7-Zip\7z.exe
+set regtext.7zip=7-Zip *
+set regsearch.7zip=%uninstallreg64%
+set regurl.7zip=https://www.7-zip.org/download.html
+set regexp.7zip=substring(/html/body/table/tbody/tr/td[2]/p[1]/b,16,5)
+set onlineupdate.7zip=Y
