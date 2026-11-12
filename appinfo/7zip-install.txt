@@ -12,7 +12,7 @@ if /i "%CPUarch%"=="AMD64" (
 )
 
 if /i "%CPUarch%"=="ARM64" (
-set exe.7zip=7z%pkgverplain.7zip-exe%-arm64.exe
+set exe.7zip=7z%pkgverplain.7zip%-arm64.exe
 set SHA256.7zip=036a00d478ef81f4b4b85fb37b0f934d558341f3f51aa7d36d2a26454740e625
 set url.7zip=https://github.com/ip7z/7zip/releases/download/%pkgver.7zip%/%exe.7zip%
 )
