@@ -8,7 +8,7 @@ rem sha256 found at https://github.com/ip7z/7zip/releases
 if /i "%CPUarch%"=="AMD64" (
  set exe.7zip=7z%pkgverplain.7zip%-x64.exe
  set SHA256.7zip=9b697f65ecc2d9b0152f5ee96d72dde522a7827690349d9307935dacf40f42ec
- set url.7zip=https://github.com/ip7z/7zip/releases/download/%pkgver.7zip%/%exe.7zip%
+ set url.7zip=https://github.com/ip7z/7zip/releases/download/%pkgver.7zip%/7z%pkgverplain.7zip%-x64.exe
 )
 
 if /i "%CPUarch%"=="ARM64" (
