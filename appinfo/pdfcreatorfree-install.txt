@@ -1,15 +1,15 @@
 rem **** silent installation on a Windows computer connected to a domain requires a license to be purchased.  ****
 rem ****   5.3.3 was the last version that allowed installation to a Windows machine connected to a domain without requiring a license to be purchased    ****
 
-set pkgver.pdfcreatorfree=6.3.0
-set pkgno.pdfcreatorfree=6_3_0
-set ver.pdfcreatorfree=6.3.0
+set pkgver.pdfcreatorfree=6.3.1
+set pkgno.pdfcreatorfree=6_3_1
+set ver.pdfcreatorfree=6.3.1
 set name.pdfcreatorfree=PDFCreator Free
 
 rem PDFCreator doesn't have a native ARM version but installer is universal 
 
 set exe.pdfcreatorfree=PDFCreator-%pkgno.pdfcreatorfree%-Setup.exe
-set SHA256.pdfcreatorfree=7dd7b27c8706e5470ebe120eb6707773d149c48e79d5c85be87ef4e8805453ff
+set SHA256.pdfcreatorfree=8423065b80292bf8beed8be9ca260f2072a4887c7de151a3a3262b146e890be6
 set url.pdfcreatorfree=https://cdn.download.pdfforge.org/pdfcreator/%pkgver.pdfcreatorfree%/PDFCreator-%pkgno.pdfcreatorfree%-Setup.exe
 
 set arg.pdfcreatorfree=/VerySilent /DisableContextMenu /COMPONENTS="none"
