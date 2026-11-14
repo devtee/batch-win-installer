@@ -8,17 +8,19 @@ if /i "%CPUarch%"=="AMD64" (
 set exe.notepadplusplus=npp.%ver.notepadplusplus%.Installer.x64.exe
 set SHA256.notepadplusplus=ce3267f5c4e7e42f847e00f4b20234da6150647203033cdde34a69593efc3152
 set url.notepadplusplus=https://github.com/notepad-plus-plus/notepad-plus-plus/releases/download/v%pkgver.notepadplusplus%/npp.%ver.notepadplusplus%.Installer.x64.exe
+set regtext.notepadplusplus=Notepad++ (64-bit x64)
 )
 
 if /i "%CPUarch%"=="ARM64" (
 set exe.notepadplusplus=npp.%ver.notepadplusplus%.Installer.arm64.exe
 set SHA256.notepadplusplus=e5ac20348d83693a2816f4ed8e4a3118d5759f258af07c8cec525d1e0cc026e9
 set url.notepadplusplus=https://github.com/notepad-plus-plus/notepad-plus-plus/releases/download/v%pkgver.notepadplusplus%/npp.%ver.notepadplusplus%.Installer.arm64.exe
+set regtext.notepadplusplus=Notepad++ (ARM 64-bit)
 )
 
 set arg.notepadplusplus=/S
 set chk.notepadplusplus=%ProgramFiles%\Notepad++\notepad++.exe
-set regtext.notepadplusplus=Notepad++ (64-bit x64)
+
 set regsearch.notepadplusplus=%uninstallreg64%
 set regurl.notepadplusplus=https://notepad-plus-plus.org/
 set regexp.notepadplusplus=substring-after(/html/body/div/header/div/div[1]/p/a/strong,'Version ')
