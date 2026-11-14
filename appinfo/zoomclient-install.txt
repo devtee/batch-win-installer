@@ -10,16 +10,18 @@ if /i "%CPUarch%"=="AMD64" (
 set exe.zoomclient=ZoomInstallerFull.msi
 set SHA256.zoomclient=8e81e0d7dc401880c4cdfd14db8bed51308608b7aa67fa1e2ca31ccaa71cad93
 set url.zoomclient=https://cdn.zoom.us/prod/%pkgver.zoomclient%/x64/ZoomInstallerFull.msi
+set regtext.zoomclient=Zoom Workplace (64-bit)
 )
 
 if /i "%CPUarch%"=="ARM64" (
 set exe.zoomclient=ZoomInstallerFull.msi
 set SHA256.zoomclient=7b35359606578d50f2a71e6b061bd1202dd481d2b6d0380be9ad72dcb32329c0
 set url.zoomclient=https://cdn.zoom.us/prod/%pkgver.zoomclient%/arm64/ZoomInstallerFull.msi
+set regtext.zoomclient=Zoom Workplace (ARM64)
 )
 
 set arg.zoomclient=/quiet /qn /norestart
-set chk.zoomclient=%ProgramFiles%\Zoom\bin
+set chk.zoomclient=%ProgramFiles%\Zoom\bin\Zoom.exe
 set regtext.zoomclient=Zoom Workplace (64-bit)
 set regsearch.zoomclient=%uninstallreg64%
 set getlatestver.zoomclient=Y
