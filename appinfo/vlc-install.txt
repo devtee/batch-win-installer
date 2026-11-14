@@ -11,7 +11,7 @@ set url.vlc=https://get.videolan.org/vlc/%pkgver.vlc%/win64/vlc-%pkgver.vlc%-win
 if /i "%CPUarch%"=="ARM64" (
 set exe.vlc=vlc-%pkgver.vlc%-winarm64.exe
 set SHA256.vlc=1377f8a7aa8094cf73bc5a36428a652f3da41017fe16a522e0f7941723000bfb
-set url.vlc=https://get.videolan.org/vlc/%pkgver.vlc%/win64/vlc-%pkgver.vlc%-winarm64.exe
+set url.vlc=https://get.videolan.org/vlc/%pkgver.vlc%/winarm64/vlc-%pkgver.vlc%-winarm64.exe
 )
 
 set arg.vlc=/S
