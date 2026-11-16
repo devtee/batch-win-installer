@@ -8,8 +8,8 @@ if /i "%CPUarch%"=="AMD64" (
 
  set name.adobereaderdc64=Adobe Reader DC ^(64bit^)
  set SHA256.adobereaderdc64=93a9c1bc2824610bbbf778c29a5aa316bb9ac7cc8ead4c58ceb9f1dc318f04d9
- set exe.adobereaderdc64=AcroRdrDCx64%pkgno.adobereaderdc64%_en_US.exe
- set url.adobereaderdc64=https://ardownload2.adobe.com/pub/adobe/acrobat/win/AcrobatDC/%pkgno.adobereaderdc64%/AcroRdrDCx64%pkgno.adobereaderdc64%_en_US.exe
+ set exe.adobereaderdc64=AcroRdrDCx642600322075_en_US.exe
+ set url.adobereaderdc64=https://ardownload2.adobe.com/pub/adobe/acrobat/win/AcrobatDC/2600322075/AcroRdrDCx642600322075_en_US.exe
  set regsearch.adobereaderdc64=%uninstallreg64%
  set regtext.adobereaderdc64=Adobe Acrobat (64-bit)
  set chk.adobereaderdc64=%ProgramFiles%\Adobe\Acrobat DC\Acrobat\Acrobat.exe
