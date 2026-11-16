@@ -11,7 +11,7 @@ if /i "%CPUarch%"=="AMD64" (
  set exe.adobereaderdc64=AcroRdrDCx642600322075_en_US.exe
  set url.adobereaderdc64=https://ardownload2.adobe.com/pub/adobe/acrobat/win/AcrobatDC/2600322075/AcroRdrDCx642600322075_en_US.exe
  set regsearch.adobereaderdc64=%uninstallreg64%
- set regtext.adobereaderdc64=Adobe Acrobat (64-bit)
+ set regtext.adobereaderdc64=Adobe Acrobat ^(64-bit^)
  set chk.adobereaderdc64=%ProgramFiles%\Adobe\Acrobat DC\Acrobat\Acrobat.exe
 )
 rem 32 bit is on 2600222031
