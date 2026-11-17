@@ -37,12 +37,24 @@ checkonline pkgname [pkgname2 ...] - check website to see if what the latest ver
 
 # Screenshots
 
-<img width="1215" height="800" alt="batch-win-installer-help" src="https://github.com/user-attachments/assets/a80df635-ceef-491c-b55c-cbcb2169afb1" />
-<img width="1215" height="800" alt="first-run-menu" src="https://github.com/user-attachments/assets/441354bd-b126-49f6-bab5-edb9818f14e7" />
-<img width="1215" height="800" alt="downloading-configuration-updates" src="https://github.com/user-attachments/assets/7529eeac-278f-4113-9ef4-fd8498bdf571" />
-<img width="1215" height="800" alt="checking-latest-versions" src="https://github.com/user-attachments/assets/23b5fbb5-73f2-4430-a85e-dafb2d5dadab" />
-<img width="1215" height="800" alt="verifying-installers" src="https://github.com/user-attachments/assets/c38eb19c-4ac2-4ad7-8a40-23ca6e9638f7" />
-<img width="1215" height="800" alt="check-what-software-installed" src="https://github.com/user-attachments/assets/729a0a40-e55b-4d9b-b92c-78c13c192727" />
+Output of running batchwininstaller.bat /? :  
+<img width="1080" height="640" alt="batchwininstaller1 5-helptext" src="https://github.com/user-attachments/assets/cd611e4d-4ac1-4edd-8b49-aa494367ff85" />
+
+Main menu after downloading and verifying checksum of downloaded installers 
+<img width="1080" height="640" alt="batchwininstaller1 5-main-menu-after-verifying-downloaeded-installers" src="https://github.com/user-attachments/assets/12c344a4-9f16-4fe3-93e3-78eac9420290" />
+
+Checking online for latest versions from software's websites 
+<img width="1080" height="640" alt="batchwininstaller1 5-checking-software-websites-for-latest-versions" src="https://github.com/user-attachments/assets/5206371f-8027-415b-9ca9-73c7495dab30" />
+
+From main menu, selecting option 2 - check if software installed and machine, show what is not installed and what needs updating, and ask whether to install missing software and update installed software OR update installed software only
+<img width="1080" height="640" alt="batchwininstaller1 5-check-sofware-is-installed-and-show-what-not-installed-and-what-needs-updating " src="https://github.com/user-attachments/assets/5b4a21d0-a430-4e68-8723-1fd8a918399b" />
+
+Installing missing software automatically and updating Mozilla Firefox
+<img width="1080" height="640" alt="batchwininstaller1 5-installing-missing-software-and-updating-software" src="https://github.com/user-attachments/assets/eb2eafe5-e49d-40ac-b7a3-1713598a9f1c" />
+
+
+See [https://github.com/devtee/batch-win-installer/wiki/Screenshots] for more screenshots 
+
 
 
 # Installation
