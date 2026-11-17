@@ -25,7 +25,7 @@ if /i "%CPUarch%"=="ARM64" (
  set url.adobereaderdc64=https://ardownload2.adobe.com/pub/adobe/reader/win/AcrobatDC/2600222031/AcroRdrDC2600222031_en_US.exe
  set regsearch.adobereaderdc64=%uninstallreg32%
  set regtext.adobereaderdc64=Adobe Acrobat Reader
- set "chk.adobereaderdc64=%ProgramFiles(x86)%\Adobe\Acrobat DC\Reader\AcroRd32.exe"
+ set "chk.adobereaderdc64=%ProgramFiles(x86)%\Adobe\Acrobat Reader DC\Reader\AcroRd32.exe"
 )
 
 set arg.adobereaderdc64=/sAll /rs /msi EULA_ACCEPT=YES 
