@@ -1,4 +1,4 @@
-Batch-Win-Installer v1.0.1 by Dev Anand Teelucksingh 
+Batch-Win-Installer v1.5 by Dev Anand Teelucksingh 
 Batch-Win-Installer Copyright (C) 2023-2026 Dev Anand Teelucksingh 
 Project page : https://github.com/devtee/batch-win-installer
 Email comments to batchwininstaller@gmail.com
@@ -20,7 +20,7 @@ You should have received a copy of the GNU General Public License along with thi
 Software Requirements 
 -----------------------------------------------------------------------------
 
-- Tested on 64-bit Windows 10 and Windows 11 
+- Tested on 64-bit Windows 10 and Windows 11 and Windows 11 on ARM64 
 - Batch Win Installer requires Administrator Rights to be able to install/update programs
 
 -----------------------------------------------------------------------------
@@ -28,15 +28,14 @@ Introduction
 -----------------------------------------------------------------------------
 
 From a list of software, Batch Win Installer can:
-* automatically install software on 64 bit Windows 10/11 x64 machine silently without prompts
+* automatically install software on 64 bit Windows 11 x64/ARM64 machine silently without prompts
 * check what software is installed and offer to install and/or upgrade software
 * if online, scan program's websites directly to determine the latest version 
   of the software available
 
 
-Batch Win Installer is a batch file which must be run as an administrator and uses two command line utilities 
+Batch Win Installer is a batch file which must be run as an administrator and uses one command line utility 
 
-* Windows binary of GNU Wget (https://eternallybored.org/misc/wget/) used to retrieve files using http(s) 
 * Windows binary of Xidel (https://github.com/benibela/xidel) a commandline tool to download and extract data from HTML pages 
 
 The advantages of Batch Win Installer :
@@ -62,7 +61,7 @@ checkonline pkgname ^[pkgname ...^] - check website to see if what the latest ve
 Requirements
 ------------
 
-* 64 bit version of Windows 10 or Windows 11 with administrator access
+* 64 bit AMD64 or ARM64 version of Windows 11 with administrator access (Window 10 *should* work, but not testing) 
 * online access when run for the first time to download configuration files and software installers. 
 
 
@@ -78,10 +77,9 @@ Batch-Win Installer ZIP file contains the following files and folders
 - Batch-Win-Installer.bat
 - readme.txt (this file!)
 - license.txt
-- wget subfolder containing 64 bit version of GNU Wget v1.21.4, wget.exe from https://eternallybored.org/misc/wget/
 - xidel subfolder containing 64 bit version of Xidel v0.99 pre-release, xidel.exe from xidel-0.9.9.20230616.8842.e14a96920e01.win64.zip dated 2023-06-16 from https://sourceforge.net/projects/videlibri/files/Xidel/Xidel%20development/ (Xidel's home page is https://www.videlibri.de/xidel.html)
 
-Next, edit settings.bat which contains the following lines to set certain environment variables
+Next, edit Batch-Win-Installer.bat 
 
 The critical one to edit is the softwarelist variable in Batch-Win-Installer which is the list of software programs that Batch Win Installer will :
 * download the software configuration files and software installers
@@ -160,7 +158,7 @@ This allows for Batch Win Installer to support different versions of programs th
    HKLM\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Uninstall - for 32 bit programs installed in a 64 bit Windows environment 
    So regsearch.example is set to either %uninstallreg64% or %uninstallreg32% so that Batch Win Installer "knows" where to 
    search for the program's uninstall entry in the Windows registry.
-* followup.example - this will be the cmd to run Windows 10 reg command to import example.reg. If Batch Win Installer is 
+* followup.example - this will be the cmd to run Windows 11 reg command to import example.reg. If Batch Win Installer is 
   downloading the configuration files (example-install.txt and example-uninstall.txt) and it sees followup.example defined, it will download example.reg
 * getlatestversion.example  - this is set to "Y" when xidel will not be used and example-findlatestversion.txt would be used to return the latest version. 
 * regurl.example - this is the url where Batch Win Installer will query using xidel.exe to find the latest version of the software. 
@@ -198,4 +196,4 @@ Feedback
 * You can find me Mastodon at https://techhub.social/@devtee and Bluesky at https://bsky.app/profile/devatee.bsky.social
 * Visit the Trinidad and Tobago Computer Society's (TTCS) https://ttcs.tt/ ; join the TTCS announce mailing list!
 
-Last updated : March 25 2026
+Last updated : November 16 2026
