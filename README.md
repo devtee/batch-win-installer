@@ -1,7 +1,7 @@
 # Batch-Win-Installer
 
 From a defined list of software, Batch Win Installer can:
-* automatically install software on 64 bit Windows 10/11 x64 or ARM64 machine silently without prompts
+* automatically install software on 64 bit Windows 11 x64 or ARM64 machine silently without prompts
 * check what software is installed and offer to install and/or upgrade software
 * if online, scan program's websites directly to determine the latest version of the software available
 
