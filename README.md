@@ -175,4 +175,4 @@ for /f "tokens=4 delims=/" %%a in (%temp%\temp.txt) do @echo %%a>"%temp%\temp.tx
 * You can find me Mastodon at https://techhub.social/@devtee and Bluesky at https://bsky.app/profile/devatee.bsky.social
 * Visit the Trinidad and Tobago Computer Society's (TTCS) https://ttcs.tt/ and join the TTCS announce mailing list!
 
-Last updated : March 15 2026
+Last updated : November 16 2026
