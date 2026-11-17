@@ -1,13 +1,12 @@
 # Batch-Win-Installer
 
 From a defined list of software, Batch Win Installer can:
-* automatically install software on 64 bit Windows 10/11 x64 machine silently without prompts
+* automatically install software on 64 bit Windows 10/11 x64 or ARM64 machine silently without prompts
 * check what software is installed and offer to install and/or upgrade software
 * if online, scan program's websites directly to determine the latest version of the software available
 
-Batch Win Installer is a batch file which must be run as an administrator and uses two command line utilities 
+Batch Win Installer is a batch file which must be run as an administrator and uses one command line utility 
 
-* Windows binary of GNU Wget (https://eternallybored.org/misc/wget/) used to retrieve files using http(s) 
 * Windows binary of Xidel (https://github.com/benibela/xidel) a commandline tool to download and extract data from HTML pages 
 
 The advantages of Batch Win Installer :
@@ -33,7 +32,7 @@ checkonline pkgname [pkgname2 ...] - check website to see if what the latest ver
 
 # Requirements
 
-* 64 bit version of Windows 10 or Windows 11 with administrator access 
+* 64 bit or ARM64 version of Windows 11 with administrator access (Windows 10 should work, but not testing) 
 * online access when run for the first time to download configuration files and software installers
 
 # Screenshots
@@ -52,14 +51,13 @@ To install, unzip the latest Batch-Win-Installer.zip file to a folder. The Batch
 * Batch-Win-Installer.bat 
 * readme.txt
 * license.txt
-* wget subfolder containing 64 bit AMD64 and ARM64 versions of GNU Wget v1.21.3, wget.exe from https://eternallybored.org/misc/wget/
 * xidel subfolder containing 64 bit version of Xidel v0.99 pre-release, xidel.exe from xidel-0.9.9.20220424.8389.2d2ee7befb8a.win64.zip dated 2022-04-24
   from https://sourceforge.net/projects/videlibri/files/Xidel/Xidel%20development/ (Xidel's home page is https://www.videlibri.de/xidel.html)
 
 Next, edit Batch-Win-Installer which contains the following lines to set certain environment variables 
 
 ```
-set bwiver=1.0.0
+set bwiver=1.5.0
 set onlineupdateurl=https://raw.githubusercontent.com/devtee/batch-win-installer/main/appinfo/
 set appinfourl=https://api.github.com/repos/devtee/batch-win-installer/contents/appinfo
 set introtitle1=Batch-Win-Installer %bwiver% by Dev Anand Teelucksingh (https://github.com/devtee/batch-win-installer)
