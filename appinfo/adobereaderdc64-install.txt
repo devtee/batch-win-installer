@@ -7,8 +7,8 @@ if /i "%CPUarch%"=="AMD64" (
  set ver.adobereaderdc64=26.003.22110
 
  set name.adobereaderdc64=Adobe Reader DC ^(64bit^)
- set SHA256.adobereaderdc64=93a9c1bc2824610bbbf778c29a5aa316bb9ac7cc8ead4c58ceb9f1dc318f04d9
- set exe.adobereaderdc64=AcroRdrDCx642600322075_en_US.exe
+ set SHA256.adobereaderdc64=a7149f099dba2f868b65c2e4d62149fe411490fbb622192725fcc9ecfaa03852
+ set exe.adobereaderdc64=AcroRdrDCx642600322110_en_US.exe
  set url.adobereaderdc64=https://ardownload3.adobe.com/pub/adobe/acrobat/win/AcrobatDC/2600322110/AcroRdrDCx642600322110_en_US.exe
  set regsearch.adobereaderdc64=%uninstallreg64%
  set regtext.adobereaderdc64=Adobe Acrobat ^(64-bit^)
@@ -20,8 +20,8 @@ if /i "%CPUarch%"=="ARM64" (
  set pkgno.adobereaderdc64=2600322110
  set ver.adobereaderdc64=26.003.22110
  set name.adobereaderdc64=Adobe Reader DC ^(32bit^)
- set exe.adobereaderdc64=AcroRdrDC2600222031_en_US.exe
- set SHA256.adobereaderdc64=9fa38ffe4aedba6b718d4d7634483196ae075160361e09633cf7d4c360b1a718
+ set exe.adobereaderdc64=AcroRdrDC2600322110_en_US.exe
+ set SHA256.adobereaderdc64=46fe246ead71ba1bfa5a98ce82fd7ab552d398533b4acfbd86637c6d82ee0d9b
  set url.adobereaderdc64=https://ardownload3.adobe.com/pub/adobe/reader/win/AcrobatDC/2600322110/AcroRdrDC2600322110_en_US.exe
  set regsearch.adobereaderdc64=%uninstallreg32%
  set regtext.adobereaderdc64=Adobe Acrobat Reader
