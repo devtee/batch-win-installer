@@ -23,7 +23,7 @@ set regtext.zoomclient=Zoom Workplace (ARM64)
 set arg.zoomclient=/quiet /qn /norestart
 set chk.zoomclient=%ProgramFiles%\Zoom\bin\Zoom.exe
 set regsearch.zoomclient=%uninstallreg64%
-set getlatestver.zoomclient=Y
-set regurl.zoomclient=%appinfopath%!\zoomclient-findlatestversion.txt
-set regexp.zoomclient=%temp%\temp.txt
+set getlatestver.zoomclient=N
+set regurl.zoomclient=https://zoom.us/rest/download?os=win
+set regexp.zoomclient=$json/result/downloadVO/zoomX64/version
 set onlineupdate.zoomclient=Y
