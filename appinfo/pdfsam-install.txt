@@ -1,12 +1,12 @@
-set pkgver.pdfsam=6.0.10
-set ver.pdfsam=6.0.10.0
+set pkgver.pdfsam=6.0.11
+set ver.pdfsam=6.0.11.0
 set name.pdfsam=PDF Split and Merge
 
 rem no ARM64 version exists
 rem SHA256 found at https://github.com/torakiki/pdfsam/releases
 
 set exe.pdfsam=pdfsam-basic-%pkgver.pdfsam%-windows-x64.msi
-set SHA256.pdfsam=b61bc499398d892a3c849fc17e65797aeadb7615e1c624ebca663ad307e413e8
+set SHA256.pdfsam=0367f3afeeeea4b61750c06ded90b9df7059d3cd85b4d457e01cf9cf14689730
 set url.pdfsam=https://github.com/torakiki/pdfsam/releases/download/v%pkgver.pdfsam%/pdfsam-basic-%pkgver.pdfsam%-windows-x64.msi
 
 set arg.pdfsam=/qb /norestart CHECK_FOR_UPDATES=false SKIPTHANKSPAGE=Yes
