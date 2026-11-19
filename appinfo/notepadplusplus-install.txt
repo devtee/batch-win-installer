@@ -22,6 +22,6 @@ set arg.notepadplusplus=/S
 set chk.notepadplusplus=%ProgramFiles%\Notepad++\notepad++.exe
 
 set regsearch.notepadplusplus=%uninstallreg64%
-set regurl.notepadplusplus=https://notepad-plus-plus.org/
-set regexp.notepadplusplus=substring-after(/html/body/div/header/div/div[1]/p/a/strong,'Version ')
+set regurl.notepadplusplus=https://api.github.com/repos/notepad-plus-plus/notepad-plus-plus/releases/latest
+set regexp.notepadplusplus=substring-after($json/tag_name, 'v')
 set onlineupdate.notepadplusplus=Y
