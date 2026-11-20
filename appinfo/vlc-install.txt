@@ -18,6 +18,6 @@ set arg.vlc=/S
 set chk.vlc=%ProgramFiles%\VideoLAN\VLC\vlc.exe
 set regtext.vlc=VLC media player
 set regsearch.vlc=%uninstallreg64%
-set regurl.vlc=https://www.videolan.org/vlc/
-set regexp.vlc=normalize-space(//span[@id='downloadVersion'])
+set regurl.vlc=https://update.videolan.org/vlc/status-win-x64
+set regexp.vlc=tokenize($raw, '\n')[1]
 set onlineupdate.vlc=Y
