@@ -4,7 +4,7 @@ rem No native ARM version of Adobe Acrobat Reader exists as of April 13 2026 but
 if /i "%CPUarch%"=="AMD64" (
  set pkgver.adobereaderdc64=26.003.22110
  set pkgno.adobereaderdc64=2600322110
- set ver.adobereaderdc64=26.003.22110
+ set ver.adobereaderdc64=%pkgver.adobereaderdc64%
 
  set name.adobereaderdc64=Adobe Reader DC ^(64bit^)
  set SHA256.adobereaderdc64=a7149f099dba2f868b65c2e4d62149fe411490fbb622192725fcc9ecfaa03852
@@ -29,6 +29,6 @@ if /i "%CPUarch%"=="ARM64" (
 )
 
 set arg.adobereaderdc64=/sAll /rs /msi EULA_ACCEPT=YES 
-set regurl.adobereaderdc64=https://www.adobe.com/devnet-docs/acrobatetk/tools/ReleaseNotesDC/index.html
-set regexp.adobereaderdc64=substring-before(/html/body/div/section/div[2]/div/div[2]/div/section/section[2]/ul/li[1]/p/a/span,' ')
+set regurl.adobereaderdc64=https://rdc.adobe.io/reader/products?lang=en&site=enterprise&os=Windows 11&api_key=dc-get-adobereader-cdn
+set regexp.adobereaderdc64=($json/products/reader/version)[1]
 set onlineupdate.adobereaderdc64=Y
