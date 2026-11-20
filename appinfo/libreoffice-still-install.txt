@@ -16,6 +16,6 @@ set chk.libreoffice-still=%ProgramFiles%\LibreOffice\program\soffice.exe
 set regtext.libreoffice-still=LibreOffice * (multilanguage)
 set regsearch.libreoffice-still=%uninstallreg64%
 set uninstall.libreoffice-still=msiexec /qn /uninstall %installreg.libreoffice-still%
-set regurl.libreoffice-still=https://download.documentfoundation.org/libreoffice/stable/
-set "regexp.libreoffice-still=(for $v in //a[matches(@href,'^\d+\.\d+\.\d+/$')]/@href let $p := tokenize(substring-before($v,'/'),'\.') order by number($p[1]), number($p[2]), number($p[3]) return substring-before($v,'/'))[last()-2]"
+set "regurl.libreoffice-still=https://download.documentfoundation.org/libreoffice/stable/?P=26.2.*;F=0"
+set regexp.libreoffice-still=normalize-space(substring-before((//li)[last()], '/'))
 set onlineupdate.libreoffice-still=Y
