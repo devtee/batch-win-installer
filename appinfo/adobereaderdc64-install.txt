@@ -29,6 +29,6 @@ if /i "%CPUarch%"=="ARM64" (
 )
 
 set arg.adobereaderdc64=/sAll /rs /msi EULA_ACCEPT=YES 
-set regurl.adobereaderdc64=https://rdc.adobe.io/reader/products?lang=en&site=enterprise&os=Windows%%2011&api_key=dc-get-adobereader-cdn
+set "regurl.adobereaderdc64=https://rdc.adobe.io/reader/products?lang=en&site=enterprise&os=Windows%%2011&api_key=dc-get-adobereader-cdn"
 set regexp.adobereaderdc64=($json/products/reader/version)[1]
 set onlineupdate.adobereaderdc64=Y
