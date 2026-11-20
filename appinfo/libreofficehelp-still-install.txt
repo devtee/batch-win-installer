@@ -18,6 +18,6 @@ set chk.libreofficehelp-still=%ProgramFiles%\LibreOffice\help\en-US\text\shared\
 set regtext.libreofficehelp-still=LibreOffice * Help Pack
 set regsearch.libreofficehelp-still=%uninstallreg64%
 set uninstall.libreofficehelp-still=msiexec /qn /uninstall %installreg.libreofficehelp-still%
-set regurl.libreofficehelp-still=https://www.libreoffice.org/download/
-set regexp.libreofficehelp-still=substring-after(//option[@value=\"previous\"] , ' ')
+set "regurl.libreofficehelp-still=https://download.documentfoundation.org/libreoffice/stable/?P=26.2.*;F=0"
+set regexp.libreofficehelp-still=normalize-space(substring-before((//li)[last()], '/'))
 set onlineupdate.libreofficehelp-still=Y
